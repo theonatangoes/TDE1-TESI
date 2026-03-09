@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IA & Machine Learning | ODS 9</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600;800&family=JetBrains+Mono:wght@300;500&display=swap" rel="stylesheet">
+  <!-- Font Awesome para ícones (caso queira usar como placeholder das logos) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --ods9-orange: #f97316;
+      --bg-black: #0a0500;
+      --glass-bg: rgba(30, 12, 0, 0.85);
+    }
+
+    body {
+      background-color: var(--bg-black);
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      letter-spacing: -0.01em;
+    }
+
+    .font-tech {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .snap-container {
+      height: 100vh;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+    }
+
+    .snap-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    section {
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      padding: 4rem 2rem;
+    }
+
+    .glass {
+      background: rgba(35, 14, 0, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(249, 115, 22, 0.25);
+      box-shadow: 0 20px 40px -15px rgba(249, 115, 22, 0.25);
+    }
+
+    .orange-glow-text {
+      text-shadow: 0 0 40px rgba(249, 115, 22, 0.9), 0 0 80px rgba(249, 115, 22, 0.4);
+    }
+
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .reveal-up.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger-1 {
+      transition-delay: 0.1s;
+    }
+
+    .stagger-2 {
+      transition-delay: 0.2s;
+    }
+
+    .stagger-3 {
+      transition-delay: 0.3s;
+    }
+
+    .bg-mesh {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(249, 115, 22, 0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(249, 115, 22, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse 40% 40% at 10% 60%, rgba(249, 115, 22, 0.08) 0%, transparent 50%),
+        #0a0500;
+    }
+
+    section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.4), transparent);
+    }
+
+    .badge-ods {
+      background: linear-gradient(135deg, #ea6000 0%, #f97316 50%, #fdba74 100%);
+      box-shadow: 0 10px 40px rgba(249, 115, 22, 0.7), 0 0 0 1px rgba(249, 115, 22, 0.3);
+    }
+
+    .summary-link {
+      transition: all 0.2s ease;
+    }
+
+    .summary-link:hover {
+      border-color: #f97316 !important;
+      transform: translateX(8px);
+      background: rgba(249, 115, 22, 0.05);
+      padding-left: 8px;
+      border-radius: 4px;
+    }
+
+    .summary-link:hover h4 {
+      color: #f97316;
+    }
+
+    #pesquisa {
+      scroll-snap-align: start;
+      min-height: 100vh;
+      height: auto;
+      overflow-y: visible;
+    }
+
+    .tab-btn {
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+    }
+
+    .tab-btn.active {
+      color: #f97316;
+      border-bottom-color: #f97316;
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .chart-wrap {
+      position: relative;
+      height: 240px;
+    }
+
+    .stat-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #f97316;
+      line-height: 1;
+    }
+
+    .info-tooltip {
+      position: relative;
+    }
+
+    .info-tooltip:hover::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1a1a1a;
+      border: 1px solid #f97316;
+      color: #ccc;
+      font-size: 11px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+      z-index: 100;
+    }
+
+    .research-scroll {
+      overflow-y: auto;
+      max-height: 80vh;
+      scrollbar-width: thin;
+      scrollbar-color: #f97316 #111;
+      padding-right: 4px;
+    }
+
+    .research-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .research-scroll::-webkit-scrollbar-track {
+      background: #111;
+    }
+
+    .research-scroll::-webkit-scrollbar-thumb {
+      background: #f97316;
+      border-radius: 2px;
+    }
+
+    .slide-image-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      border-radius: inherit;
+    }
+
+    .slide-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .logo-carousel {
+      margin-top: 3rem;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      overflow: hidden;
+      background: transparent;
+      padding: 1rem 0;
+      -webkit-mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+      mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+    }
+
+    .carousel-track {
+      display: flex;
+      width: max-content;
+      animation: scroll 20s linear infinite;
+    }
+
+    .logo-item {
+      flex: 0 0 auto;
+      width: 180px;
+      height: 80px;
+      margin: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-item:hover {
+      transform: scale(1.05);
+    }
+
+    .logo-item img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      filter: brightness(1) drop-shadow(0 0 5px rgba(249, 115, 22, 0.3));
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .logo-item {
+        width: 130px;
+        height: 60px;
+        margin: 0 1rem;
+      }
+    }
+
+    /* Estilo para a lista de perguntas */
+    .questoes-lista {
+      list-style: none;
+      counter-reset: pergunta;
+    }
+
+    .questoes-lista li {
+      counter-increment: pergunta;
+      margin-bottom: 1.5rem;
+      padding-left: 2.5rem;
+      position: relative;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #d4d4d4;
+    }
+
+    .questoes-lista li::before {
+      content: counter(pergunta) ".";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #f97316;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-mesh"></div>
+
+  <div class="snap-container">
+
+    <!-- SECTION 1: HERO -->
+    <section id="hero" class="items-center text-center">
+      <div class="reveal-up active">
+        <div class="flex flex-col md:flex-row items-center justify-center gap-2 mb-8 stagger-1">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#f97316]/15 border border-[#f97316]/40">
+            <span class="w-2 h-2 rounded-full bg-[#f97316] animate-pulse"></span>
+            <span class="text-[10px] font-tech uppercase tracking-[0.2em] text-orange-200">ADS · Sistemas de Informação</span>
+          </div>
+        </div>
+
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight stagger-2 leading-tight max-w-4xl mx-auto px-4">
+          <span class="text-[#f97316] orange-glow-text">Inteligência Artificial</span> e<br>
+          Aprendizado de Máquina
+        </h1>
+
+        <p class="text-lg md:text-xl text-zinc-300 font-light max-w-3xl mx-auto mb-3 stagger-2 leading-relaxed px-4">
+          TDE 1 · ODS 9 — Indústria, Inovação e Infraestrutura
+        </p>
+        <p class="text-base text-[#f97316]/80 font-light max-w-2xl mx-auto mb-12 stagger-2">
+          Tópicos Especiais em Sistemas de Informação
+        </p>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-0 text-[10px] md:text-[11px] font-tech uppercase tracking-widest stagger-3 border border-[#f97316]/20 rounded-2xl overflow-hidden max-w-3xl mx-auto">
+          <div class="p-4 bg-[#f97316]/10 border-r border-[#f97316]/20 text-orange-300 flex flex-col gap-1">
+            <span class="text-[8px] md:text-[9px] text-orange-500/60">Docente</span>
+            <span class="text-white/80 normal-case text-[9px] md:text-[10px] leading-tight">Ramon Felizardo da Costa</span>
+          </div>
+          <div class="p-4 bg-[#f97316]/5 border-r border-[#f97316]/20 text-orange-300 flex flex-col gap-1">
+            <span class="text-[8px] md:text-[9px] text-orange-500/60">Localidade</span>
+            <span class="text-white/80 normal-case text-[9px] md:text-[10px]">Juazeiro do Norte – CE</span>
+          </div>
+          <div class="p-4 bg-[#f97316]/10 border-r border-[#f97316]/20 text-orange-300 flex flex-col gap-1">
+            <span class="text-[8px] md:text-[9px] text-orange-500/60">Disciplina</span>
+            <span class="text-white/80 normal-case text-[9px] md:text-[10px] leading-tight">Tópicos Especiais em Sistemas de Informação</span>
+          </div>
+          <div class="p-4 bg-[#f97316]/5 flex flex-col gap-1">
+            <span class="text-[8px] md:text-[9px] text-orange-500/60">Ano</span>
+            <span class="text-[#f97316] text-base md:text-lg font-bold">2026</span>
+          </div>
+        </div>
+
+        <div class="logo-carousel mt-8 md:mt-12">
+          <div class="carousel-track">
+            <div class="logo-item"><img src="image/ODS9.png" alt="ODS9"></div>
+            <div class="logo-item"><img src="image/unifap branco.png" alt="UNIFAP"></div>
+            <div class="logo-item"><img src="image/logo onu.png" alt="ONU"></div>
+            <div class="logo-item"><img src="image/ODS9.png" alt="ODS9"></div>
+            <div class="logo-item"><img src="image/unifap branco.png" alt="UNIFAP"></div>
+            <div class="logo-item"><img src="image/logo onu.png" alt="ONU"></div>
+            <div class="logo-item"><img src="image/ODS9.png" alt="ODS9"></div>
+            <div class="logo-item"><img src="image/unifap branco.png" alt="UNIFAP"></div>
+            <div class="logo-item"><img src="image/logo onu.png" alt="ONU"></div>
+            <div class="logo-item"><img src="image/ODS9.png" alt="ODS9"></div>
+            <div class="logo-item"><img src="image/unifap branco.png" alt="UNIFAP"></div>
+            <div class="logo-item"><img src="image/logo onu.png" alt="ONU"></div>
+            <div class="logo-item"><img src="image/ODS9.png" alt="ODS9"></div>
+            <div class="logo-item"><img src="image/unifap branco.png" alt="UNIFAP"></div>
+            <div class="logo-item"><img src="image/logo onu.png" alt="ONU"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: INTEGRANTES -->
+    <section id="integrantes">
+      <div class="max-w-6xl mx-auto w-full">
+        <div class="mb-16 reveal-up">
+          <h2 class="text-xs font-tech text-[#f97316] uppercase tracking-[0.3em] mb-4">Desenvolvimento</h2>
+          <h3 class="text-4xl font-semibold tracking-tight">Integrantes</h3>
+        </div>
+        <div id="integrantes-grid" class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 reveal-up stagger-2"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: SUMÁRIO (ATUALIZADO) -->
+    <section id="sumario" class="bg-black/50">
+      <div class="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-20">
+        <div class="reveal-up">
+          <h2 class="text-xs font-tech text-[#f97316] uppercase tracking-[0.3em] mb-4">Agenda</h2>
+          <h3 class="text-5xl font-bold tracking-tight mb-8 leading-tight">Mapeamento da <br>Apresentação</h3>
+          <p class="text-zinc-400 text-lg">Um mergulho técnico nos avanços da inteligência artificial e seus impactos na indústria global, com base em referências acadêmicas atualizadas.</p>
+        </div>
+        <div class="space-y-6 reveal-up stagger-2">
+          <a href="#slide1" class="group flex items-baseline gap-6 border-b border-zinc-800 pb-4 summary-link"><span class="text-[#f97316] font-tech">01</span>
+            <h4 class="text-xl font-medium text-zinc-300 group-hover:text-white transition-colors">Transformação Digital</h4>
+          </a>
+          <a href="#slide2" class="group flex items-baseline gap-6 border-b border-zinc-800 pb-4 summary-link"><span class="text-[#f97316] font-tech">02</span>
+            <h4 class="text-xl font-medium text-zinc-300 group-hover:text-white transition-colors">Núcleo da IA: Machine Learning</h4>
+          </a>
+          <a href="#slide3" class="group flex items-baseline gap-6 border-b border-zinc-800 pb-4 summary-link"><span class="text-[#f97316] font-tech">03</span>
+            <h4 class="text-xl font-medium text-zinc-300 group-hover:text-white transition-colors">Deep Learning & IA Generativa</h4>
+          </a>
+          <a href="#slide4" class="group flex items-baseline gap-6 border-b border-zinc-800 pb-4 summary-link"><span class="text-[#f97316] font-tech">04</span>
+            <h4 class="text-xl font-medium text-zinc-300 group-hover:text-white transition-colors">Convergência com ODS 9</h4>
+          </a>
+          <a href="#slide5" class="group flex items-baseline gap-6 border-b border-zinc-800 pb-4 summary-link"><span class="text-[#f97316] font-tech">05</span>
+            <h4 class="text-xl font-medium text-zinc-300 group-hover:text-white transition-colors">Tendências e Desafios Éticos</h4>
+          </a>
+          <a href="#pesquisa" class="group flex items-baseline gap-6 border-b border-zinc-800 pb-4 summary-link"><span class="text-[#f97316] font-tech">06</span>
+            <h4 class="text-xl font-medium text-zinc-300 group-hover:text-white transition-colors">Análise de Dados e Pesquisa</h4>
+          </a>
+          <a href="#referencias" class="group flex items-baseline gap-6 border-b border-zinc-800 pb-4 summary-link"><span class="text-[#f97316] font-tech">07</span>
+            <h4 class="text-xl font-medium text-zinc-300 group-hover:text-white transition-colors">Conclusão</h4>
+          </a>
+          <!-- NOVOS ITENS ADICIONADOS -->
+          <a href="#conclusao" class="group flex items-baseline gap-6 border-b border-zinc-800 pb-4 summary-link"><span class="text-[#f97316] font-tech">08</span>
+            <h4 class="text-xl font-medium text-zinc-300 group-hover:text-white transition-colors">Referências Bibliográficas</h4>
+          </a>
+          <a href="#questoes" class="group flex items-baseline gap-6 border-b border-zinc-800 pb-4 summary-link"><span class="text-[#f97316] font-tech">09</span>
+            <h4 class="text-xl font-medium text-zinc-300 group-hover:text-white transition-colors">10 Questões Abertas</h4>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 1: IA na Transformação Digital -->
+    <section id="slide1">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div class="reveal-up">
+          <span class="text-[10px] font-tech text-orange-500 mb-6 block uppercase tracking-[0.4em]">01 — Visão Macro</span>
+          <h2 class="text-5xl font-bold tracking-tight mb-8">Inteligência Artificial na <span class="text-[#f97316]">Transformação Digital</span></h2>
+          <p class="text-zinc-300 text-lg leading-relaxed mb-6 font-light">A Inteligência Artificial (IA) tornou-se um dos principais pilares da transformação digital contemporânea. Ao permitir que sistemas computacionais realizem tarefas que tradicionalmente exigiam inteligência humana — como reconhecimento de padrões, tomada de decisão e compreensão de linguagem — a IA tem redefinido processos produtivos, modelos de negócios e formas de interação entre pessoas e tecnologia.</p>
+          <p class="text-zinc-400 text-base leading-relaxed mb-8">Estima-se que, até 2030, a IA contribuirá com mais de US$ 15 trilhões para a economia global, impulsionando setores como manufatura, saúde e logística. No contexto industrial, a IA viabiliza a manutenção preditiva, a otimização de cadeias de suprimentos e a personalização em massa de produtos.</p>
+          <div class="p-6 glass rounded-2xl border-l-4 border-[#f97316]">
+            <p class="text-[10px] font-tech text-orange-500 uppercase mb-2">Referência Bibliográfica</p>
+            <p class="text-xs text-zinc-400 italic">RUSSELL, Stuart; NORVIG, Peter. Inteligência artificial: uma abordagem moderna. 4. ed. São Paulo: Pearson, 2021.</p>
+          </div>
+        </div>
+        <div class="reveal-up stagger-2 hidden md:block">
+          <div class="glass rounded-[40px] overflow-hidden flex flex-col">
+            <div class="relative w-full h-72 bg-[#f97316]/5 overflow-hidden rounded-t-[40px] slide-image-container" id="slide1-container"></div>
+            <p id="slide1-caption-text" class="text-[9px] font-tech text-zinc-500 italic px-5 py-3 border-t border-[#f97316]/10 hidden"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: Machine Learning -->
+    <section id="slide2" class="bg-black/80">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-20 reveal-up">
+          <span class="text-[10px] font-tech text-orange-500 mb-6 block uppercase tracking-[0.4em]">02 — O Motor</span>
+          <h2 class="text-5xl font-bold tracking-tight mb-6"><span class="text-[#f97316]">Machine Learning</span> como Núcleo</h2>
+          <p class="text-zinc-300 text-lg font-light">Essa abordagem permite que algoritmos identifiquem padrões em grandes volumes de dados e aprimorem seu desempenho ao longo do tempo através de três paradigmas fundamentais. O aprendizado de máquina já está presente em sistemas de recomendação, diagnóstico médico e veículos autônomos.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6 reveal-up stagger-2">
+          <div class="p-8 glass rounded-3xl group hover:border-[#f97316]/50 transition-all hover:shadow-lg hover:shadow-orange-500/10">
+            <h4 class="text-[#f97316] font-tech text-xs mb-4 uppercase tracking-widest">Supervisionado</h4>
+            <p class="text-zinc-400 text-sm leading-relaxed">Treinamento baseado em dados rotulados para predições precisas. Exemplo: classificação de e-mails como spam ou não-spam.</p>
+          </div>
+          <div class="p-8 glass rounded-3xl group hover:border-[#f97316]/50 transition-all hover:shadow-lg hover:shadow-orange-500/10">
+            <h4 class="text-[#f97316] font-tech text-xs mb-4 uppercase tracking-widest">Não Supervisionado</h4>
+            <p class="text-zinc-400 text-sm leading-relaxed">Descoberta de estruturas e padrões ocultos em dados brutos. Exemplo: segmentação de clientes por comportamento de compra.</p>
+          </div>
+          <div class="p-8 glass rounded-3xl group hover:border-[#f97316]/50 transition-all hover:shadow-lg hover:shadow-orange-500/10">
+            <h4 class="text-[#f97316] font-tech text-xs mb-4 uppercase tracking-widest">Por Reforço</h4>
+            <p class="text-zinc-400 text-sm leading-relaxed">Aprendizado contínuo através de feedbacks de recompensa e punição. Exemplo: algoritmos que jogam xadrez ou controlam robôs.</p>
+          </div>
+        </div>
+        <div class="mt-16 text-center text-[10px] font-tech text-orange-700/70 reveal-up stagger-3 uppercase">Fonte: FACELI, Katti et al. Inteligência artificial: uma abordagem de aprendizado de máquina. 2011.</div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: Deep Learning e IA Generativa -->
+    <section id="slide3">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+        <div class="reveal-up order-2 md:order-1">
+          <div class="glass rounded-[40px] overflow-hidden flex flex-col">
+            <div class="relative w-full h-72 bg-[#f97316]/5 overflow-hidden rounded-t-[40px] slide-image-container" id="slide3-container"></div>
+            <p id="slide3-caption-text" class="text-[9px] font-tech text-zinc-500 italic px-5 py-3 border-t border-[#f97316]/10 hidden"></p>
+          </div>
+        </div>
+        <div class="reveal-up order-1 md:order-2">
+          <span class="text-[10px] font-tech text-orange-500 mb-6 block uppercase tracking-[0.4em]">03 — Complexidade</span>
+          <h2 class="text-5xl font-bold tracking-tight mb-8">Deep Learning e <br><span class="text-[#f97316]">IA Generativa</span></h2>
+          <p class="text-zinc-300 text-lg leading-relaxed font-light mb-6">Baseada em redes neurais profundas (com múltiplas camadas), essa tecnologia impulsionou avanços espetaculares em visão computacional, processamento de linguagem natural e síntese de voz.</p>
+          <p class="text-zinc-400 text-base leading-relaxed mb-6">Recentemente, a <strong class="text-white">IA Generativa</strong> — exemplificada por modelos como GPT, DALL-E e Stable Diffusion — transformou processos criativos e produtivos, gerando textos, imagens e até códigos de programação com qualidade surpreendente.</p>
+          <p class="text-xs text-zinc-500 italic font-tech uppercase">Fonte: GERON, Aurélien. Mãos à obra: aprendizado de máquina com Scikit-Learn, Keras e TensorFlow. 2020.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: IA e ODS 9 -->
+    <section id="slide4" class="items-center">
+      <div class="max-w-5xl mx-auto text-center reveal-up">
+        <div class="badge-ods w-28 h-28 mx-auto rounded-3xl flex flex-col items-center justify-center mb-10 gap-0">
+          <span class="text-white text-[10px] font-tech uppercase tracking-widest opacity-80">ODS</span>
+          <span class="text-white text-5xl font-extrabold leading-none">9</span>
+        </div>
+        <h2 class="text-4xl font-bold tracking-tight mb-8">ODS 9 — <span class="text-[#f97316]">Indústria, Inovação e Infraestrutura</span></h2>
+        <div class="glass p-10 rounded-[50px] relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-40 h-40 bg-[#f97316]/10 -mr-20 -mt-20 rounded-full blur-3xl"></div>
+          <p class="text-base text-zinc-200 font-light leading-relaxed">No contexto brasileiro, a IA atua como catalisador do <strong class="text-white">ODS 9</strong>, otimizando processos no agronegócio (com agricultura de precisão), na saúde (diagnóstico por imagem) e na educação (plataformas adaptativas). Fábricas inteligentes utilizam IoT e aprendizado de máquina para reduzir desperdícios e aumentar a eficiência energética.</p>
+        </div>
+        <p class="mt-8 text-[10px] font-tech text-orange-600 uppercase tracking-widest">Fonte: NAÇÕES UNIDAS. Objetivos de Desenvolvimento Sustentável: ODS 9 – Indústria, inovação e infraestrutura. Disponível em: https://brasil.un.org</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: Tendências e Desafios -->
+    <section id="slide5" class="bg-black/80">
+      <div class="max-w-6xl mx-auto">
+        <div class="mb-16 reveal-up">
+          <span class="text-[10px] font-tech text-orange-500 mb-6 block uppercase tracking-[0.4em]">05 — Horizonte</span>
+          <h2 class="text-5xl font-bold tracking-tight mb-4">Tendências & <span class="text-[#f97316]">Riscos</span></h2>
+          <p class="text-zinc-400 text-lg max-w-3xl">O futuro da IA depende do equilíbrio entre inovação tecnológica e responsabilidade ética. Os principais desafios incluem:</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12 reveal-up stagger-2">
+          <div class="space-y-12">
+            <div class="group border-l-4 border-[#f97316] pl-6">
+              <h4 class="text-xl font-semibold mb-3 text-white">XAI: IA Explicável</h4>
+              <p class="text-zinc-400 font-light leading-relaxed">Desenvolvimento de algoritmos transparentes para decisões críticas em infraestrutura digital, como diagnósticos médicos e concessão de crédito.</p>
+            </div>
+            <div class="group border-l-4 border-[#f97316] pl-6">
+              <h4 class="text-xl font-semibold mb-3 text-white">Ética e Privacidade</h4>
+              <p class="text-zinc-400 font-light leading-relaxed">A regulação (como a LGPD no Brasil) e a proteção de dados tornam-se o alicerce para o avanço da inovação industrial.</p>
+            </div>
+          </div>
+          <div class="space-y-12">
+            <div class="group border-l-4 border-[#f97316] pl-6">
+              <h4 class="text-[#f97316] text-xl font-semibold mb-3">Impacto no Trabalho</h4>
+              <p class="text-zinc-400 font-light leading-relaxed">Automação pode substituir tarefas repetitivas, mas também cria novas funções. Necessidade de estratégias educacionais para requalificação profissional.</p>
+            </div>
+            <div class="group border-l-4 border-[#f97316] pl-6">
+              <h4 class="text-xl font-semibold mb-3 text-white">Integração Digital</h4>
+              <p class="text-zinc-400 font-light leading-relaxed">Sistemas inteligentes integrados à infraestrutura física de fábricas e cidades (Indústria 4.0, IIoT) exigem investimentos em conectividade e segurança.</p>
+            </div>
+          </div>
+        </div>
+        <p class="mt-20 text-[10px] font-tech text-orange-700 uppercase">Fonte: MCTI – Ministério da Ciência, Tecnologia e Inovações. Estratégia Brasileira de Inteligência Artificial. Brasília: MCTI, 2021.</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: PESQUISA (com gráficos) -->
+    <section id="pesquisa" style="scroll-snap-align:start; min-height:100vh; height:auto; padding: 3rem 2rem;">
+      <div class="max-w-7xl mx-auto w-full">
+        <div class="reveal-up mb-8">
+          <span class="text-[10px] font-tech text-orange-500 mb-3 block uppercase tracking-[0.4em]">06 — Empirismo</span>
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+              <h2 class="text-4xl font-bold tracking-tight italic">Resultados da <span class="text-[#f97316]">Pesquisa</span></h2>
+              <p class="text-zinc-400 mt-2 text-sm">41 respondentes · UNIFAP 2026 · Fev–Mar 2026</p>
+            </div>
+            <div class="flex gap-6">
+              <div class="text-center">
+                <div class="stat-num">41</div>
+                <div class="text-[10px] font-tech text-zinc-500 uppercase mt-1">Respostas</div>
+              </div>
+              <div class="text-center">
+                <div class="stat-num">11</div>
+                <div class="text-[10px] font-tech text-zinc-500 uppercase mt-1">Perguntas</div>
+              </div>
+              <div class="text-center">
+                <div class="stat-num">83<span class="text-xl">%</span></div>
+                <div class="text-[10px] font-tech text-zinc-500 uppercase mt-1">Interesse IA</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="flex gap-1 mb-6 border-b border-zinc-800 overflow-x-auto reveal-up">
+          <button class="tab-btn active px-4 py-2 text-xs font-tech uppercase tracking-widest whitespace-nowrap" onclick="switchTab('perfil')">Perfil</button>
+          <button class="tab-btn px-4 py-2 text-xs font-tech uppercase tracking-widest whitespace-nowrap" onclick="switchTab('conhecimento')">Conhecimento</button>
+          <button class="tab-btn px-4 py-2 text-xs font-tech uppercase tracking-widest whitespace-nowrap" onclick="switchTab('percepcao')">Percepção</button>
+          <button class="tab-btn px-4 py-2 text-xs font-tech uppercase tracking-widest whitespace-nowrap" onclick="switchTab('opiniao')">Opinião</button>
+        </div>
+
+        <!-- Aba Perfil -->
+        <div id="tab-perfil" class="tab-panel active reveal-up">
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="glass p-4 rounded-xl">
+              <h4 class="text-sm font-tech text-orange-400 mb-2">Idade</h4>
+              <div class="chart-wrap"><canvas id="chartIdade"></canvas></div>
+            </div>
+            <div class="glass p-4 rounded-xl">
+              <h4 class="text-sm font-tech text-orange-400 mb-2">Trabalha com tecnologia?</h4>
+              <div class="chart-wrap"><canvas id="chartTecnologia"></canvas></div>
+            </div>
+            <div class="glass p-4 rounded-xl">
+              <h4 class="text-sm font-tech text-orange-400 mb-2">Escolaridade</h4>
+              <div class="chart-wrap"><canvas id="chartEscolaridade"></canvas></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aba Conhecimento -->
+        <div id="tab-conhecimento" class="tab-panel">
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="glass p-4 rounded-xl">
+              <h4 class="text-sm font-tech text-orange-400 mb-2">Nível de Conhecimento em IA (1-10)</h4>
+              <div class="chart-wrap"><canvas id="chartNivelIA"></canvas></div>
+            </div>
+            <div class="glass p-4 rounded-xl">
+              <h4 class="text-sm font-tech text-orange-400 mb-2">Conhecimento sobre Machine Learning</h4>
+              <div class="chart-wrap"><canvas id="chartML"></canvas></div>
+            </div>
+            <div class="glass p-4 rounded-xl md:col-span-2">
+              <h4 class="text-sm font-tech text-orange-400 mb-2">Áreas que mais utilizam IA</h4>
+              <div class="chart-wrap" style="height: 200px;"><canvas id="chartAreas"></canvas></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aba Percepção -->
+        <div id="tab-percepcao" class="tab-panel">
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="glass p-4 rounded-xl">
+              <h4 class="text-sm font-tech text-orange-400 mb-2">IA contribui para inovação?</h4>
+              <div class="chart-wrap"><canvas id="chartInovacao"></canvas></div>
+            </div>
+            <div class="glass p-4 rounded-xl">
+              <h4 class="text-sm font-tech text-orange-400 mb-2">IA pode ser sustentável?</h4>
+              <div class="chart-wrap"><canvas id="chartSustentavel"></canvas></div>
+            </div>
+            <div class="glass p-4 rounded-xl md:col-span-2">
+              <h4 class="text-sm font-tech text-orange-400 mb-2">Impacto da IA no trabalho</h4>
+              <div class="chart-wrap"><canvas id="chartTrabalho"></canvas></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aba Opinião -->
+        <div id="tab-opiniao" class="tab-panel">
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="glass p-4 rounded-xl">
+              <h4 class="text-sm font-tech text-orange-400 mb-2">Interesse em aprender mais sobre IA?</h4>
+              <div class="chart-wrap"><canvas id="chartInteresse"></canvas></div>
+            </div>
+            <div class="glass p-4 rounded-xl">
+              <h4 class="text-sm font-tech text-orange-400 mb-2">IA deveria ser ensinada nas escolas?</h4>
+              <div class="chart-wrap"><canvas id="chartEnsino"></canvas></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 text-[10px] font-tech text-orange-700/70 uppercase reveal-up">Fonte: GOOGLE FORMS, https://docs.google.com/forms/d/1WxqAat6nBvXy_FtDVopPsK-BOZ2_qvG98pOxSJmgyjM/edit#responses</div>
+      </div>
+    </section>
+
+    <!-- NOVA SEÇÃO: CONCLUSÃO -->
+    <section id="conclusao" class="bg-black/80">
+      <div class="max-w-4xl mx-auto text-center reveal-up">
+        <span class="text-[10px] font-tech text-orange-500 mb-6 block uppercase tracking-[0.4em]">08 — Síntese</span>
+        <h2 class="text-5xl font-bold tracking-tight mb-8"><span class="text-[#f97316]">Conclusão</span></h2>
+        <div class="glass p-10 rounded-[50px] text-left text-zinc-200 text-lg leading-relaxed space-y-4">
+          <p>A Inteligência Artificial e o Aprendizado de Máquina têm se consolidado como tecnologias fundamentais para a transformação da sociedade e da economia. Seu uso em áreas como finanças, saúde, agronegócio e educação demonstra seu potencial para promover inovação, eficiência e desenvolvimento, contribuindo diretamente para os objetivos do ODS 9.</p>
+          <p>A pesquisa realizada mostrou que o público jovem possui interesse e expectativas positivas em relação à IA, porém ainda existem lacunas no entendimento de conceitos importantes, especialmente sobre Machine Learning. Diante disso, torna-se essencial investir em educação tecnológica, permitindo que as pessoas não apenas utilizem essas ferramentas, mas também compreendam seus impactos e aplicações.</p>
+          <p>Assim, o grande desafio é garantir que o avanço da Inteligência Artificial aconteça de forma ética, responsável e acessível, contribuindo para um desenvolvimento tecnológico que seja ao mesmo tempo inovador, sustentável e socialmente equilibrado.</p>
+        </div>
+        <p class="mt-8 text-[10px] font-tech text-orange-600 uppercase tracking-widest">Equipe de pesquisa · UNIFAP 2026</p>
+      </div>
+    </section>
+
+    <!-- REFERÊNCIAS (existente) -->
+    <section id="referencias" class="bg-black">
+      <div class="max-w-4xl mx-auto w-full reveal-up">
+        <div class="inline-block px-4 py-1 rounded bg-orange-500/10 border border-orange-500/30 text-orange-400 text-[10px] font-tech uppercase mb-12 tracking-widest">Academic Citations</div>
+        <h2 class="text-5xl font-bold tracking-tighter mb-16">Referências <span class="text-[#f97316]">Bibliográficas</span></h2>
+        <div class="space-y-4 text-sm font-tech text-zinc-400">
+          <p>
+            BIONI, Bruno Ricardo. Proteção de dados pessoais: a função e os limites do consentimento.</p>
+          <p>CGI.BR — Comitê Gestor da Internet no Brasil. TIC Empresas 2022. São Paulo: CGI.br, 2023.</p>
+          <p>
+            EMBRAPA — Empresa Brasileira de Pesquisa Agropecuária. Agricultura digital no Brasil: estratégia e resultados. Brasília: Embrapa, 2022.</p>
+          <p>FACELI, Katti et al. Inteligência artificial: uma abordagem de aprendizado de máquina.</p>
+          <p>FEBRABAN — Federação Brasileira de Bancos. Pesquisa FEBRABAN de tecnologia bancária 2023. São Paulo: Febraban, 2023.</p>
+          <p>GERON, Aurelien. Mãos à obra: aprendizado de máquina com Scikit-Learn, Keras e TensorFlow.</p>
+          <p>IPEA — Instituto de Pesquisa Econômica Aplicada. Automação, tecnologia e emprego. Brasília: Ipea, 2020.</p>
+          <p>MCTI — Ministério da Ciência, Tecnologia e Inovações. Estratégia Brasileira de Inteligência Artificial — EBIA.</p>
+          <p>MEC — Ministério da Educação. Censo Escolar 2022: notas estatísticas.</p>
+          <p>RUSSEL, Stuart; NORVIG, Peter. Inteligência artificial: uma abordagem moderna.</p>
+          <p>SANTOS, Eduardo et al. Aplicações de aprendizado profundo para diagnóstico por imagem no Brasil. Revista Brasileira de Engenharia Biomédica, 2022.</p>
+          <p>SEBRAE — Serviço Brasileiro de Apoio às Micro e Pequenas Empresas. Inteligência artificial para pequenos negócios.</p>
+          <p>GOOGLE FORMS, https://docs.google.com/forms/d/1WxqAat6nBvXy_FtDVopPsK-BOZ2_qvG98pOxSJmgyjM/edit#responses</p>
+        </div>
+        <div class="mt-16 pt-8 border-t border-[#f97316]/20 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-tech text-zinc-600 uppercase tracking-widest">
+          <p>© 2026 · Juazeiro do Norte – CE</p>
+          <p>ADS · SI · TDE 1</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOVA SEÇÃO: 10 QUESTÕES ABERTAS -->
+    <section id="questoes" class="bg-black/80">
+      <div class="max-w-5xl mx-auto w-full reveal-up">
+        <span class="text-[10px] font-tech text-orange-500 mb-6 block uppercase tracking-[0.4em]">09 — Reflexão</span>
+        <h2 class="text-5xl font-bold tracking-tight mb-12">10 <span class="text-[#f97316]">Questões Abertas</span></h2>
+        <div class="glass p-10 rounded-[50px]">
+          <ol class="questoes-lista space-y-6">
+            <li>O que você entende por Inteligência Artificial e onde você acredita que ela está presente no seu dia a dia?</li>
+            <li>Na sua opinião, como a Inteligência Artificial pode contribuir para o desenvolvimento tecnológico e industrial do Brasil?</li>
+            <li>Você acredita que tecnologias como Machine Learning podem melhorar serviços como bancos, aplicativos ou redes sociais? Como?</li>
+            <li>Em quais áreas você acredita que a Inteligência Artificial pode trazer mais benefícios para a sociedade? Explique.</li>
+            <li>Na sua opinião, quais são as principais vantagens do uso da Inteligência Artificial nas empresas e organizações?</li>
+            <li>Você acredita que o uso de Inteligência Artificial pode gerar impactos no mercado de trabalho? Quais seriam esses impactos?</li>
+            <li>Como você acha que a Inteligência Artificial pode ajudar no desenvolvimento de infraestrutura e inovação tecnológica no país?</li>
+            <li>Você acredita que o uso de Inteligência Artificial deve ter limites ou regulamentação? Por quê?</li>
+            <li>Tecnologias como Deep Learning permitem que máquinas aprendam com grandes volumes de dados. Na sua opinião, isso pode trazer mais benefícios ou riscos para a sociedade? Explique.</li>
+            <li>Como você imagina que a Inteligência Artificial estará presente na vida das pessoas nos próximos anos?</li>
+          </ol>
+        </div>
+        <p class="mt-8 text-[10px] font-tech text-orange-600 uppercase tracking-widest text-center">Questões baseadas na pesquisa realizada</p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Elementos ocultos para armazenar as URLs e legendas das imagens -->
+  <div id="slide1-media" data-src="https://br.clear.sale/hubfs/Imported_Blog_Media/shutterstock_2255695571-2.jpg" data-caption="Fonte: https://br.clear.sale/blog/inteligencia-artificial-e-transformacao-digital-o-futuro-dos-negocios-impulsionado-por-dados" style="display: none;"></div>
+  <div id="slide3-media" data-src="https://static.wixstatic.com/media/576769_7abd4acb3dff4d909c94b4e4f4160647~mv2.jpg/v1/fill/w_980,h_980,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/576769_7abd4acb3dff4d909c94b4e4f4160647~mv2.jpg" data-caption="Fonte: https://www.energychannel-br.co/post/ep6-ia-fraca-e-ia-forte-a-diferença-entre-ia-fraca-e-ia-forte-e-o-mito-da-consciência-artifi" style="display: none;"></div>
+
+  <script>
+    // Lista de integrantes
+    const integrantes = [
+      { nome: "José Ueider", foto: "image/Ueider.png" },
+      { nome: "Theo Natan", foto: "image/Perfil Theo.jpg" },
+      { nome: "Vitório Edson", foto: "image/vitorio.png" },
+      { nome: "Fhyllyppe de Souza", foto: "image/felipe.png" },
+      { nome: "Gabriel Leite", foto: "image/gabriel.png" },
+      { nome: "Artur Facundo", foto: "image/artur.png" }
+    ];
+
+    const grid = document.getElementById('integrantes-grid');
+    integrantes.forEach((i) => {
+      const temFoto = i.foto && i.foto.trim() !== '';
+      const card = document.createElement('div');
+      card.className = "glass p-5 rounded-3xl group hover:border-[#f97316]/70 transition-all hover:shadow-lg hover:shadow-orange-500/10 flex flex-col items-center text-center";
+      card.innerHTML = `
+        <div class="w-24 h-24 mb-4 rounded-2xl overflow-hidden border-2 border-[#f97316]/30 group-hover:border-[#f97316] transition-all bg-[#f97316]/10 flex items-center justify-center">
+          ${temFoto ? `<img src="${i.foto}" alt="Foto de ${i.nome}" class="w-full h-full object-cover" />` : `<svg class="w-10 h-10 text-[#f97316]/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>`}
+        </div>
+        <h4 class="font-bold text-zinc-200 text-sm group-hover:text-white leading-tight">${i.nome}</h4>
+      `;
+      grid.appendChild(card);
+    });
+
+    // Função para renderizar as imagens dos slides
+    function renderSlideImage(mediaId, containerId, captionId) {
+      const mediaEl = document.getElementById(mediaId);
+      const container = document.getElementById(containerId);
+      const captionEl = document.getElementById(captionId);
+
+      if (!mediaEl || !container) return;
+
+      const src = mediaEl.dataset.src || '';
+      const caption = mediaEl.dataset.caption || '';
+
+      container.innerHTML = '';
+
+      if (src && src.trim() !== '') {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = '';
+        img.className = 'w-full h-full object-cover';
+        img.onerror = function () {
+          container.innerHTML = `
+            <div class="w-full h-full flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-[#f97316]/20 to-transparent">
+              <svg class="w-20 h-20 text-[#f97316] opacity-25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+              <span class="text-[9px] font-tech text-[#f97316]/30 uppercase tracking-widest">Imagem não carregou</span>
+            </div>
+          `;
+        };
+        container.appendChild(img);
+      } else {
+        container.innerHTML = `
+          <div class="w-full h-full flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-[#f97316]/20 to-transparent">
+            <svg class="w-20 h-20 text-[#f97316] opacity-25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            <span class="text-[9px] font-tech text-[#f97316]/30 uppercase tracking-widest">URL da imagem não fornecida</span>
+          </div>
+        `;
+      }
+
+      if (captionEl) {
+        if (caption && caption.trim() !== '') {
+          captionEl.textContent = caption;
+          captionEl.classList.remove('hidden');
+        } else {
+          captionEl.classList.add('hidden');
+        }
+      }
+    }
+
+    window.addEventListener('load', function () {
+      renderSlideImage('slide1-media', 'slide1-container', 'slide1-caption-text');
+      renderSlideImage('slide3-media', 'slide3-container', 'slide3-caption-text');
+    });
+
+    // Observer para animações
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('active');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+
+    // Tab switcher
+    window.switchTab = function (name) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + name).classList.add('active');
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        if (btn.textContent.toLowerCase().includes(name)) {
+          btn.classList.add('active');
+        }
+      });
+    };
+
+    // Configuração dos gráficos Chart.js
+    Chart.defaults.color = '#bbb';
+    Chart.defaults.font.family = 'JetBrains Mono';
+    Chart.defaults.font.size = 12;
+
+    const ORANGE = '#f97316';
+    const DARK3 = '#3a3a3a';
+    const DARK2 = '#2a2a2a';
+
+    const doughnutOpts = {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '60%',
+      plugins: {
+        legend: { position: 'right', labels: { boxWidth: 12, padding: 12, color: '#ddd', font: { size: 12, family: 'JetBrains Mono' } } },
+        tooltip: { bodyFont: { size: 12 }, titleFont: { size: 12 }, callbacks: { label: ctx => ` ${ctx.label}: ${ctx.raw} (${((ctx.raw / ctx.dataset.data.reduce((a, b) => a + b, 0)) * 100).toFixed(1)}%)` } }
+      }
+    };
+
+    const pieOpts = {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'right', labels: { boxWidth: 12, padding: 12, color: '#ddd', font: { size: 12, family: 'JetBrains Mono' } } },
+        tooltip: { bodyFont: { size: 12 }, titleFont: { size: 12 } }
+      }
+    };
+
+    window.onload = function () {
+      // Q1 - Idade
+      new Chart(document.getElementById('chartIdade'), {
+        type: 'doughnut',
+        data: { labels: ['< 18 anos', '18–24 anos', '25–34 anos', '35–44 anos', '45+ anos'], datasets: [{ data: [2, 28, 5, 1, 4], backgroundColor: [DARK3, ORANGE, '#fb923c', DARK2, '#fdba74'], borderWidth: 0, hoverOffset: 8 }] },
+        options: doughnutOpts
+      });
+      // Q2 - Trabalha com tecnologia
+      new Chart(document.getElementById('chartTecnologia'), {
+        type: 'pie',
+        data: { labels: ['Sim', 'Não', 'Parcialmente'], datasets: [{ data: [19, 17, 5], backgroundColor: [ORANGE, DARK3, '#fdba74'], borderWidth: 0, hoverOffset: 8 }] },
+        options: pieOpts
+      });
+      // Q3 - Escolaridade
+      new Chart(document.getElementById('chartEscolaridade'), {
+        type: 'doughnut',
+        data: { labels: ['Ens. Fundamental', 'Ens. Médio', 'Sup. Incompleto', 'Sup. Completo', 'Pós-graduação'], datasets: [{ data: [1, 9, 23, 5, 4], backgroundColor: [DARK3, '#4a4a4a', ORANGE, '#fb923c', '#fdba74'], borderWidth: 0, hoverOffset: 8 }] },
+        options: doughnutOpts
+      });
+      // Q4 - Nível de IA
+      new Chart(document.getElementById('chartNivelIA'), {
+        type: 'bar',
+        data: { labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'], datasets: [{ label: 'Respostas', data: [2, 1, 2, 1, 10, 10, 6, 4, 3, 2], backgroundColor: (ctx) => { const v = ctx.parsed.y; if (v >= 8) return ORANGE; if (v >= 5) return '#fb923c'; return DARK3; }, borderRadius: 6, barPercentage: 0.7 }] },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { display: false }, ticks: { color: '#ccc', font: { size: 12 } } }, y: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: '#ccc', font: { size: 11 } }, stepSize: 2, beginAtZero: true } } }
+      });
+      // Q5 - Conhecimento ML
+      new Chart(document.getElementById('chartML'), {
+        type: 'doughnut',
+        data: { labels: ['Nunca ouvi falar', 'Já ouvi o termo', 'Sei um pouco', 'Conheço bem'], datasets: [{ data: [18, 9, 10, 6], backgroundColor: [DARK3, DARK2, '#fb923c', ORANGE], borderWidth: 0, hoverOffset: 8 }] },
+        options: doughnutOpts
+      });
+      // Q6 - Áreas que mais utilizam IA
+      new Chart(document.getElementById('chartAreas'), {
+        type: 'bar',
+        data: { labels: ['Redes Sociais', 'Indústria e Fábricas', 'Educação', 'Saúde', 'Não Sei'], datasets: [{ data: [36, 22, 20, 18, 1], backgroundColor: [ORANGE, '#fb923c', '#fdba74', '#fcd34d', DARK3], borderRadius: 8, barPercentage: 0.6 }] },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { display: false }, ticks: { color: '#ccc', font: { size: 11 } } }, y: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: '#ccc' }, beginAtZero: true } } }
+      });
+      // Q7 - IA contribui para inovação?
+      new Chart(document.getElementById('chartInovacao'), {
+        type: 'doughnut',
+        data: { labels: ['Concordo Totalmente', 'Concordo Parcialmente', 'Neutro/Não sei'], datasets: [{ data: [25, 14, 2], backgroundColor: [ORANGE, '#fb923c', DARK3], borderWidth: 0, hoverOffset: 8 }] },
+        options: doughnutOpts
+      });
+      // Q8 - IA pode ser sustentável?
+      new Chart(document.getElementById('chartSustentavel'), {
+        type: 'doughnut',
+        data: { labels: ['Sim', 'Talvez', 'Não sei opinar', 'Não'], datasets: [{ data: [24, 15, 1, 1], backgroundColor: [ORANGE, '#fb923c', DARK2, DARK3], borderWidth: 0, hoverOffset: 8 }] },
+        options: doughnutOpts
+      });
+      // Q9 - Impacto no trabalho
+      new Chart(document.getElementById('chartTrabalho'), {
+        type: 'doughnut',
+        data: { labels: ['Muito Positiva', 'Positiva', 'Neutra', 'Negativa'], datasets: [{ data: [5, 18, 12, 6], backgroundColor: [ORANGE, '#fb923c', DARK3, '#7f1d1d'], borderWidth: 0, hoverOffset: 8 }] },
+        options: doughnutOpts
+      });
+      // Q10 - Interesse em aprender mais
+      new Chart(document.getElementById('chartInteresse'), {
+        type: 'doughnut',
+        data: { labels: ['Sim', 'Não'], datasets: [{ data: [34, 7], backgroundColor: [ORANGE, DARK3], borderWidth: 0, hoverOffset: 8 }] },
+        options: doughnutOpts
+      });
+      // Q11 - IA deveria ser ensinada nas escolas?
+      new Chart(document.getElementById('chartEnsino'), {
+        type: 'doughnut',
+        data: { labels: ['Sim, é importante', 'Não'], datasets: [{ data: [36, 5], backgroundColor: [ORANGE, DARK3], borderWidth: 0, hoverOffset: 8 }] },
+        options: doughnutOpts
+      });
+    };
+  </script>
+</body>
+
+</html>
