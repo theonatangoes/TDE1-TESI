@@ -463,14 +463,25 @@
       </div>
     </section>
 
-    <!-- SLIDE 2: Machine Learning -->
+    <!-- SLIDE 2: Machine Learning (imagem à esquerda, texto resumido à direita + cards abaixo) -->
     <section id="slide2" class="bg-black/80">
       <div class="max-w-6xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-20 reveal-up">
-          <span class="text-[10px] font-tech text-orange-500 mb-6 block uppercase tracking-[0.4em]">02 — O Motor</span>
-          <h2 class="text-5xl font-bold tracking-tight mb-6"><span class="text-[#f97316]">Machine Learning</span> como Núcleo da IA</h2>
-          <p class="text-zinc-300 text-lg font-light">O Machine Learning é uma área da Inteligência Artificial que permite que sistemas aprendam com dados, identifiquem padrões e tomem decisões automaticamente. Essa tecnologia contribui diretamente para a ODS 9, pois impulsiona inovação tecnológica, automação industrial e desenvolvimento de infraestruturas inteligentes.</p>
+        <!-- Grid superior: imagem (esquerda) + texto (direita) -->
+        <div class="grid md:grid-cols-2 gap-10 items-center mb-12 reveal-up">
+          <!-- Coluna da imagem (esquerda) -->
+          <div class="glass rounded-[40px] overflow-hidden flex flex-col">
+            <div class="relative w-full h-72 bg-[#f97316]/5 overflow-hidden rounded-t-[40px] slide-image-container" id="slide2-container"></div>
+            <p id="slide2-caption-text" class="text-[9px] font-tech text-zinc-500 italic px-5 py-3 border-t border-[#f97316]/10 hidden"></p>
+          </div>
+          <!-- Coluna do texto (direita) -->
+          <div>
+            <span class="text-[10px] font-tech text-orange-500 mb-3 block uppercase tracking-[0.4em]">02 — O Motor</span>
+            <h2 class="text-5xl font-bold tracking-tight mb-6"><span class="text-[#f97316]">Machine Learning</span> como Núcleo da IA</h2>
+            <p class="text-zinc-300 text-lg font-light leading-relaxed">O Machine Learning é uma área da Inteligência Artificial que permite que sistemas aprendam com dados, identifiquem padrões e tomem decisões automaticamente. Essa tecnologia contribui diretamente para a ODS 9, impulsionando inovação tecnológica, automação industrial e infraestruturas inteligentes.</p>
+          </div>
         </div>
+
+        <!-- Cards explicativos (abaixo, ocupando toda a largura) -->
         <div class="grid md:grid-cols-3 gap-6 reveal-up stagger-2">
           <div class="p-8 glass rounded-3xl group hover:border-[#f97316]/50 transition-all hover:shadow-lg hover:shadow-orange-500/10">
             <h4 class="text-[#f97316] font-tech text-xs mb-4 uppercase tracking-widest">Aprendizado Supervisionado</h4>
@@ -485,7 +496,11 @@
             <p class="text-zinc-400 text-sm leading-relaxed">O sistema aprende por tentativa e erro, com recompensas e punições. Exemplo: robôs industriais e sistemas automatizados que otimizam a produção.</p>
           </div>
         </div>
-        <div class="mt-16 text-center text-[10px] font-tech text-orange-700/70 reveal-up stagger-3 uppercase">Fonte: FACELI, Katti et al. Inteligência artificial: uma abordagem de aprendizado de máquina. 2011.</div>
+
+        <!-- Fonte bibliográfica dos cards -->
+        <div class="mt-16 text-center text-[10px] font-tech text-orange-700/70 reveal-up stagger-3 uppercase">
+          Fonte: FACELI, Katti et al. Inteligência artificial: uma abordagem de aprendizado de máquina. 2011.
+        </div>
       </div>
     </section>
 
@@ -764,6 +779,7 @@
 
   <!-- Elementos ocultos para armazenar as URLs e legendas das imagens -->
   <div id="slide1-media" data-src="https://br.clear.sale/hubfs/Imported_Blog_Media/shutterstock_2255695571-2.jpg" data-caption="Fonte: https://br.clear.sale/blog/inteligencia-artificial-e-transformacao-digital-o-futuro-dos-negocios-impulsionado-por-dados" style="display: none;"></div>
+  <div id="slide2-media" data-src="https://replacehumans.ai/wp-content/uploads/2025/02/Logos-Replace-Humans-32.png" data-caption="Fonte: https://replacehumans.ai/mindsphere-ai/" style="display: none;"></div> <!-- Imagem do slide 2 -->
   <div id="slide3-media" data-src="https://static.wixstatic.com/media/576769_7abd4acb3dff4d909c94b4e4f4160647~mv2.jpg/v1/fill/w_980,h_980,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/576769_7abd4acb3dff4d909c94b4e4f4160647~mv2.jpg" data-caption="Fonte: https://www.energychannel-br.co/post/ep6-ia-fraca-e-ia-forte-a-diferença-entre-ia-fraca-e-ia-forte-e-o-mito-da-consciência-artifi" style="display: none;"></div>
 
   <script>
@@ -843,6 +859,7 @@
 
     window.addEventListener('load', function () {
       renderSlideImage('slide1-media', 'slide1-container', 'slide1-caption-text');
+      renderSlideImage('slide2-media', 'slide2-container', 'slide2-caption-text'); // Renderiza imagem do slide 2
       renderSlideImage('slide3-media', 'slide3-container', 'slide3-caption-text');
     });
 
