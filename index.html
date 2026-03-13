@@ -523,19 +523,24 @@
       </div>
     </section>
 
-    <!-- SLIDE 4: IA e ODS 9 -->
+    <!-- SLIDE 4: IA e ODS 9 (AGORA COM IMAGEM À ESQUERDA E TEXTO À DIREITA) -->
     <section id="slide4" class="items-center">
-      <div class="max-w-5xl mx-auto text-center reveal-up">
-        <div class="badge-ods w-28 h-28 mx-auto rounded-3xl flex flex-col items-center justify-center mb-10 gap-0">
-          <span class="text-white text-[10px] font-tech uppercase tracking-widest opacity-80">ODS</span>
-          <span class="text-white text-5xl font-extrabold leading-none">9</span>
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center reveal-up">
+        <!-- Coluna da imagem (esquerda) -->
+        <div class="glass rounded-[40px] overflow-hidden flex flex-col">
+          <div class="relative w-full h-72 bg-[#f97316]/5 overflow-hidden rounded-t-[40px] slide-image-container" id="slide4-container"></div>
+          <p id="slide4-caption-text" class="text-[9px] font-tech text-zinc-500 italic px-5 py-3 border-t border-[#f97316]/10 hidden"></p>
         </div>
-        <h2 class="text-4xl font-bold tracking-tight mb-8">ODS 9 — <span class="text-[#f97316]">Indústria, Inovação e Infraestrutura</span></h2>
-        <div class="glass p-10 rounded-[50px] relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-40 h-40 bg-[#f97316]/10 -mr-20 -mt-20 rounded-full blur-3xl"></div>
-          <p class="text-base text-zinc-200 font-light leading-relaxed">No contexto brasileiro, a IA atua como catalisador do <strong class="text-white">ODS 9</strong>, otimizando processos no agronegócio (com agricultura de precisão), na saúde (diagnóstico por imagem) e na educação (plataformas adaptativas). Fábricas inteligentes utilizam IoT e aprendizado de máquina para reduzir desperdícios e aumentar a eficiência energética.</p>
+        <!-- Coluna do texto (direita) -->
+        <div>
+          <span class="text-[10px] font-tech text-orange-500 mb-3 block uppercase tracking-[0.4em]">04 — Convergência</span>
+          <h2 class="text-4xl font-bold tracking-tight mb-6">ODS 9 — <span class="text-[#f97316]">Indústria, Inovação e Infraestrutura</span></h2>
+          <div class="glass p-6 rounded-3xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-40 h-40 bg-[#f97316]/10 -mr-20 -mt-20 rounded-full blur-3xl"></div>
+            <p class="text-base text-zinc-200 font-light leading-relaxed">No contexto brasileiro, a IA atua como catalisador do <strong class="text-white">ODS 9</strong>, otimizando processos no agronegócio (com agricultura de precisão), na saúde (diagnóstico por imagem) e na educação (plataformas adaptativas). Fábricas inteligentes utilizam IoT e aprendizado de máquina para reduzir desperdícios e aumentar a eficiência energética.</p>
+          </div>
+          <p class="mt-4 text-[10px] font-tech text-orange-600 uppercase tracking-widest">Fonte: NAÇÕES UNIDAS. Objetivos de Desenvolvimento Sustentável: ODS 9 – Indústria, inovação e infraestrutura. Disponível em: https://brasil.un.org</p>
         </div>
-        <p class="mt-8 text-[10px] font-tech text-orange-600 uppercase tracking-widest">Fonte: NAÇÕES UNIDAS. Objetivos de Desenvolvimento Sustentável: ODS 9 – Indústria, inovação e infraestrutura. Disponível em: https://brasil.un.org</p>
       </div>
     </section>
 
@@ -781,6 +786,7 @@
   <div id="slide1-media" data-src="https://br.clear.sale/hubfs/Imported_Blog_Media/shutterstock_2255695571-2.jpg" data-caption="Fonte: https://br.clear.sale/blog/inteligencia-artificial-e-transformacao-digital-o-futuro-dos-negocios-impulsionado-por-dados" style="display: none;"></div>
   <div id="slide2-media" data-src="https://replacehumans.ai/wp-content/uploads/2025/02/Logos-Replace-Humans-32.png" data-caption="Fonte: https://replacehumans.ai/mindsphere-ai/" style="display: none;"></div> <!-- Imagem do slide 2 -->
   <div id="slide3-media" data-src="https://static.wixstatic.com/media/576769_7abd4acb3dff4d909c94b4e4f4160647~mv2.jpg/v1/fill/w_980,h_980,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/576769_7abd4acb3dff4d909c94b4e4f4160647~mv2.jpg" data-caption="Fonte: https://www.energychannel-br.co/post/ep6-ia-fraca-e-ia-forte-a-diferença-entre-ia-fraca-e-ia-forte-e-o-mito-da-consciência-artifi" style="display: none;"></div>
+  <div id="slide4-media" data-src="https://grupounieduk.com.br/wp-content/uploads/2021/04/capa_1920x1080px_ODS-9.jpg.webp" data-caption="Fonte:https://grupounieduk.com.br/noticias/ods-9-industria-inovacao-e-infraestrutura-o-que-eu-tenho-a-ver-com-isso-afinal/" style="display: none;"></div> <!-- NOVO: imagem do slide 4 -->
 
   <script>
     // Lista de integrantes
@@ -861,6 +867,7 @@
       renderSlideImage('slide1-media', 'slide1-container', 'slide1-caption-text');
       renderSlideImage('slide2-media', 'slide2-container', 'slide2-caption-text'); // Renderiza imagem do slide 2
       renderSlideImage('slide3-media', 'slide3-container', 'slide3-caption-text');
+      renderSlideImage('slide4-media', 'slide4-container', 'slide4-caption-text'); // NOVO: renderiza imagem do slide 4
     });
 
     // Observer para animações
