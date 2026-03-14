@@ -291,7 +291,6 @@
       }
     }
 
-    /* Estilo para a lista de perguntas */
     .questoes-lista {
       list-style: none;
       counter-reset: pergunta;
@@ -400,7 +399,7 @@
       </div>
     </section>
 
-    <!-- SECTION 3: SUMÁRIO (ATUALIZADO) -->
+    <!-- SECTION 3: SUMÁRIO -->
     <section id="sumario" class="bg-black/50">
       <div class="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-20">
         <div class="reveal-up">
@@ -430,7 +429,6 @@
           <a href="#referencias" class="group flex items-baseline gap-6 border-b border-zinc-800 pb-4 summary-link"><span class="text-[#f97316] font-tech">07</span>
             <h4 class="text-xl font-medium text-zinc-300 group-hover:text-white transition-colors">Conclusão</h4>
           </a>
-          <!-- NOVOS ITENS ADICIONADOS -->
           <a href="#conclusao" class="group flex items-baseline gap-6 border-b border-zinc-800 pb-4 summary-link"><span class="text-[#f97316] font-tech">08</span>
             <h4 class="text-xl font-medium text-zinc-300 group-hover:text-white transition-colors">Referências Bibliográficas</h4>
           </a>
@@ -441,7 +439,7 @@
       </div>
     </section>
 
-    <!-- SLIDE 1: IA na Transformação Digital -->
+    <!-- SLIDE 1 -->
     <section id="slide1">
       <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         <div class="reveal-up">
@@ -463,25 +461,20 @@
       </div>
     </section>
 
-    <!-- SLIDE 2: Machine Learning (imagem à esquerda, texto resumido à direita + cards abaixo) -->
+    <!-- SLIDE 2 -->
     <section id="slide2" class="bg-black/80">
       <div class="max-w-6xl mx-auto">
-        <!-- Grid superior: imagem (esquerda) + texto (direita) -->
         <div class="grid md:grid-cols-2 gap-10 items-center mb-12 reveal-up">
-          <!-- Coluna da imagem (esquerda) -->
           <div class="glass rounded-[40px] overflow-hidden flex flex-col">
             <div class="relative w-full h-72 bg-[#f97316]/5 overflow-hidden rounded-t-[40px] slide-image-container" id="slide2-container"></div>
             <p id="slide2-caption-text" class="text-[9px] font-tech text-zinc-500 italic px-5 py-3 border-t border-[#f97316]/10 hidden"></p>
           </div>
-          <!-- Coluna do texto (direita) -->
           <div>
             <span class="text-[10px] font-tech text-orange-500 mb-3 block uppercase tracking-[0.4em]">02 — O Motor</span>
             <h2 class="text-5xl font-bold tracking-tight mb-6"><span class="text-[#f97316]">Machine Learning</span> como Núcleo da IA</h2>
             <p class="text-zinc-300 text-lg font-light leading-relaxed">O Machine Learning é uma área da Inteligência Artificial que permite que sistemas aprendam com dados, identifiquem padrões e tomem decisões automaticamente. Essa tecnologia contribui diretamente para a ODS 9, impulsionando inovação tecnológica, automação industrial e infraestruturas inteligentes.</p>
           </div>
         </div>
-
-        <!-- Cards explicativos (abaixo, ocupando toda a largura) -->
         <div class="grid md:grid-cols-3 gap-6 reveal-up stagger-2">
           <div class="p-8 glass rounded-3xl group hover:border-[#f97316]/50 transition-all hover:shadow-lg hover:shadow-orange-500/10">
             <h4 class="text-[#f97316] font-tech text-xs mb-4 uppercase tracking-widest">Aprendizado Supervisionado</h4>
@@ -496,15 +489,13 @@
             <p class="text-zinc-400 text-sm leading-relaxed">O sistema aprende por tentativa e erro, com recompensas e punições. Exemplo: robôs industriais e sistemas automatizados que otimizam a produção.</p>
           </div>
         </div>
-
-        <!-- Fonte bibliográfica dos cards -->
         <div class="mt-16 text-center text-[10px] font-tech text-orange-700/70 reveal-up stagger-3 uppercase">
           Fonte: FACELI, Katti et al. Inteligência artificial: uma abordagem de aprendizado de máquina. 2011.
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 3: Deep Learning e IA Generativa -->
+    <!-- SLIDE 3 -->
     <section id="slide3">
       <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
         <div class="reveal-up order-2 md:order-1">
@@ -517,21 +508,19 @@
           <span class="text-[10px] font-tech text-orange-500 mb-6 block uppercase tracking-[0.4em]">03 — Complexidade</span>
           <h2 class="text-5xl font-bold tracking-tight mb-8">Deep Learning e <br><span class="text-[#f97316]">IA Generativa</span></h2>
           <p class="text-zinc-300 text-lg leading-relaxed font-light mb-6">Baseada em redes neurais profundas (com múltiplas camadas), essa tecnologia impulsionou avanços espetaculares em visão computacional, processamento de linguagem natural e síntese de voz.</p>
-          <p class="text-zinc-400 text-base leading-relaxed mb-6">Recentemente, a <strong class="text-white">IA Generativa</strong>exemplificada por modelos como GPT, DALL-E e Stable Diffusion, transformou processos criativos e produtivos, gerando textos, imagens e até códigos de programação com qualidade surpreendente.</p>
+          <p class="text-zinc-400 text-base leading-relaxed mb-6">Recentemente, a <strong class="text-white">IA Generativa</strong> — exemplificada por modelos como GPT, DALL-E e Stable Diffusion, transformou processos criativos e produtivos, gerando textos, imagens e até códigos de programação com qualidade surpreendente.</p>
           <p class="text-xs text-zinc-500 italic font-tech uppercase">Fonte: GERON, Aurélien. Mãos à obra: aprendizado de máquina com Scikit-Learn, Keras e TensorFlow. 2020.</p>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 4: IA e ODS 9 (AGORA COM IMAGEM À ESQUERDA E TEXTO À DIREITA) -->
+    <!-- SLIDE 4 -->
     <section id="slide4" class="items-center">
       <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center reveal-up">
-        <!-- Coluna da imagem (esquerda) -->
         <div class="glass rounded-[40px] overflow-hidden flex flex-col">
           <div class="relative w-full h-72 bg-[#f97316]/5 overflow-hidden rounded-t-[40px] slide-image-container" id="slide4-container"></div>
           <p id="slide4-caption-text" class="text-[9px] font-tech text-zinc-500 italic px-5 py-3 border-t border-[#f97316]/10 hidden"></p>
         </div>
-        <!-- Coluna do texto (direita) -->
         <div>
           <span class="text-[10px] font-tech text-orange-500 mb-3 block uppercase tracking-[0.4em]">04 — Convergência</span>
           <h2 class="text-4xl font-bold tracking-tight mb-6">ODS 9 — <span class="text-[#f97316]">Indústria, Inovação e Infraestrutura</span></h2>
@@ -544,7 +533,7 @@
       </div>
     </section>
 
-    <!-- SLIDE 5: Tendências e Desafios -->
+    <!-- SLIDE 5 -->
     <section id="slide5" class="bg-black/80">
       <div class="max-w-6xl mx-auto">
         <div class="mb-16 reveal-up">
@@ -578,7 +567,7 @@
       </div>
     </section>
 
-    <!-- SLIDE 6: PESQUISA (com gráficos) -->
+    <!-- SLIDE 6: PESQUISA — dados corrigidos para 42 respondentes -->
     <section id="pesquisa" style="scroll-snap-align:start; min-height:100vh; height:auto; padding: 3rem 2rem;">
       <div class="max-w-7xl mx-auto w-full">
         <div class="reveal-up mb-8">
@@ -586,11 +575,11 @@
           <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
               <h2 class="text-4xl font-bold tracking-tight italic">Resultados da <span class="text-[#f97316]">Pesquisa</span></h2>
-              <p class="text-zinc-400 mt-2 text-sm">41 respondentes · UNIFAP 2026 · Fev–Mar 2026</p>
+              <p class="text-zinc-400 mt-2 text-sm">42 respondentes · UNIFAP 2026 · Fev–Mar 2026</p>
             </div>
             <div class="flex gap-6">
               <div class="text-center">
-                <div class="stat-num">41</div>
+                <div class="stat-num">42</div>
                 <div class="text-[10px] font-tech text-zinc-500 uppercase mt-1">Respostas</div>
               </div>
               <div class="text-center">
@@ -681,11 +670,11 @@
           </div>
         </div>
 
-        <div class="mt-6 text-[10px] font-tech text-orange-700/70 uppercase reveal-up">Fonte: GOOGLE FORMS, https://docs.google.com/forms/d/1WxqAat6nBvXy_FtDVopPsK-BOZ2_qvG98pOxSJmgyjM/edit#responses</div>
+        <div class="mt-6 text-[10px] font-tech text-orange-700/70 uppercase reveal-up">Fonte: GOOGLE FORMS · https://docs.google.com/forms/d/1WxqAat6nBvXy_FtDVopPsK-BOZ2_qvG98pOxSJmgyjM/edit#responses</div>
       </div>
     </section>
 
-    <!-- NOVA SEÇÃO: CONCLUSÃO -->
+    <!-- CONCLUSÃO -->
     <section id="conclusao" class="bg-black/80">
       <div class="max-w-4xl mx-auto text-center reveal-up">
         <span class="text-[10px] font-tech text-orange-500 mb-6 block uppercase tracking-[0.4em]">08 — Síntese</span>
@@ -699,17 +688,15 @@
       </div>
     </section>
 
-    <!-- REFERÊNCIAS (existente) -->
+    <!-- REFERÊNCIAS -->
     <section id="referencias" class="bg-black">
       <div class="max-w-4xl mx-auto w-full reveal-up">
         <div class="inline-block px-4 py-1 rounded bg-orange-500/10 border border-orange-500/30 text-orange-400 text-[10px] font-tech uppercase mb-12 tracking-widest">Referências</div>
         <h2 class="text-5xl font-bold tracking-tighter mb-16">Referências <span class="text-[#f97316]">Bibliográficas</span></h2>
         <div class="space-y-4 text-sm font-tech text-zinc-400">
-          <p>
-            BIONI, Bruno Ricardo. Proteção de dados pessoais: a função e os limites do consentimento.</p>
+          <p>BIONI, Bruno Ricardo. Proteção de dados pessoais: a função e os limites do consentimento.</p>
           <p>CGI.BR — Comitê Gestor da Internet no Brasil. TIC Empresas 2022. São Paulo: CGI.br, 2023.</p>
-          <p>
-            EMBRAPA — Empresa Brasileira de Pesquisa Agropecuária. Agricultura digital no Brasil: estratégia e resultados. Brasília: Embrapa, 2022.</p>
+          <p>EMBRAPA — Empresa Brasileira de Pesquisa Agropecuária. Agricultura digital no Brasil: estratégia e resultados. Brasília: Embrapa, 2022.</p>
           <p>FACELI, Katti et al. Inteligência artificial: uma abordagem de aprendizado de máquina.</p>
           <p>FEBRABAN — Federação Brasileira de Bancos. Pesquisa FEBRABAN de tecnologia bancária 2023. São Paulo: Febraban, 2023.</p>
           <p>GERON, Aurelien. Mãos à obra: aprendizado de máquina com Scikit-Learn, Keras e TensorFlow.</p>
@@ -728,7 +715,7 @@
       </div>
     </section>
 
-    <!-- NOVA SEÇÃO: 10 QUESTÕES ABERTAS -->
+    <!-- 10 QUESTÕES ABERTAS -->
     <section id="questoes" class="bg-black/80">
       <div class="max-w-5xl mx-auto w-full reveal-up">
         <span class="text-[10px] font-tech text-orange-500 mb-6 block uppercase tracking-[0.4em]">09 — Reflexão</span>
@@ -751,7 +738,7 @@
       </div>
     </section>
 
-    <!-- SEÇÃO DE AGRADECIMENTO (após as 10 questões) -->
+    <!-- AGRADECIMENTO -->
     <section id="agradecimento" class="items-center text-center">
       <div class="reveal-up active">
         <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight stagger-2 leading-tight max-w-4xl mx-auto px-4">
@@ -782,14 +769,14 @@
 
   </div>
 
-  <!-- Elementos ocultos para armazenar as URLs e legendas das imagens -->
+  <!-- Elementos de mídia dos slides -->
   <div id="slide1-media" data-src="https://br.clear.sale/hubfs/Imported_Blog_Media/shutterstock_2255695571-2.jpg" data-caption="Fonte: https://br.clear.sale/blog/inteligencia-artificial-e-transformacao-digital-o-futuro-dos-negocios-impulsionado-por-dados" style="display: none;"></div>
-  <div id="slide2-media" data-src="https://replacehumans.ai/wp-content/uploads/2025/02/Logos-Replace-Humans-32.png" data-caption="Fonte: https://replacehumans.ai/mindsphere-ai/" style="display: none;"></div> <!-- Imagem do slide 2 -->
-  <div id="slide3-media" data-src="https://static.wixstatic.com/media/576769_7abd4acb3dff4d909c94b4e4f4160647~mv2.jpg/v1/fill/w_980,h_980,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/576769_7abd4acb3dff4d909c94b4e4f4160647~mv2.jpg" data-caption="Fonte: https://www.energychannel-br.co/post/ep6-ia-fraca-e-ia-forte-a-diferença-entre-ia-fraca-e-ia-forte-e-o-mito-da-consciência-artifi" style="display: none;"></div>
-  <div id="slide4-media" data-src="https://grupounieduk.com.br/wp-content/uploads/2021/04/capa_1920x1080px_ODS-9.jpg.webp" data-caption="Fonte:https://grupounieduk.com.br/noticias/ods-9-industria-inovacao-e-infraestrutura-o-que-eu-tenho-a-ver-com-isso-afinal/" style="display: none;"></div> <!-- NOVO: imagem do slide 4 -->
+  <div id="slide2-media" data-src="https://replacehumans.ai/wp-content/uploads/2025/02/Logos-Replace-Humans-32.png" data-caption="Fonte: https://replacehumans.ai/mindsphere-ai/" style="display: none;"></div>
+  <div id="slide3-media" data-src="https://static.wixstatic.com/media/576769_7abd4acb3dff4d909c94b4e4f4160647~mv2.jpg/v1/fill/w_980,h_980,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/576769_7abd4acb3dff4d909c94b4e4f4160647~mv2.jpg" data-caption="Fonte: https://www.energychannel-br.co/post/ep6-ia-fraca-e-ia-forte" style="display: none;"></div>
+  <div id="slide4-media" data-src="https://grupounieduk.com.br/wp-content/uploads/2021/04/capa_1920x1080px_ODS-9.jpg.webp" data-caption="Fonte: https://grupounieduk.com.br/noticias/ods-9-industria-inovacao-e-infraestrutura" style="display: none;"></div>
 
   <script>
-    // Lista de integrantes
+    // Integrantes
     const integrantes = [
       { nome: "José Ueider", foto: "image/Ueider.png" },
       { nome: "Theo Natan", foto: "image/Perfil Theo.jpg" },
@@ -813,68 +800,41 @@
       grid.appendChild(card);
     });
 
-    // Função para renderizar as imagens dos slides
+    // Imagens dos slides
     function renderSlideImage(mediaId, containerId, captionId) {
       const mediaEl = document.getElementById(mediaId);
       const container = document.getElementById(containerId);
       const captionEl = document.getElementById(captionId);
-
       if (!mediaEl || !container) return;
-
       const src = mediaEl.dataset.src || '';
       const caption = mediaEl.dataset.caption || '';
-
       container.innerHTML = '';
-
       if (src && src.trim() !== '') {
         const img = document.createElement('img');
         img.src = src;
         img.alt = '';
         img.className = 'w-full h-full object-cover';
         img.onerror = function () {
-          container.innerHTML = `
-            <div class="w-full h-full flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-[#f97316]/20 to-transparent">
-              <svg class="w-20 h-20 text-[#f97316] opacity-25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-              </svg>
-              <span class="text-[9px] font-tech text-[#f97316]/30 uppercase tracking-widest">Imagem não carregou</span>
-            </div>
-          `;
+          container.innerHTML = `<div class="w-full h-full flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-[#f97316]/20 to-transparent"><svg class="w-20 h-20 text-[#f97316] opacity-25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span class="text-[9px] font-tech text-[#f97316]/30 uppercase tracking-widest">Imagem não carregou</span></div>`;
         };
         container.appendChild(img);
-      } else {
-        container.innerHTML = `
-          <div class="w-full h-full flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-[#f97316]/20 to-transparent">
-            <svg class="w-20 h-20 text-[#f97316] opacity-25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
-            <span class="text-[9px] font-tech text-[#f97316]/30 uppercase tracking-widest">URL da imagem não fornecida</span>
-          </div>
-        `;
       }
-
-      if (captionEl) {
-        if (caption && caption.trim() !== '') {
-          captionEl.textContent = caption;
-          captionEl.classList.remove('hidden');
-        } else {
-          captionEl.classList.add('hidden');
-        }
+      if (captionEl && caption.trim() !== '') {
+        captionEl.textContent = caption;
+        captionEl.classList.remove('hidden');
       }
     }
 
     window.addEventListener('load', function () {
       renderSlideImage('slide1-media', 'slide1-container', 'slide1-caption-text');
-      renderSlideImage('slide2-media', 'slide2-container', 'slide2-caption-text'); // Renderiza imagem do slide 2
+      renderSlideImage('slide2-media', 'slide2-container', 'slide2-caption-text');
       renderSlideImage('slide3-media', 'slide3-container', 'slide3-caption-text');
-      renderSlideImage('slide4-media', 'slide4-container', 'slide4-caption-text'); // NOVO: renderiza imagem do slide 4
+      renderSlideImage('slide4-media', 'slide4-container', 'slide4-caption-text');
     });
 
-    // Observer para animações
+    // Observer animações
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('active');
-      });
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
 
@@ -884,13 +844,11 @@
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       document.getElementById('tab-' + name).classList.add('active');
       document.querySelectorAll('.tab-btn').forEach(btn => {
-        if (btn.textContent.toLowerCase().includes(name)) {
-          btn.classList.add('active');
-        }
+        if (btn.textContent.toLowerCase().includes(name)) btn.classList.add('active');
       });
     };
 
-    // Configuração dos gráficos Chart.js
+    // Chart.js config
     Chart.defaults.color = '#bbb';
     Chart.defaults.font.family = 'JetBrains Mono';
     Chart.defaults.font.size = 12;
@@ -914,75 +872,96 @@
       maintainAspectRatio: false,
       plugins: {
         legend: { position: 'right', labels: { boxWidth: 12, padding: 12, color: '#ddd', font: { size: 12, family: 'JetBrains Mono' } } },
-        tooltip: { bodyFont: { size: 12 }, titleFont: { size: 12 } }
+        tooltip: { bodyFont: { size: 12 }, titleFont: { size: 12 }, callbacks: { label: ctx => ` ${ctx.label}: ${ctx.raw} (${((ctx.raw / ctx.dataset.data.reduce((a, b) => a + b, 0)) * 100).toFixed(1)}%)` } }
       }
     };
 
     window.onload = function () {
-      // Q1 - Idade
+      // Q1 - Idade (42 respostas)
+      // < 18: 2 | 18-24: 31 | 25-34: 5 | 35-44: 1 | 45+: 3
       new Chart(document.getElementById('chartIdade'), {
         type: 'doughnut',
-        data: { labels: ['< 18 anos', '18–24 anos', '25–34 anos', '35–44 anos', '45+ anos'], datasets: [{ data: [2, 28, 5, 1, 4], backgroundColor: [DARK3, ORANGE, '#fb923c', DARK2, '#fdba74'], borderWidth: 0, hoverOffset: 8 }] },
+        data: { labels: ['< 18 anos', '18–24 anos', '25–34 anos', '35–44 anos', '45+ anos'], datasets: [{ data: [2, 31, 5, 1, 3], backgroundColor: [DARK3, ORANGE, '#fb923c', DARK2, '#fdba74'], borderWidth: 0, hoverOffset: 8 }] },
         options: doughnutOpts
       });
-      // Q2 - Trabalha com tecnologia
+
+      // Q2 - Trabalha com tecnologia (42)
+      // Sim: 21 | Não: 17 | Parcialmente: 4
       new Chart(document.getElementById('chartTecnologia'), {
         type: 'pie',
-        data: { labels: ['Sim', 'Não', 'Parcialmente'], datasets: [{ data: [19, 17, 5], backgroundColor: [ORANGE, DARK3, '#fdba74'], borderWidth: 0, hoverOffset: 8 }] },
+        data: { labels: ['Sim', 'Não', 'Parcialmente'], datasets: [{ data: [21, 17, 4], backgroundColor: [ORANGE, DARK3, '#fdba74'], borderWidth: 0, hoverOffset: 8 }] },
         options: pieOpts
       });
-      // Q3 - Escolaridade
+
+      // Q3 - Escolaridade (42)
+      // Fund: 1 | Médio: 7 | Sup Inc: 25 | Sup Comp: 5 | Pós: 4
       new Chart(document.getElementById('chartEscolaridade'), {
         type: 'doughnut',
-        data: { labels: ['Ens. Fundamental', 'Ens. Médio', 'Sup. Incompleto', 'Sup. Completo', 'Pós-graduação'], datasets: [{ data: [1, 9, 23, 5, 4], backgroundColor: [DARK3, '#4a4a4a', ORANGE, '#fb923c', '#fdba74'], borderWidth: 0, hoverOffset: 8 }] },
+        data: { labels: ['Ens. Fundamental', 'Ens. Médio', 'Sup. Incompleto', 'Sup. Completo', 'Pós-graduação'], datasets: [{ data: [1, 7, 25, 5, 4], backgroundColor: [DARK3, '#4a4a4a', ORANGE, '#fb923c', '#fdba74'], borderWidth: 0, hoverOffset: 8 }] },
         options: doughnutOpts
       });
-      // Q4 - Nível de IA
+
+      // Q4 - Nível IA (42)
+      // 1:2 | 2:1 | 3:3 | 4:1 | 5:9 | 6:9 | 7:7 | 8:5 | 9:3 | 10:2
       new Chart(document.getElementById('chartNivelIA'), {
         type: 'bar',
-        data: { labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'], datasets: [{ label: 'Respostas', data: [2, 1, 2, 1, 10, 10, 6, 4, 3, 2], backgroundColor: (ctx) => { const v = ctx.parsed.y; if (v >= 8) return ORANGE; if (v >= 5) return '#fb923c'; return DARK3; }, borderRadius: 6, barPercentage: 0.7 }] },
+        data: { labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'], datasets: [{ label: 'Respostas', data: [2, 1, 3, 1, 9, 9, 7, 5, 3, 2], backgroundColor: (ctx) => { const v = ctx.parsed.y; if (v >= 7) return ORANGE; if (v >= 4) return '#fb923c'; return DARK3; }, borderRadius: 6, barPercentage: 0.7 }] },
         options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { display: false }, ticks: { color: '#ccc', font: { size: 12 } } }, y: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: '#ccc', font: { size: 11 } }, stepSize: 2, beginAtZero: true } } }
       });
-      // Q5 - Conhecimento ML
+
+      // Q5 - Conhecimento ML (42)
+      // Nunca: 18 | Só o termo: 7 | Sei pouco: 11 | Conheço bem: 6
       new Chart(document.getElementById('chartML'), {
         type: 'doughnut',
-        data: { labels: ['Nunca ouvi falar', 'Já ouvi o termo', 'Sei um pouco', 'Conheço bem'], datasets: [{ data: [18, 9, 10, 6], backgroundColor: [DARK3, DARK2, '#fb923c', ORANGE], borderWidth: 0, hoverOffset: 8 }] },
+        data: { labels: ['Nunca ouvi falar', 'Já ouvi o termo', 'Sei um pouco', 'Conheço bem'], datasets: [{ data: [18, 7, 11, 6], backgroundColor: [DARK3, DARK2, '#fb923c', ORANGE], borderWidth: 0, hoverOffset: 8 }] },
         options: doughnutOpts
       });
-      // Q6 - Áreas que mais utilizam IA
+
+      // Q6 - Áreas (múltipla escolha, 42)
+      // Redes: 38 | Indústria: 21 | Educação: 20 | Saúde: 16 | Não sei: 1
       new Chart(document.getElementById('chartAreas'), {
         type: 'bar',
-        data: { labels: ['Redes Sociais', 'Indústria e Fábricas', 'Educação', 'Saúde', 'Não Sei'], datasets: [{ data: [36, 22, 20, 18, 1], backgroundColor: [ORANGE, '#fb923c', '#fdba74', '#fcd34d', DARK3], borderRadius: 8, barPercentage: 0.6 }] },
+        data: { labels: ['Redes Sociais', 'Indústria e Fábricas', 'Educação', 'Saúde', 'Não Sei'], datasets: [{ data: [38, 21, 20, 16, 1], backgroundColor: [ORANGE, '#fb923c', '#fdba74', '#fcd34d', DARK3], borderRadius: 8, barPercentage: 0.6 }] },
         options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { display: false }, ticks: { color: '#ccc', font: { size: 11 } } }, y: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: '#ccc' }, beginAtZero: true } } }
       });
-      // Q7 - IA contribui para inovação?
+
+      // Q7 - IA para inovação (42)
+      // Concordo totalmente: 26 | Parcialmente: 15 | Neutro: 1
       new Chart(document.getElementById('chartInovacao'), {
         type: 'doughnut',
-        data: { labels: ['Concordo Totalmente', 'Concordo Parcialmente', 'Neutro/Não sei'], datasets: [{ data: [25, 14, 2], backgroundColor: [ORANGE, '#fb923c', DARK3], borderWidth: 0, hoverOffset: 8 }] },
+        data: { labels: ['Concordo Totalmente', 'Concordo Parcialmente', 'Neutro/Não sei'], datasets: [{ data: [26, 15, 1], backgroundColor: [ORANGE, '#fb923c', DARK3], borderWidth: 0, hoverOffset: 8 }] },
         options: doughnutOpts
       });
-      // Q8 - IA pode ser sustentável?
+
+      // Q8 - IA sustentável (42)
+      // Sim: 23 | Talvez: 18 | Não sei opinar: 1 | Não: 0
       new Chart(document.getElementById('chartSustentavel'), {
         type: 'doughnut',
-        data: { labels: ['Sim', 'Talvez', 'Não sei opinar', 'Não'], datasets: [{ data: [24, 15, 1, 1], backgroundColor: [ORANGE, '#fb923c', DARK2, DARK3], borderWidth: 0, hoverOffset: 8 }] },
+        data: { labels: ['Sim', 'Talvez', 'Não sei opinar'], datasets: [{ data: [23, 18, 1], backgroundColor: [ORANGE, '#fb923c', DARK2], borderWidth: 0, hoverOffset: 8 }] },
         options: doughnutOpts
       });
-      // Q9 - Impacto no trabalho
+
+      // Q9 - Impacto trabalho (42)
+      // Muito positiva: 6 | Positiva: 20 | Neutra: 11 | Negativa: 5
       new Chart(document.getElementById('chartTrabalho'), {
         type: 'doughnut',
-        data: { labels: ['Muito Positiva', 'Positiva', 'Neutra', 'Negativa'], datasets: [{ data: [5, 18, 12, 6], backgroundColor: [ORANGE, '#fb923c', DARK3, '#7f1d1d'], borderWidth: 0, hoverOffset: 8 }] },
+        data: { labels: ['Muito Positiva', 'Positiva', 'Neutra', 'Negativa'], datasets: [{ data: [6, 20, 11, 5], backgroundColor: [ORANGE, '#fb923c', DARK3, '#7f1d1d'], borderWidth: 0, hoverOffset: 8 }] },
         options: doughnutOpts
       });
-      // Q10 - Interesse em aprender mais
+
+      // Q10 - Interesse (42)
+      // Sim: 35 | Não: 7
       new Chart(document.getElementById('chartInteresse'), {
         type: 'doughnut',
-        data: { labels: ['Sim', 'Não'], datasets: [{ data: [34, 7], backgroundColor: [ORANGE, DARK3], borderWidth: 0, hoverOffset: 8 }] },
+        data: { labels: ['Sim', 'Não'], datasets: [{ data: [35, 7], backgroundColor: [ORANGE, DARK3], borderWidth: 0, hoverOffset: 8 }] },
         options: doughnutOpts
       });
-      // Q11 - IA deveria ser ensinada nas escolas?
+
+      // Q11 - Ensino nas escolas (42)
+      // Sim: 42 | Não: 0 — todos concordaram!
       new Chart(document.getElementById('chartEnsino'), {
         type: 'doughnut',
-        data: { labels: ['Sim, é importante', 'Não'], datasets: [{ data: [36, 5], backgroundColor: [ORANGE, DARK3], borderWidth: 0, hoverOffset: 8 }] },
+        data: { labels: ['Sim, é importante'], datasets: [{ data: [42], backgroundColor: [ORANGE], borderWidth: 0, hoverOffset: 8 }] },
         options: doughnutOpts
       });
     };
