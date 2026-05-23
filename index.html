@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>GTI , Gestão de Tecnologia da Informação · 2026</title>
+  <title>GTI · Gestão de Tecnologia da Informação · 2026</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -27,15 +27,17 @@
       --muted2: #7a92b0;
       --rule: #c8d8e8;
       --rule2: #e4eef5;
-      --bg: #f0f5fa;
+      --bg: #eef3f9;
       --surface: #ffffff;
       --red: #c0392b;
       --amber: #d68910;
       --green: #1a7a4a;
-      --dur: 500ms;
+      --dur: 480ms;
     }
 
-    * {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -52,7 +54,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* SLIDE ENGINE */
+    /* ── SLIDE ENGINE ── */
     #wrap {
       width: 100%;
       height: 100vh;
@@ -67,9 +69,9 @@
       align-items: stretch;
       justify-content: center;
       overflow: hidden;
+      background: var(--bg);
       transition: transform var(--dur) cubic-bezier(.77, 0, .175, 1), opacity var(--dur) ease;
       will-change: transform, opacity;
-      background: var(--bg);
     }
 
     .slide.act {
@@ -90,18 +92,18 @@
       z-index: 1;
     }
 
-    /* INNER */
+    /* ── INNER ── */
     .inner {
       width: 100%;
-      max-width: 1360px;
-      padding: 28px 56px 22px;
+      max-width: 1400px;
+      padding: 22px 52px 16px;
       display: flex;
       flex-direction: column;
       position: relative;
       z-index: 2;
     }
 
-    /* PROGRESS */
+    /* ── PROGRESS ── */
     #prog {
       position: fixed;
       top: 0;
@@ -118,17 +120,17 @@
       transition: width .4s ease;
     }
 
-    /* NAV DOTS */
+    /* ── NAV DOTS ── */
     #nav {
       position: fixed;
-      right: 22px;
+      right: 18px;
       top: 50%;
       transform: translateY(-50%);
       z-index: 1000;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
     }
 
     .dot {
@@ -144,7 +146,7 @@
 
     .dot.on {
       background: var(--blue-500);
-      transform: scale(1.6);
+      transform: scale(1.65);
     }
 
     .dot:hover {
@@ -152,21 +154,19 @@
     }
 
     #cn {
-      margin-top: 10px;
+      margin-top: 9px;
       font-weight: 800;
       color: var(--blue-600);
       font-size: 11px;
-      font-family: 'Montserrat', sans-serif;
       letter-spacing: .5px;
     }
 
     #tn {
       font-size: 10px;
       color: var(--muted2);
-      font-family: 'Montserrat', sans-serif;
     }
 
-    /* ARROWS */
+    /* ── ARROWS ── */
     .arr {
       position: fixed;
       left: 50%;
@@ -184,54 +184,53 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: 0 2px 8px rgba(13, 27, 62, .1);
     }
 
     .arr:hover {
       color: var(--blue-600);
       border-color: var(--blue-500);
-      transform: translateX(-50%) scale(1.05);
+      transform: translateX(-50%) scale(1.08);
     }
 
     #aup {
-      top: 14px;
+      top: 12px;
     }
 
     #adn {
-      bottom: 14px;
+      bottom: 12px;
     }
 
-    /* SECTION LABEL */
+    /* ── SHARED COMPONENTS ── */
     .tag {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 700;
       color: var(--blue-600);
       background: var(--blue-50);
       border: 1px solid var(--blue-200);
-      padding: 5px 14px;
-      letter-spacing: 1.5px;
+      padding: 4px 13px;
+      letter-spacing: 1.4px;
       text-transform: uppercase;
       width: fit-content;
-      margin-bottom: 10px;
-      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 9px;
       border-radius: 2px;
     }
 
     .hdr {
-      margin-bottom: 16px;
-      padding-bottom: 14px;
+      margin-bottom: 13px;
+      padding-bottom: 11px;
       border-bottom: 2px solid var(--blue-200);
     }
 
     .htit {
-      font-size: clamp(22px, 2.5vw, 34px);
+      font-size: clamp(19px, 2.3vw, 31px);
       font-weight: 800;
       color: var(--ink);
       line-height: 1.1;
-      margin-bottom: 6px;
-      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 4px;
       letter-spacing: -.3px;
     }
 
@@ -240,18 +239,17 @@
     }
 
     .hdsc {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--muted);
       max-width: 640px;
       line-height: 1.7;
       font-weight: 400;
     }
 
-    /* KPI ROW */
     .krow {
       display: flex;
-      gap: 12px;
-      margin-bottom: 14px;
+      gap: 11px;
+      margin-bottom: 12px;
     }
 
     .kc {
@@ -259,11 +257,12 @@
       background: var(--surface);
       border: 1px solid var(--rule);
       border-top: 3px solid var(--blue-500);
-      padding: 16px 18px;
+      padding: 13px 15px;
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      border-radius: 0 0 4px 4px;
+      gap: 3px;
+      border-radius: 0 0 5px 5px;
+      box-shadow: 0 2px 8px rgba(13, 27, 62, .06);
     }
 
     .kc.k-red {
@@ -279,82 +278,82 @@
     }
 
     .kn {
-      font-size: clamp(28px, 3.2vw, 44px);
+      font-size: clamp(24px, 2.9vw, 40px);
       font-weight: 900;
       color: var(--blue-700);
       line-height: 1;
-      font-family: 'Montserrat', sans-serif;
     }
 
     .kl {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--muted);
       font-weight: 500;
-      letter-spacing: .3px;
+      letter-spacing: .2px;
+      margin-top: 2px;
     }
 
-    /* CHART BOX , Power BI style */
     .cb {
       background: var(--surface);
       border: 1px solid var(--rule);
-      padding: 16px;
+      padding: 13px 15px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      border-radius: 4px;
-      box-shadow: 0 1px 6px rgba(13, 27, 62, .06);
+      gap: 8px;
+      border-radius: 5px;
+      box-shadow: 0 2px 8px rgba(13, 27, 62, .06);
     }
 
     .cbt {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       color: var(--blue-700);
       text-transform: uppercase;
-      letter-spacing: 1.2px;
-      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 1.1px;
       border-bottom: 2px solid var(--blue-100);
-      padding-bottom: 9px;
+      padding-bottom: 7px;
     }
 
     .cw {
       flex: 1;
       position: relative;
       min-height: 0;
+      overflow: hidden;
     }
 
     .cw canvas {
       width: 100% !important;
       height: 100% !important;
+      display: block;
     }
 
     .cws {
       max-height: 115px;
+      min-height: 88px;
     }
 
-    /* INSIGHT STRIP */
     .insight-strip {
       display: flex;
-      gap: 10px;
-      margin-top: 10px;
+      gap: 9px;
+      margin-top: 8px;
     }
 
     .insight-chip {
       flex: 1;
       display: flex;
       align-items: flex-start;
-      gap: 11px;
+      gap: 9px;
       background: var(--blue-50);
       border: 1px solid var(--blue-200);
       border-left: 4px solid var(--blue-500);
-      padding: 11px 15px;
-      font-size: 12px;
+      padding: 9px 13px;
+      font-size: 11px;
       line-height: 1.65;
       color: var(--muted);
       border-radius: 0 4px 4px 0;
     }
 
     .insight-chip i {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--blue-500);
       flex-shrink: 0;
       margin-top: 2px;
@@ -392,33 +391,31 @@
       color: var(--green);
     }
 
-    /* BAR STAT */
     .sbs {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
 
     .sb {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 4px;
     }
 
     .sbh {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 12px;
+      gap: 7px;
+      font-size: 11.5px;
       color: var(--ink);
     }
 
     .sbp {
       margin-left: auto;
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 800;
       color: var(--blue-600);
-      font-family: 'Montserrat', sans-serif;
     }
 
     .sbtr {
@@ -435,30 +432,28 @@
       border-radius: 3px;
     }
 
-    /* PROGRESS BARS */
     .gpbs {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
     }
 
     .gpi {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 4px;
     }
 
     .gph {
       display: flex;
       justify-content: space-between;
-      font-size: 12px;
+      font-size: 11px;
       color: var(--muted);
     }
 
     .gph span:last-child {
       font-weight: 800;
       color: var(--blue-600);
-      font-family: 'Montserrat', sans-serif;
     }
 
     .gpk {
@@ -476,36 +471,458 @@
       border-radius: 3px;
     }
 
-    /* STAT MINI */
     .sic {
       flex: 1;
       background: var(--surface);
       border: 1px solid var(--rule);
       border-top: 3px solid var(--blue-500);
-      padding: 14px;
+      padding: 11px;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
-      border-radius: 0 0 4px 4px;
-      box-shadow: 0 1px 6px rgba(13, 27, 62, .06);
+      gap: 3px;
+      border-radius: 0 0 5px 5px;
+      box-shadow: 0 2px 8px rgba(13, 27, 62, .06);
     }
 
     .siv {
-      font-size: 28px;
+      font-size: 24px;
       font-weight: 900;
       color: var(--blue-700);
-      font-family: 'Montserrat', sans-serif;
     }
 
     .sid {
-      font-size: 11px;
+      font-size: 10.5px;
       color: var(--muted);
       font-weight: 500;
     }
 
-    /* ═══ 01 CAPA ═══ */
+    /* ── LAYOUTS ── */
+    .crow {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      gap: 11px;
+      flex: 1;
+    }
+
+    .ul2 {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 11px;
+      flex: 1;
+    }
+
+    .sl {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 11px;
+    }
+
+    .sr {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .sirow {
+      display: flex;
+      gap: 9px;
+      margin-top: 9px;
+    }
+
+    .cl {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 13px;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .cch {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .crgh {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      border-radius: 5px;
+      box-shadow: 0 2px 8px rgba(13, 27, 62, .06);
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .svct {
+      font-size: 10px;
+      color: var(--muted2);
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      margin-bottom: 2px;
+      font-weight: 600;
+    }
+
+    .gl {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1fr;
+      gap: 11px;
+      flex: 1;
+    }
+
+    .gpc {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      border-radius: 5px;
+      box-shadow: 0 2px 8px rgba(13, 27, 62, .06);
+    }
+
+    .gpt {
+      font-size: 10px;
+      color: var(--blue-700);
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      font-weight: 700;
+      border-bottom: 2px solid var(--blue-100);
+      padding-bottom: 7px;
+      margin-bottom: 3px;
+    }
+
+    .chal {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 15px;
+      flex: 1;
+    }
+
+    .chmn {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--amber);
+      padding: 15px 17px;
+      display: flex;
+      gap: 13px;
+      align-items: center;
+      border-radius: 0 5px 5px 0;
+      box-shadow: 0 2px 8px rgba(13, 27, 62, .06);
+    }
+
+    .chico {
+      font-size: 19px;
+      color: var(--amber);
+      flex-shrink: 0;
+    }
+
+    .chlb {
+      font-size: 10px;
+      color: var(--muted2);
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      font-weight: 600;
+    }
+
+    .chtit {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .chpct {
+      font-size: 27px;
+      font-weight: 800;
+      color: var(--amber);
+    }
+
+    .chds {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-top: 2px;
+      font-weight: 400;
+    }
+
+    .chcs {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .chc {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      padding: 9px 12px;
+      border-radius: 4px;
+    }
+
+    .chc i {
+      font-size: 11px;
+      color: var(--muted2);
+      flex-shrink: 0;
+    }
+
+    .chcl {
+      font-size: 11.5px;
+      color: var(--ink);
+      flex: 1;
+      font-weight: 500;
+    }
+
+    .chcp {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .chrg {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .igrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 1fr 1fr;
+      gap: 9px;
+      flex: 1;
+    }
+
+    .ic {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-top: 3px solid var(--blue-500);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow .2s, transform .2s;
+      border-radius: 0 0 5px 5px;
+    }
+
+    .ic:hover {
+      box-shadow: 0 4px 20px rgba(29, 95, 168, .12);
+      transform: translateY(-2px);
+    }
+
+    .i2 {
+      border-top-color: var(--blue-400);
+    }
+
+    .i3 {
+      border-top-color: var(--amber);
+    }
+
+    .i4 {
+      border-top-color: var(--red);
+    }
+
+    .i5 {
+      border-top-color: var(--green);
+    }
+
+    .i6 {
+      border-top-color: var(--blue-700);
+    }
+
+    .inum {
+      position: absolute;
+      top: 6px;
+      right: 11px;
+      font-size: 32px;
+      font-weight: 900;
+      opacity: .04;
+      color: var(--blue-700);
+      line-height: 1;
+    }
+
+    .iico {
+      font-size: 13px;
+      color: var(--blue-600);
+    }
+
+    .i2 .iico {
+      color: var(--blue-400);
+    }
+
+    .i3 .iico {
+      color: var(--amber);
+    }
+
+    .i4 .iico {
+      color: var(--red);
+    }
+
+    .i5 .iico {
+      color: var(--green);
+    }
+
+    .itit {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .itxt {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.65;
+      flex: 1;
+      font-weight: 400;
+    }
+
+    .ipct {
+      font-size: 21px;
+      font-weight: 900;
+      margin-top: 3px;
+      color: var(--blue-600);
+    }
+
+    .i2 .ipct {
+      color: var(--blue-400);
+    }
+
+    .i3 .ipct {
+      color: var(--amber);
+    }
+
+    .i4 .ipct {
+      color: var(--red);
+    }
+
+    .i5 .ipct {
+      color: var(--green);
+    }
+
+    .iplb {
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .cgrid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 9px;
+      flex: 1;
+    }
+
+    .cc {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-top: 3px solid var(--blue-500);
+      padding: 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      border-radius: 0 0 5px 5px;
+    }
+
+    .cico {
+      width: 29px;
+      height: 29px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: var(--blue-600);
+      background: var(--blue-50);
+      border-radius: 6px;
+    }
+
+    .cctit {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: .1px;
+    }
+
+    .ccli {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .ccli li {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.55;
+      display: flex;
+      gap: 5px;
+      font-weight: 400;
+    }
+
+    .ccli li::before {
+      content: '›';
+      color: var(--blue-500);
+      flex-shrink: 0;
+      font-weight: 700;
+    }
+
+    /* ── SLIDE 03 OBJETIVO ── */
+    .ogrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      flex: 1;
+    }
+
+    .oc {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-top: 2px solid var(--ink);
+      padding: 15px;
+      transition: box-shadow .2s;
+      border-radius: 0 0 5px 5px;
+    }
+
+    .oc:hover {
+      box-shadow: 0 4px 18px rgba(0, 0, 0, .08);
+    }
+
+    .oico {
+      width: 31px;
+      height: 31px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      margin-bottom: 8px;
+      color: var(--blue-600);
+      background: var(--blue-50);
+      border-radius: 6px;
+    }
+
+    .otit {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: var(--ink);
+      letter-spacing: .1px;
+    }
+
+    .odsc {
+      font-size: 11.5px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    /* ── CAPA ── */
     .cov {
       background: var(--blue-900) !important;
     }
@@ -514,13 +931,13 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 80% 50%, rgba(37, 117, 196, .25) 0%, transparent 65%), radial-gradient(ellipse 40% 50% at 10% 80%, rgba(29, 95, 168, .2) 0%, transparent 55%);
+      background: radial-gradient(ellipse 70% 60% at 80% 50%, rgba(37, 117, 196, .28) 0%, transparent 65%), radial-gradient(ellipse 40% 50% at 10% 80%, rgba(29, 95, 168, .22) 0%, transparent 55%);
       pointer-events: none;
     }
 
     .cov .inner {
       justify-content: center;
-      padding: 60px 80px;
+      padding: 56px 80px;
       gap: 0;
     }
 
@@ -535,18 +952,16 @@
       font-weight: 600;
       letter-spacing: 1.8px;
       text-transform: uppercase;
-      margin-bottom: 26px;
-      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 24px;
       border-radius: 2px;
     }
 
     .ctit {
-      font-size: clamp(32px, 5vw, 66px);
+      font-size: clamp(28px, 5vw, 62px);
       font-weight: 900;
       color: #fff;
-      line-height: 1.03;
-      margin-bottom: 20px;
-      font-family: 'Montserrat', sans-serif;
+      line-height: 1.04;
+      margin-bottom: 18px;
       letter-spacing: -1px;
     }
 
@@ -556,33 +971,33 @@
     }
 
     .crul {
-      width: 52px;
+      width: 50px;
       height: 3px;
       background: var(--blue-400);
-      margin-bottom: 26px;
+      margin-bottom: 24px;
       border-radius: 2px;
     }
 
     .csub {
-      font-size: 15px;
+      font-size: 14.5px;
       color: rgba(255, 255, 255, .5);
       max-width: 540px;
       line-height: 1.8;
-      margin-bottom: 34px;
+      margin-bottom: 30px;
       font-weight: 400;
     }
 
     .cmet {
       display: flex;
       flex-wrap: wrap;
-      gap: 30px;
-      margin-bottom: 34px;
+      gap: 26px;
+      margin-bottom: 30px;
     }
 
     .cmi {
       display: flex;
       align-items: center;
-      gap: 11px;
+      gap: 10px;
     }
 
     .cmi i {
@@ -595,7 +1010,6 @@
       color: rgba(255, 255, 255, .3);
       text-transform: uppercase;
       letter-spacing: 1px;
-      font-family: 'Montserrat', sans-serif;
     }
 
     .mvl {
@@ -628,7 +1042,7 @@
       }
     }
 
-    /* ═══ 02 INTEGRANTES ═══ */
+    /* ── TEAM ── */
     .team-slide {
       background: var(--blue-800) !important;
     }
@@ -643,7 +1057,7 @@
 
     .team-slide .inner {
       justify-content: center;
-      padding: 36px 60px;
+      padding: 34px 60px;
     }
 
     .team-eyebrow {
@@ -657,17 +1071,15 @@
       font-weight: 600;
       letter-spacing: 1.8px;
       text-transform: uppercase;
-      margin-bottom: 14px;
-      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 13px;
       border-radius: 2px;
     }
 
     .team-title {
-      font-size: clamp(24px, 3.5vw, 42px);
+      font-size: clamp(21px, 3.5vw, 39px);
       font-weight: 900;
       color: #fff;
-      margin-bottom: 8px;
-      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 7px;
       letter-spacing: -.5px;
     }
 
@@ -677,16 +1089,16 @@
     }
 
     .team-sub {
-      font-size: 14px;
+      font-size: 13.5px;
       color: rgba(255, 255, 255, .4);
-      margin-bottom: 32px;
+      margin-bottom: 28px;
       font-weight: 400;
     }
 
     .team-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 17px;
       width: 100%;
     }
 
@@ -694,11 +1106,11 @@
       background: rgba(255, 255, 255, .06);
       border: 1px solid rgba(255, 255, 255, .12);
       border-top: 3px solid var(--blue-400);
-      padding: 28px 18px;
+      padding: 24px 15px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       transition: background .25s, transform .25s;
       border-radius: 0 0 6px 6px;
     }
@@ -709,8 +1121,8 @@
     }
 
     .avatar-ring {
-      width: 100px;
-      height: 100px;
+      width: 96px;
+      height: 96px;
       border: 2px solid var(--blue-400);
       border-radius: 50%;
       display: flex;
@@ -721,8 +1133,8 @@
     }
 
     .avatar-inner {
-      width: 92px;
-      height: 92px;
+      width: 88px;
+      height: 88px;
       border-radius: 50%;
       background: linear-gradient(135deg, rgba(37, 117, 196, .4), rgba(13, 27, 62, .6));
       display: flex;
@@ -739,29 +1151,26 @@
     }
 
     .avatar-initials {
-      font-size: 26px;
+      font-size: 25px;
       font-weight: 800;
       color: var(--blue-300);
-      font-family: 'Montserrat', sans-serif;
       line-height: 1;
     }
 
     .member-name {
-      font-size: 15px;
+      font-size: 14.5px;
       font-weight: 800;
       color: #fff;
       text-align: center;
       line-height: 1.3;
-      font-family: 'Montserrat', sans-serif;
     }
 
     .member-role {
-      font-size: 11px;
+      font-size: 10.5px;
       color: rgba(255, 255, 255, .4);
       text-align: center;
       letter-spacing: .8px;
       text-transform: uppercase;
-      font-family: 'Montserrat', sans-serif;
     }
 
     .member-badge {
@@ -771,446 +1180,10 @@
       font-weight: 700;
       padding: 4px 12px;
       letter-spacing: .8px;
-      font-family: 'Montserrat', sans-serif;
       border-radius: 20px;
     }
 
-    /* ═══ 03 OBJETIVO ═══ */
-    .ogrid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      flex: 1;
-    }
-
-    .oc {
-      background: var(--surface);
-      border: 1px solid var(--rule);
-      border-top: 2px solid var(--ink);
-      padding: 18px;
-      transition: box-shadow .2s;
-      border-radius: 0 0 4px 4px;
-    }
-
-    .oc:hover {
-      box-shadow: 0 4px 20px rgba(0, 0, 0, .08);
-    }
-
-    .oico {
-      width: 34px;
-      height: 34px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 15px;
-      margin-bottom: 10px;
-      color: var(--blue-600);
-      background: var(--blue-50);
-      border-radius: 6px;
-    }
-
-    .otit {
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 7px;
-      color: var(--ink);
-      letter-spacing: .2px;
-    }
-
-    .odsc {
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.7;
-      font-weight: 400;
-    }
-
-    /* ═══ LAYOUTS ═══ */
-    .crow {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr 1fr;
-      gap: 12px;
-      flex: 1;
-    }
-
-    .ul2 {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
-      gap: 12px;
-      flex: 1;
-    }
-
-    .sl {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .sr {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .sirow {
-      display: flex;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .cl {
-      display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      gap: 14px;
-      flex: 1;
-      min-height: 0;
-    }
-
-    .cch {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      min-height: 0;
-      overflow: hidden;
-    }
-
-    .crgh {
-      background: var(--surface);
-      border: 1px solid var(--rule);
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      border-radius: 4px;
-      box-shadow: 0 1px 6px rgba(13, 27, 62, .06);
-      overflow: hidden;
-      min-height: 0;
-    }
-
-    .svct {
-      font-size: 11px;
-      color: var(--muted2);
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      margin-bottom: 3px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-    }
-
-    .gl {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr 1fr;
-      gap: 12px;
-      flex: 1;
-    }
-
-    .gpc {
-      background: var(--surface);
-      border: 1px solid var(--rule);
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      border-radius: 4px;
-      box-shadow: 0 1px 6px rgba(13, 27, 62, .06);
-    }
-
-    .gpt {
-      font-size: 11px;
-      color: var(--blue-700);
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      border-bottom: 2px solid var(--blue-100);
-      padding-bottom: 9px;
-      margin-bottom: 4px;
-    }
-
-    /* ═══ DESAFIOS ═══ */
-    .chal {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 16px;
-      flex: 1;
-    }
-
-    .chmn {
-      background: var(--surface);
-      border: 1px solid var(--rule);
-      border-left: 3px solid var(--amber);
-      padding: 18px 20px;
-      display: flex;
-      gap: 15px;
-      align-items: center;
-      border-radius: 0 4px 4px 0;
-      box-shadow: 0 1px 6px rgba(13, 27, 62, .06);
-    }
-
-    .chico {
-      font-size: 20px;
-      color: var(--amber);
-      flex-shrink: 0;
-    }
-
-    .chlb {
-      font-size: 10px;
-      color: var(--muted2);
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-    }
-
-    .chtit {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--ink);
-    }
-
-    .chpct {
-      font-size: 30px;
-      font-weight: 800;
-      color: var(--amber);
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    .chds {
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 3px;
-      font-weight: 400;
-    }
-
-    .chcs {
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-    }
-
-    .chc {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--surface);
-      border: 1px solid var(--rule);
-      padding: 10px 14px;
-      border-radius: 3px;
-    }
-
-    .chc i {
-      font-size: 11px;
-      color: var(--muted2);
-      flex-shrink: 0;
-    }
-
-    .chcl {
-      font-size: 12px;
-      color: var(--ink);
-      flex: 1;
-      font-weight: 500;
-    }
-
-    .chcp {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--muted);
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    .chrg {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    /* ═══ INSIGHTS ═══ */
-    .igrid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: 1fr 1fr;
-      gap: 10px;
-      flex: 1;
-    }
-
-    .ic {
-      background: var(--surface);
-      border: 1px solid var(--rule);
-      border-top: 3px solid var(--blue-500);
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      position: relative;
-      overflow: hidden;
-      transition: box-shadow .2s, transform .2s;
-      border-radius: 0 0 4px 4px;
-    }
-
-    .ic:hover {
-      box-shadow: 0 4px 20px rgba(29, 95, 168, .12);
-      transform: translateY(-2px);
-    }
-
-    .i2 {
-      border-top-color: var(--blue-400);
-    }
-
-    .i3 {
-      border-top-color: var(--amber);
-    }
-
-    .i4 {
-      border-top-color: var(--red);
-    }
-
-    .i5 {
-      border-top-color: var(--green);
-    }
-
-    .i6 {
-      border-top-color: var(--blue-700);
-    }
-
-    .inum {
-      position: absolute;
-      top: 8px;
-      right: 14px;
-      font-size: 36px;
-      font-weight: 900;
-      opacity: .04;
-      color: var(--blue-700);
-      line-height: 1;
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    .iico {
-      font-size: 14px;
-      color: var(--blue-600);
-    }
-
-    .i2 .iico {
-      color: var(--blue-400);
-    }
-
-    .i3 .iico {
-      color: var(--amber);
-    }
-
-    .i4 .iico {
-      color: var(--red);
-    }
-
-    .i5 .iico {
-      color: var(--green);
-    }
-
-    .itit {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--ink);
-    }
-
-    .itxt {
-      font-size: 11.5px;
-      color: var(--muted);
-      line-height: 1.65;
-      flex: 1;
-      font-weight: 400;
-    }
-
-    .ipct {
-      font-size: 24px;
-      font-weight: 900;
-      margin-top: 4px;
-      font-family: 'Montserrat', sans-serif;
-      color: var(--blue-600);
-    }
-
-    .i2 .ipct {
-      color: var(--blue-400);
-    }
-
-    .i3 .ipct {
-      color: var(--amber);
-    }
-
-    .i4 .ipct {
-      color: var(--red);
-    }
-
-    .i5 .ipct {
-      color: var(--green);
-    }
-
-    .iplb {
-      font-size: 10px;
-      font-weight: 500;
-      color: var(--muted);
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    /* ═══ CARTILHA ═══ */
-    .cgrid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      flex: 1;
-    }
-
-    .cc {
-      background: var(--surface);
-      border: 1px solid var(--rule);
-      border-top: 3px solid var(--blue-500);
-      padding: 15px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      border-radius: 0 0 4px 4px;
-    }
-
-    .cico {
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      color: var(--blue-600);
-      background: var(--blue-50);
-      border-radius: 6px;
-    }
-
-    .cctit {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--ink);
-      letter-spacing: .1px;
-    }
-
-    .ccli {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .ccli li {
-      font-size: 11px;
-      color: var(--muted);
-      line-height: 1.55;
-      display: flex;
-      gap: 6px;
-      font-weight: 400;
-    }
-
-    .ccli li::before {
-      content: '›';
-      color: var(--blue-500);
-      flex-shrink: 0;
-      font-weight: 700;
-    }
-
-    /* ═══ 12 CONCLUSÃO ═══ */
+    /* ── CONCLUSÃO ── */
     .conc {
       background: var(--blue-900) !important;
     }
@@ -1227,7 +1200,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 40px 70px;
+      padding: 34px 70px;
     }
 
     .cey {
@@ -1241,18 +1214,16 @@
       font-weight: 600;
       letter-spacing: 1.8px;
       text-transform: uppercase;
-      margin-bottom: 16px;
-      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 13px;
       border-radius: 2px;
     }
 
     .cctit2 {
-      font-size: clamp(26px, 3.5vw, 50px);
+      font-size: clamp(23px, 3.5vw, 46px);
       font-weight: 900;
       color: #fff;
       line-height: 1.08;
-      margin-bottom: 24px;
-      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 20px;
       letter-spacing: -1px;
     }
 
@@ -1264,23 +1235,23 @@
     .cpil {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      gap: 12px;
       width: 100%;
-      margin-bottom: 22px;
+      margin-bottom: 18px;
     }
 
     .pil {
       background: rgba(255, 255, 255, .05);
       border: 1px solid rgba(255, 255, 255, .1);
       border-top: 2px solid var(--blue-400);
-      padding: 20px 16px;
+      padding: 17px 13px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       text-align: center;
       transition: background .25s;
-      border-radius: 0 0 4px 4px;
+      border-radius: 0 0 5px 5px;
     }
 
     .pil:hover {
@@ -1288,32 +1259,30 @@
     }
 
     .pico {
-      font-size: 18px;
+      font-size: 17px;
       color: var(--blue-300);
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
 
     .ptit {
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 700;
       color: rgba(255, 255, 255, .5);
       text-transform: uppercase;
       letter-spacing: 1px;
-      font-family: 'Montserrat', sans-serif;
     }
 
     .ptxt {
-      font-size: 12px;
+      font-size: 11.5px;
       color: rgba(255, 255, 255, .4);
       line-height: 1.6;
       font-weight: 400;
     }
 
     .pfig {
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 900;
       color: #fff;
-      font-family: 'Montserrat', sans-serif;
     }
 
     .cfin {
@@ -1324,14 +1293,14 @@
     .cfr {
       height: 1px;
       background: rgba(255, 255, 255, .1);
-      margin-bottom: 16px;
+      margin-bottom: 13px;
     }
 
     .cftx {
-      font-size: 13px;
+      font-size: 12.5px;
       color: rgba(255, 255, 255, .5);
       line-height: 1.8;
-      margin-bottom: 14px;
+      margin-bottom: 11px;
       font-weight: 400;
     }
 
@@ -1348,7 +1317,6 @@
       color: rgba(255, 255, 255, .25);
       border: 1px solid rgba(255, 255, 255, .1);
       padding: 5px 14px;
-      font-family: 'Montserrat', sans-serif;
       letter-spacing: .5px;
     }
 
@@ -1358,7 +1326,7 @@
 
     @media(max-width:1100px) {
       .inner {
-        padding: 16px 20px 12px;
+        padding: 12px 16px 10px;
       }
 
       .ogrid,
@@ -1379,6 +1347,31 @@
       }
 
       .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .igrid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width:700px) {
+
+      .crow,
+      .ul2,
+      .cl,
+      .chal,
+      .sl {
+        grid-template-columns: 1fr;
+      }
+
+      .krow,
+      .sirow,
+      .insight-strip {
+        flex-direction: column;
+      }
+
+      .cgrid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
@@ -1413,13 +1406,13 @@
 
   <div id="wrap">
 
-    <!-- 01 · CAPA -->
+    <!-- 01 CAPA -->
     <section class="slide act cov" id="s0">
       <div class="inner">
         <div class="eyebrow"><i class="fas fa-university"></i>&nbsp; Centro Universitário Paraíso · 2026</div>
-        <h1 class="ctit">Pesquisa em Gestão de<br /><em>Tecnologia da Informação</em></h1>
+        <h1 class="ctit">Pesquisa em Gestão de<br><em>Tecnologia da Informação</em></h1>
         <div class="crul"></div>
-        <p class="csub">Análise sobre governança, segurança, maturidade e adoção tecnológica nas organizações , 42 respondentes · Maio 2026</p>
+        <p class="csub">Análise sobre governança, segurança, maturidade e adoção tecnológica nas organizações — 42 respondentes · Maio 2026</p>
         <div class="cmet">
           <div class="cmi"><i class="fas fa-chalkboard-teacher"></i>
             <div>
@@ -1450,17 +1443,17 @@
       </div>
     </section>
 
-    <!-- 02 · INTEGRANTES -->
+    <!-- 02 INTEGRANTES -->
     <section class="slide blw team-slide" id="s1">
       <div class="inner">
         <div class="team-eyebrow"><i class="fas fa-users"></i>&nbsp; Equipe de Pesquisa</div>
         <h2 class="team-title">Nossos <em>Integrantes</em></h2>
-        <p class="team-sub">Grupo GTI , Tópicos Especiais em Sistemas de Informação · 2026</p>
+        <p class="team-sub">Grupo GTI — Tópicos Especiais em Sistemas de Informação · 2026</p>
         <div class="team-grid">
           <div class="team-card">
             <div class="avatar-ring">
               <div class="avatar-inner">
-                <img src="image/artur.png" alt="Artur Facundo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                <img src="image/artur.png" alt="Artur Facundo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                 <span class="avatar-initials" style="display:none">AF</span>
               </div>
             </div>
@@ -1473,7 +1466,7 @@
           <div class="team-card">
             <div class="avatar-ring">
               <div class="avatar-inner">
-                <img src="image/Perfil Theo.jpg" alt="Theo Natan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                <img src="image/Perfil Theo.jpg" alt="Theo Natan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                 <span class="avatar-initials" style="display:none">TN</span>
               </div>
             </div>
@@ -1486,7 +1479,7 @@
           <div class="team-card">
             <div class="avatar-ring">
               <div class="avatar-inner">
-                <img src="image/felipe.png" alt="Fhyllyppe de Souza" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                <img src="image/felipe.png" alt="Fhyllyppe de Souza" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                 <span class="avatar-initials" style="display:none">FS</span>
               </div>
             </div>
@@ -1499,7 +1492,7 @@
           <div class="team-card">
             <div class="avatar-ring">
               <div class="avatar-inner">
-                <img src="image/vitorio.png" alt="Vitório Edson" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                <img src="image/vitorio.png" alt="Vitório Edson" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                 <span class="avatar-initials" style="display:none">VE</span>
               </div>
             </div>
@@ -1513,7 +1506,7 @@
       </div>
     </section>
 
-    <!-- 03 · OBJETIVO -->
+    <!-- 03 OBJETIVO -->
     <section class="slide blw" id="s2">
       <div class="inner">
         <div class="hdr">
@@ -1535,7 +1528,7 @@
           <div class="oc">
             <div class="oico"><i class="fas fa-cloud"></i></div>
             <div class="otit">Computação em Nuvem</div>
-            <p class="odsc">Identificar o grau de adoção de serviços e infraestrutura em cloud computing nas organizações.</p>
+            <p class="odsc">Identificar o grau de adoção de serviços e infraestrutura em computação em nuvem nas organizações.</p>
           </div>
           <div class="oc">
             <div class="oico"><i class="fas fa-chart-line"></i></div>
@@ -1556,7 +1549,7 @@
       </div>
     </section>
 
-    <!-- 04 · PERFIL -->
+    <!-- 04 PERFIL -->
     <section class="slide blw" id="s3">
       <div class="inner">
         <div class="hdr">
@@ -1565,44 +1558,44 @@
         </div>
         <div class="krow">
           <div class="kc">
-            <div class="kn" data-v="42">0</div>
+            <div class="kn" data-v="42" data-dec="0">0</div>
             <div class="kl">Total de Respostas Válidas</div>
           </div>
           <div class="kc k-blue">
-            <div class="kn" data-v="52">0</div>
+            <div class="kn" data-v="52.4" data-dec="1">0</div>
             <div class="kl">% Área de Tecnologia · 22 de 42</div>
           </div>
           <div class="kc k-green">
-            <div class="kn" data-v="88">0</div>
+            <div class="kn" data-v="88.1" data-dec="1">0</div>
             <div class="kl">% Uso de TI Muito Alto · 37 de 42</div>
           </div>
         </div>
         <div class="crow" style="flex:1;">
           <div class="cb">
             <div class="cbt">Faixa Etária</div>
-            <div class="cw" style="min-height:130px;"><canvas id="c-age"></canvas></div>
+            <div class="cw" style="min-height:140px;"><canvas id="c-age"></canvas></div>
           </div>
           <div class="cb">
             <div class="cbt">Área de Atuação</div>
-            <div class="cw" style="min-height:130px;"><canvas id="c-area"></canvas></div>
+            <div class="cw" style="min-height:140px;"><canvas id="c-area"></canvas></div>
           </div>
           <div class="cb">
             <div class="cbt">Ocupação Profissional</div>
-            <div class="cw" style="min-height:130px;"><canvas id="c-ocup"></canvas></div>
+            <div class="cw" style="min-height:140px;"><canvas id="c-ocup"></canvas></div>
           </div>
         </div>
         <div class="insight-strip">
           <div class="insight-chip"><i class="fas fa-lightbulb"></i>
-            <div><strong>Maioria jovem (25 de 42 têm 18–25 anos)</strong> , perfil majoritariamente tecnológico, indicando alta familiaridade com ferramentas digitais.</div>
+            <div><strong>Maioria jovem (25 de 42 têm 18–25 anos)</strong> — perfil majoritariamente tecnológico, indicando alta familiaridade com ferramentas digitais.</div>
           </div>
           <div class="insight-chip gn"><i class="fas fa-chart-pie"></i>
-            <div><strong>52% atuam em Tecnologia</strong> , amostra qualificada que reflete percepções técnicas sobre a GTI organizacional.</div>
+            <div><strong>52,4% atuam em Tecnologia</strong> — amostra qualificada que reflete percepções técnicas sobre a GTI organizacional.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 05 · USO TI -->
+    <!-- 05 USO TI -->
     <section class="slide blw" id="s4">
       <div class="inner">
         <div class="hdr">
@@ -1625,19 +1618,19 @@
         </div>
         <div class="insight-strip">
           <div class="insight-chip"><i class="fas fa-fire"></i>
-            <div><strong>88% (37 de 42)</strong> utilizam tecnologia com frequência muito alta , TI é considerada crítica e essencial no cotidiano organizacional.</div>
+            <div><strong>88,1% (37 de 42)</strong> utilizam tecnologia com frequência muito alta — TI é considerada crítica e essencial no cotidiano organizacional.</div>
           </div>
           <div class="insight-chip gn"><i class="fas fa-building"></i>
-            <div><strong>71% possuem setor de TI formal</strong> (30/42), mas apenas <strong>52% dizem que as ferramentas atendem totalmente</strong> , gap de eficiência a ser endereçado.</div>
+            <div><strong>71,4% possuem setor de TI formal</strong> (30/42), mas apenas <strong>52,4% dizem que as ferramentas atendem totalmente</strong> — gap de eficiência a ser endereçado.</div>
           </div>
           <div class="insight-chip am"><i class="fas fa-exclamation"></i>
-            <div><strong>19 de 42 respondentes (45%)</strong> afirmam que as ferramentas atendem apenas parcialmente , oportunidade clara de melhoria e investimento tecnológico.</div>
+            <div><strong>45,2% (19/42)</strong> afirmam que as ferramentas atendem apenas parcialmente — oportunidade clara de melhoria e investimento tecnológico.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 06 · SEGURANÇA -->
+    <!-- 06 SEGURANÇA -->
     <section class="slide blw" id="s5">
       <div class="inner">
         <div class="hdr">
@@ -1668,102 +1661,102 @@
         </div>
         <div class="sirow">
           <div class="sic">
-            <div class="siv">90%</div>
+            <div class="siv">90,5%</div>
             <div class="sid">Alta ou moderada preocupação (38/42)</div>
           </div>
           <div class="sic">
-            <div class="siv">50%</div>
+            <div class="siv">50,0%</div>
             <div class="sid">Aplicam boas práticas sempre (21/42)</div>
           </div>
           <div class="sic">
-            <div class="siv">69%</div>
+            <div class="siv">69,0%</div>
             <div class="sid">Possuem políticas formais (29/42)</div>
           </div>
           <div class="sic" style="border-top-color:var(--red);">
-            <div class="siv" style="color:var(--red);">21%</div>
+            <div class="siv" style="color:var(--red);">21,4%</div>
             <div class="sid">Sem políticas formais (9/42)</div>
           </div>
         </div>
-        <div class="insight-strip" style="margin-top:8px;">
+        <div class="insight-strip" style="margin-top:7px;">
           <div class="insight-chip rd"><i class="fas fa-exclamation-triangle"></i>
-            <div><strong>Gap crítico:</strong> 90% se preocupam com segurança, mas <strong>50% ainda não aplicam boas práticas regularmente</strong> , conscientização não se converte em ação.</div>
+            <div><strong>Gap crítico:</strong> 90,5% se preocupam com segurança, mas <strong>50% ainda não aplicam boas práticas regularmente</strong> — conscientização não se converte em ação.</div>
           </div>
           <div class="insight-chip"><i class="fas fa-shield-alt"></i>
-            <div><strong>21% das organizações (9/42)</strong> ainda operam sem políticas formais de segurança , risco elevado de incidentes e violações de dados.</div>
+            <div><strong>21,4% das organizações (9/42)</strong> ainda operam sem políticas formais de segurança — risco elevado de incidentes e violações de dados.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 07 · NUVEM -->
+    <!-- 07 NUVEM -->
     <section class="slide blw" id="s6">
       <div class="inner">
         <div class="hdr">
-          <div class="tag">Cloud Computing</div>
-          <h2 class="htit">Adoção de nuvem na <span class="hl">rotina digital</span></h2>
+          <div class="tag">Computação em Nuvem</div>
+          <h2 class="htit">Adoção de <span class="hl">Computação em Nuvem</span> na rotina digital</h2>
         </div>
         <div class="cl">
           <div class="cch">
             <div class="cb" style="flex:1;min-height:0;overflow:hidden;">
-              <div class="cbt">Uso Pessoal de Cloud</div>
-              <div class="cw" style="height:140px;"><canvas id="c-cp"></canvas></div>
+              <div class="cbt">Uso Pessoal de Computação em Nuvem</div>
+              <div class="cw" style="height:135px;"><canvas id="c-cp"></canvas></div>
             </div>
             <div class="cb" style="flex:1;min-height:0;overflow:hidden;">
-              <div class="cbt">Cloud nas Organizações</div>
-              <div class="cw" style="height:140px;"><canvas id="c-co"></canvas></div>
+              <div class="cbt">Computação em Nuvem nas Organizações</div>
+              <div class="cw" style="height:135px;"><canvas id="c-co"></canvas></div>
             </div>
           </div>
           <div class="crgh">
-            <div class="svct">Principais serviços em nuvem utilizados</div>
+            <div class="svct">Principais serviços de computação em nuvem utilizados</div>
             <div class="sbs">
               <div class="sb">
-                <div class="sbh"><i class="fab fa-google" style="color:var(--muted2)"></i><span>Google Drive / Workspace</span><span class="sbp">92%</span></div>
+                <div class="sbh"><i class="fab fa-google" style="color:var(--muted2)"></i><span>Google Drive / Workspace</span><span class="sbp">92,9%</span></div>
                 <div class="sbtr">
-                  <div class="sbf" style="width:92%"></div>
+                  <div class="sbf" style="width:92.9%"></div>
                 </div>
               </div>
               <div class="sb">
-                <div class="sbh"><i class="fas fa-video" style="color:var(--muted2)"></i><span>Zoom / Google Meet</span><span class="sbp">78%</span></div>
+                <div class="sbh"><i class="fas fa-video" style="color:var(--muted2)"></i><span>Zoom / Google Meet</span><span class="sbp">78,6%</span></div>
                 <div class="sbtr">
-                  <div class="sbf" style="width:78%"></div>
+                  <div class="sbf" style="width:78.6%"></div>
                 </div>
               </div>
               <div class="sb">
-                <div class="sbh"><i class="fab fa-microsoft" style="color:var(--muted2)"></i><span>OneDrive / Microsoft 365</span><span class="sbp">61%</span></div>
+                <div class="sbh"><i class="fab fa-microsoft" style="color:var(--muted2)"></i><span>OneDrive / Microsoft 365</span><span class="sbp">61,9%</span></div>
                 <div class="sbtr">
-                  <div class="sbf" style="width:61%"></div>
+                  <div class="sbf" style="width:61.9%"></div>
                 </div>
               </div>
               <div class="sb">
-                <div class="sbh"><i class="fas fa-tasks" style="color:var(--muted2)"></i><span>Trello / Asana</span><span class="sbp">45%</span></div>
+                <div class="sbh"><i class="fas fa-tasks" style="color:var(--muted2)"></i><span>Trello / Asana</span><span class="sbp">45,2%</span></div>
                 <div class="sbtr">
-                  <div class="sbf" style="width:45%"></div>
+                  <div class="sbf" style="width:45.2%"></div>
                 </div>
               </div>
               <div class="sb">
-                <div class="sbh"><i class="fab fa-dropbox" style="color:var(--muted2)"></i><span>Dropbox</span><span class="sbp">33%</span></div>
+                <div class="sbh"><i class="fab fa-dropbox" style="color:var(--muted2)"></i><span>Dropbox</span><span class="sbp">33,3%</span></div>
                 <div class="sbtr">
-                  <div class="sbf" style="width:33%"></div>
+                  <div class="sbf" style="width:33.3%"></div>
                 </div>
               </div>
             </div>
-            <div class="insight-chip" style="margin-top:8px;"><i class="fas fa-cloud-upload-alt"></i>
-              <div><strong>79% (33/42)</strong> usam cloud pessoalmente. <strong>62% (26/42)</strong> das organizações já operam em nuvem , adoção consolidada, mas gestão de dados exige política clara.</div>
+            <div class="insight-chip" style="margin-top:7px;"><i class="fas fa-cloud-upload-alt"></i>
+              <div><strong>78,6% (33/42)</strong> usam computação em nuvem pessoalmente. <strong>61,9% (26/42)</strong> das organizações já operam em nuvem — adoção consolidada, mas a gestão exige política clara.</div>
             </div>
           </div>
         </div>
         <div class="insight-strip">
           <div class="insight-chip am"><i class="fas fa-info-circle"></i>
-            <div><strong>26% não sabem se a organização usa cloud</strong> (11/42) , ausência de comunicação interna sobre infraestrutura tecnológica é preocupante.</div>
+            <div><strong>26,2% não sabem se a organização usa computação em nuvem</strong> (11/42) — ausência de comunicação interna sobre infraestrutura tecnológica.</div>
           </div>
           <div class="insight-chip rd"><i class="fas fa-lock"></i>
-            <div><strong>Google Drive domina (92%)</strong>, mas sem política formal de nuvem, dados sensíveis podem estar em risco em contas pessoais não gerenciadas.</div>
+            <div><strong>Google Drive domina (92,9%)</strong>, mas sem política formal de computação em nuvem, dados sensíveis podem estar em risco em contas pessoais.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 08 · GOVERNANÇA -->
+    <!-- 08 GOVERNANÇA -->
     <section class="slide blw" id="s7">
       <div class="inner">
         <div class="hdr">
@@ -1777,7 +1770,7 @@
               <div class="cw" style="min-height:160px;"><canvas id="c-gov"></canvas></div>
             </div>
           </div>
-          <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;flex-direction:column;gap:11px;">
             <div class="cb">
               <div class="cbt">Planejamento Estratégico</div>
               <div class="cw cws"><canvas id="c-plan"></canvas></div>
@@ -1791,33 +1784,33 @@
             <div class="gpt">Índices de Maturidade por Dimensão</div>
             <div class="gpbs">
               <div class="gpi">
-                <div class="gph"><span>Plano estratégico formal (14/42)</span><span>33%</span></div>
+                <div class="gph"><span>Plano estratégico formal (14/42)</span><span>33,3%</span></div>
                 <div class="gpk">
-                  <div class="gpf" style="width:33%"></div>
+                  <div class="gpf" style="width:33.3%"></div>
                 </div>
               </div>
               <div class="gpi">
-                <div class="gph"><span>Políticas de segurança formais (29/42)</span><span>69%</span></div>
+                <div class="gph"><span>Políticas de segurança formais (29/42)</span><span>69,0%</span></div>
                 <div class="gpk">
                   <div class="gpf" style="width:69%"></div>
                 </div>
               </div>
               <div class="gpi">
-                <div class="gph"><span>Uso pessoal de cloud (33/42)</span><span>79%</span></div>
+                <div class="gph"><span>Uso pessoal de nuvem (33/42)</span><span>78,6%</span></div>
                 <div class="gpk">
-                  <div class="gpf" style="width:79%"></div>
+                  <div class="gpf" style="width:78.6%"></div>
                 </div>
               </div>
               <div class="gpi">
-                <div class="gph"><span>Gestão de TI de qualidade (18/42)</span><span>43%</span></div>
+                <div class="gph"><span>Gestão de TI de qualidade (18/42)</span><span>42,9%</span></div>
                 <div class="gpk">
-                  <div class="gpf" style="width:43%"></div>
+                  <div class="gpf" style="width:42.9%"></div>
                 </div>
               </div>
               <div class="gpi">
-                <div class="gph"><span>Setor de TI formal (30/42)</span><span>71%</span></div>
+                <div class="gph"><span>Setor de TI formal (30/42)</span><span>71,4%</span></div>
                 <div class="gpk">
-                  <div class="gpf" style="width:71%"></div>
+                  <div class="gpf" style="width:71.4%"></div>
                 </div>
               </div>
             </div>
@@ -1825,16 +1818,16 @@
         </div>
         <div class="insight-strip">
           <div class="insight-chip rd"><i class="fas fa-exclamation-triangle"></i>
-            <div><strong>Apenas 33% (14/42)</strong> possuem plano estratégico formal de TI , a maioria opera de forma reativa, sem alinhamento com objetivos organizacionais.</div>
+            <div><strong>Apenas 33,3% (14/42)</strong> possuem plano estratégico formal de TI — a maioria opera de forma reativa, sem alinhamento com objetivos organizacionais.</div>
           </div>
           <div class="insight-chip am"><i class="fas fa-chart-line"></i>
-            <div><strong>43% consideram a gestão "mais ou menos" eficaz</strong> (22/42) , oportunidade de evolução com frameworks como ITIL e COBIT.</div>
+            <div><strong>52,4% consideram a gestão "mais ou menos" eficaz</strong> (22/42) — oportunidade de evolução com frameworks como ITIL e COBIT.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 09 · DESAFIOS -->
+    <!-- 09 DESAFIOS -->
     <section class="slide blw" id="s8">
       <div class="inner">
         <div class="hdr">
@@ -1842,10 +1835,10 @@
           <h2 class="htit">Problemas <span class="hl">identificados pelos respondentes</span></h2>
         </div>
         <div class="chal">
-          <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;flex-direction:column;gap:9px;">
             <div class="cb" style="flex:1;display:flex;flex-direction:column;">
               <div class="cbt">Frequência dos desafios relatados (42 respostas)</div>
-              <div class="cw" style="min-height:200px;"><canvas id="c-cha"></canvas></div>
+              <div class="cw" style="min-height:195px;"><canvas id="c-cha"></canvas></div>
             </div>
           </div>
           <div class="chrg">
@@ -1854,46 +1847,46 @@
               <div>
                 <div class="chlb">Principal desafio identificado</div>
                 <div class="chtit">Falta de Investimento em TI</div>
-                <div class="chpct">29% <span style="font-size:13px;font-weight:400;color:var(--muted)">(12 de 42)</span></div>
+                <div class="chpct">28,6% <span style="font-size:13px;font-weight:400;color:var(--muted)">(12 de 42)</span></div>
                 <div class="chds">Escassez de recursos é o maior obstáculo para a evolução digital nas organizações.</div>
               </div>
             </div>
             <div class="chcs">
               <div class="chc"><i class="fas fa-lock"></i>
                 <div class="chcl">Falta de Segurança / Proteção de Dados</div>
-                <div class="chcp">21% (9)</div>
+                <div class="chcp">21,4% (9)</div>
               </div>
               <div class="chc"><i class="fas fa-ellipsis-h"></i>
                 <div class="chcl">Outros desafios não categorizados</div>
-                <div class="chcp">19% (8)</div>
+                <div class="chcp">19,0% (8)</div>
               </div>
               <div class="chc"><i class="fas fa-laptop"></i>
                 <div class="chcl">Sistemas / Softwares Ruins ou Lentos</div>
-                <div class="chcp">14% (6)</div>
+                <div class="chcp">14,3% (6)</div>
               </div>
               <div class="chc"><i class="fas fa-graduation-cap"></i>
                 <div class="chcl">Falta de Treinamento dos Usuários</div>
-                <div class="chcp">14% (6)</div>
+                <div class="chcp">14,3% (6)</div>
               </div>
               <div class="chc"><i class="fas fa-headset"></i>
                 <div class="chcl">Qualidade do Suporte Técnico</div>
-                <div class="chcp">2% (1)</div>
+                <div class="chcp">2,4% (1)</div>
               </div>
             </div>
           </div>
         </div>
         <div class="insight-strip">
           <div class="insight-chip am"><i class="fas fa-coins"></i>
-            <div><strong>Investimento (29%) e Segurança (21%) somam 50% dos desafios</strong> , são as alavancas prioritárias para elevar a maturidade da GTI nas organizações.</div>
+            <div><strong>Investimento (28,6%) e Segurança (21,4%) somam 50% dos desafios</strong> — são as alavancas prioritárias para elevar a maturidade da GTI nas organizações.</div>
           </div>
           <div class="insight-chip"><i class="fas fa-graduation-cap"></i>
-            <div><strong>Falta de treinamento e sistemas lentos empatam (14% cada)</strong> , evidenciam que a TI precisa ser tratada como habilitador estratégico, não custo operacional.</div>
+            <div><strong>Falta de treinamento e sistemas lentos empatam (14,3% cada)</strong> — evidenciam que a TI precisa ser tratada como habilitador estratégico, não custo operacional.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 10 · INSIGHTS -->
+    <!-- 10 INSIGHTS -->
     <section class="slide blw" id="s9">
       <div class="inner">
         <div class="hdr">
@@ -1906,49 +1899,49 @@
             <div class="inum">01</div>
             <div class="iico"><i class="fas fa-shield-alt"></i></div>
             <div class="itit">Alta consciência, baixa ação</div>
-            <div class="itxt">90% demonstram preocupação alta ou moderada com segurança, mas apenas 50% aplicam boas práticas consistentemente , brecha crítica de comportamento.</div>
-            <div class="ipct"><span class="cnt" data-v="90">0</span>%<span class="iplb"> alta/mod. preocupação</span></div>
+            <div class="itxt">90,5% demonstram preocupação alta ou moderada com segurança, mas apenas 50% aplicam boas práticas consistentemente — brecha crítica de comportamento.</div>
+            <div class="ipct"><span class="cnt" data-v="90.5" data-dec="1">0</span>%<span class="iplb"> alta/mod. preocupação</span></div>
           </div>
           <div class="ic i2">
             <div class="inum">02</div>
             <div class="iico"><i class="fas fa-cloud"></i></div>
-            <div class="itit">Cloud amplamente adotado</div>
-            <div class="itxt">79% usam cloud pessoalmente (33/42) e 62% das organizações já operam em nuvem , adoção consolidada que exige governança de dados.</div>
-            <div class="ipct"><span class="cnt" data-v="79">0</span>%<span class="iplb"> usam cloud pessoalmente</span></div>
+            <div class="itit">Computação em Nuvem amplamente adotada</div>
+            <div class="itxt">78,6% usam computação em nuvem pessoalmente (33/42) e 61,9% das organizações já operam em nuvem — adoção consolidada que exige governança de dados.</div>
+            <div class="ipct"><span class="cnt" data-v="78.6" data-dec="1">0</span>%<span class="iplb"> usam nuvem pessoalmente</span></div>
           </div>
           <div class="ic i3">
             <div class="inum">03</div>
             <div class="iico"><i class="fas fa-coins"></i></div>
             <div class="itit">Demanda urgente por investimento</div>
-            <div class="itxt">93% (39/42) acreditam que deveria haver mais investimento em TI , é o maior habilitador estratégico de competitividade e resiliência.</div>
-            <div class="ipct"><span class="cnt" data-v="93">0</span>%<span class="iplb"> pedem mais investimento</span></div>
+            <div class="itxt">92,9% (39/42) acreditam que deveria haver mais investimento em TI — é o maior habilitador estratégico de competitividade e resiliência.</div>
+            <div class="ipct"><span class="cnt" data-v="92.9" data-dec="1">0</span>%<span class="iplb"> pedem mais investimento</span></div>
           </div>
           <div class="ic i4">
             <div class="inum">04</div>
             <div class="iico"><i class="fas fa-sitemap"></i></div>
             <div class="itit">Governança ainda em formação</div>
-            <div class="itxt">Somente 33% possuem plano estratégico formal (14/42). 43% operam de forma parcial e 7% são completamente reativos.</div>
-            <div class="ipct"><span class="cnt" data-v="33">0</span>%<span class="iplb"> com plano estratégico formal</span></div>
+            <div class="itxt">Somente 33,3% possuem plano estratégico formal (14/42). 42,9% operam de forma parcial e 7,1% são completamente reativos.</div>
+            <div class="ipct"><span class="cnt" data-v="33.3" data-dec="1">0</span>%<span class="iplb"> com plano estratégico formal</span></div>
           </div>
           <div class="ic i5">
             <div class="inum">05</div>
             <div class="iico"><i class="fas fa-key"></i></div>
             <div class="itit">Capacitação como prioridade</div>
-            <div class="itxt">50% aplicam boas práticas sempre (21/42). 38% somente às vezes. Treinamento contínuo é o caminho para elevar esse índice com impacto real.</div>
-            <div class="ipct"><span class="cnt" data-v="50">0</span>%<span class="iplb"> seguem boas práticas sempre</span></div>
+            <div class="itxt">50% aplicam boas práticas sempre (21/42). 38,1% somente às vezes. Treinamento contínuo é o caminho para elevar esse índice com impacto real.</div>
+            <div class="ipct"><span class="cnt" data-v="50" data-dec="0">0</span>%<span class="iplb"> seguem boas práticas sempre</span></div>
           </div>
           <div class="ic i6">
             <div class="inum">06</div>
             <div class="iico"><i class="fas fa-smile"></i></div>
             <div class="itit">Satisfação moderada com TI</div>
-            <div class="itxt">71% satisfeitos (30/42) e 19% muito satisfeitos (8/42). Apenas 10% manifestam insatisfação , há espaço para excelência.</div>
-            <div class="ipct"><span class="cnt" data-v="71">0</span>%<span class="iplb"> satisfeitos com serviços de TI</span></div>
+            <div class="itxt">71,4% satisfeitos (30/42) e 19,0% muito satisfeitos (8/42). Apenas 9,5% manifestam insatisfação — há espaço para excelência.</div>
+            <div class="ipct"><span class="cnt" data-v="71.4" data-dec="1">0</span>%<span class="iplb"> satisfeitos com serviços de TI</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 11 · CARTILHA -->
+    <!-- 11 CARTILHA -->
     <section class="slide blw" id="s10">
       <div class="inner">
         <div class="hdr">
@@ -2001,9 +1994,9 @@
             <div class="cico"><i class="fas fa-cloud"></i></div>
             <div class="cctit">Computação em Nuvem</div>
             <ul class="ccli">
-              <li>Avaliar migração para cloud (SaaS/IaaS/PaaS)</li>
-              <li>Definir política de cloud pública/privada</li>
-              <li>Gerenciar SLAs com provedores</li>
+              <li>Avaliar migração para nuvem (SaaS/IaaS/PaaS)</li>
+              <li>Definir política de nuvem pública/privada</li>
+              <li>Gerenciar SLAs com provedores de nuvem</li>
               <li>Garantir segurança de dados na nuvem</li>
             </ul>
           </div>
@@ -2041,173 +2034,186 @@
       </div>
     </section>
 
-    <!-- 12 · CONCLUSÃO -->
+    <!-- 12 CONCLUSÃO -->
     <section class="slide blw conc" id="s11">
       <div class="inner">
         <div class="cey">Conclusão Final</div>
-        <h2 class="cctit2">A Gestão de TI precisa<br /><em>evoluir urgentemente</em></h2>
+        <h2 class="cctit2">A Gestão de TI precisa<br><em>evoluir urgentemente</em></h2>
         <div class="cpil">
           <div class="pil">
             <div class="pico"><i class="fas fa-sitemap"></i></div>
             <div class="ptit">Governança</div>
-            <div class="pfig">33%</div>
-            <p class="ptxt">com plano formal , estruturar processos é essencial para o alinhamento estratégico.</p>
+            <div class="pfig">33,3%</div>
+            <p class="ptxt">com plano formal — estruturar processos é essencial para o alinhamento estratégico.</p>
           </div>
           <div class="pil">
             <div class="pico"><i class="fas fa-shield-alt"></i></div>
             <div class="ptit">Segurança</div>
-            <div class="pfig">90%</div>
-            <p class="ptxt">preocupados, mas 21% sem políticas formais , cultura de segurança é urgente.</p>
+            <div class="pfig">90,5%</div>
+            <p class="ptxt">preocupados, mas 21,4% sem políticas formais — cultura de segurança é urgente.</p>
           </div>
           <div class="pil">
             <div class="pico"><i class="fas fa-coins"></i></div>
             <div class="ptit">Investimento</div>
-            <div class="pfig">93%</div>
-            <p class="ptxt">pedem mais recursos em TI , é um habilitador estratégico de competitividade.</p>
+            <div class="pfig">92,9%</div>
+            <p class="ptxt">pedem mais recursos em TI — é um habilitador estratégico de competitividade.</p>
           </div>
           <div class="pil">
             <div class="pico"><i class="fas fa-graduation-cap"></i></div>
             <div class="ptit">Capacitação</div>
-            <div class="pfig">50%</div>
-            <p class="ptxt">seguem boas práticas sempre , treinamento contínuo eleva esse índice.</p>
+            <div class="pfig">50,0%</div>
+            <p class="ptxt">seguem boas práticas sempre — treinamento contínuo eleva esse índice.</p>
           </div>
         </div>
         <div class="cfin">
           <div class="cfr"></div>
-          <p class="cftx">Esta pesquisa com <strong>42 respondentes</strong> demonstra que a TI é reconhecida como crítica, mas sua <strong>gestão estratégica ainda é incipiente</strong>. Com apenas 33% com plano formal e 93% demandando mais investimento, o caminho passa por <strong>governança estruturada, segurança integrada e desenvolvimento contínuo de pessoas e processos</strong>.</p>
+          <p class="cftx">Esta pesquisa com <strong>42 respondentes</strong> demonstra que a TI é reconhecida como crítica, mas sua <strong>gestão estratégica ainda é incipiente</strong>. Com apenas 33,3% com plano formal e 92,9% demandando mais investimento, o caminho passa por <strong>governança estruturada, segurança integrada e desenvolvimento contínuo de pessoas e processos</strong>.</p>
           <div class="cftg">OBRIGADO PELA ATENÇÃO!</div>
         </div>
       </div>
     </section>
 
-  </div>
+  </div><!-- #wrap -->
 
   <script>
     'use strict';
-    let cur = 0, TOT = 12, busy = false, ci = {};
 
-    /* ── Paleta Power BI ── */
-    const C = {
-      ink: '#0d1b3e',
-      ink2: '#1a2f5e',
-      ink3: '#1e4080',
-      s1: '#2575c4',
-      s2: '#7dbdee',
-      s3: '#b8d9f5',
-      s4: '#deeefa',
-      red: '#c0392b',
-      amber: '#d68910',
-      green: '#1a7a4a',
-      blue: '#2575c4',
-      teal: '#0e7490',
-      violet: '#6d28d9',
-      grid: 'rgba(0,0,0,.07)',
-      tk: '#4a6080'
-    };
+    /* ── STATE ── */
+    var cur = 0, TOT = 12, busy = false, ci = {};
 
-    /* Power BI color palettes */
-    const PBI_BLUE = ['#003087', '#0062b1', '#2575c4', '#4a9de0', '#7dbdee', '#b8d9f5'];
-    const PBI_MIX = ['#003087', '#c0392b', '#1a7a4a', '#d68910', '#0e7490', '#6d28d9'];
-    const PBI_WARM = ['#c0392b', '#d68910', '#1a7a4a', '#2575c4', '#6d28d9'];
+    /* ── PALETA ── */
+    var PBI_BLUE = ['#003087', '#0062b1', '#2575c4', '#4a9de0', '#7dbdee', '#b8d9f5'];
+    var TK = '#4a6080', GRID = 'rgba(0,0,0,.07)';
 
-    Chart.defaults.color = C.tk;
+    /* ── HELPERS ── */
+    function pctStr(val, total) {
+      var p = (parseFloat(val) / parseFloat(total)) * 100;
+      return p.toFixed(1).replace('.', ',') + '%';
+    }
+
+    /* ── CHART DEFAULTS ── */
+    Chart.defaults.color = TK;
     Chart.defaults.font.family = 'Montserrat';
     Chart.defaults.font.size = 12;
 
-    const D = {
+    var D = {
       responsive: true,
       maintainAspectRatio: false,
       animation: { duration: 800, easing: 'easeOutQuart' },
       plugins: {
         legend: {
           labels: {
-            color: C.tk,
+            color: TK,
             font: { family: 'Montserrat', size: 11, weight: '600' },
-            boxWidth: 12,
-            padding: 10,
-            usePointStyle: true,
-            pointStyle: 'rect'
+            boxWidth: 11, padding: 9,
+            usePointStyle: true, pointStyle: 'rect'
           }
         },
         tooltip: {
           backgroundColor: '#0d1b3e',
-          titleColor: '#fff',
-          bodyColor: '#b8d9f5',
-          borderColor: 'rgba(37,117,196,.4)',
-          borderWidth: 1,
-          padding: 12,
-          cornerRadius: 4,
+          titleColor: '#fff', bodyColor: '#b8d9f5',
+          borderColor: 'rgba(37,117,196,.4)', borderWidth: 1,
+          padding: 11, cornerRadius: 4,
           titleFont: { family: 'Montserrat', weight: '700', size: 12 },
           bodyFont: { family: 'Montserrat', size: 11 },
           callbacks: {
             label: function (ctx) {
-              const val = ctx.parsed.y !== undefined ? ctx.parsed.y : (ctx.parsed._custom !== undefined ? ctx.parsed._custom : ctx.parsed);
-              const total = ctx.dataset.data.reduce((a, b) => a + (typeof b === 'number' ? b : 0), 0);
-              const pct = total > 0 ? Math.round(val / total * 100) : 0;
-              return '  ' + (ctx.label || '') + ': ' + val + ' (' + pct + '%)';
+              var val = ctx.parsed.y !== undefined ? ctx.parsed.y : ctx.parsed;
+              var total = ctx.dataset.data.reduce(function (a, b) { return a + (typeof b === 'number' ? b : 0); }, 0);
+              var p = total > 0 ? ((val / total) * 100).toFixed(1).replace('.', ',') : '0,0';
+              return '  ' + (ctx.label || '') + ': ' + val + ' (' + p + '%)';
             }
           }
         }
       }
     };
 
-    /* Plugin de labels inline */
-    const dlPlugin = {
+    /* ── INLINE LABEL PLUGIN ── */
+    var dlPlugin = {
       id: 'dl',
-      afterDatasetsDraw(chart) {
-        const { ctx, data, chartArea } = chart;
+      afterDatasetsDraw: function (chart) {
+        var ctx = chart.ctx, data = chart.data, chartArea = chart.chartArea;
         if (!chartArea) return;
-        const type = chart.config.type;
-        if (['doughnut', 'pie'].includes(type)) {
-          const meta = chart.getDatasetMeta(0);
-          const total = data.datasets[0].data.reduce((a, b) => a + b, 0);
-          meta.data.forEach((arc, i) => {
-            const val = data.datasets[0].data[i];
-            const pct = Math.round(val / total * 100);
-            if (pct < 6) return;
-            const pos = arc.tooltipPosition();
+        var type = chart.config.type;
+
+        if (type === 'doughnut' || type === 'pie') {
+          var meta = chart.getDatasetMeta(0);
+          var total = data.datasets[0].data.reduce(function (a, b) { return a + b; }, 0);
+          meta.data.forEach(function (arc, i) {
+            var val = data.datasets[0].data[i];
+            var p = (val / total) * 100;
+            if (p < 5) return;
+            var pos = arc.tooltipPosition();
             ctx.save();
-            ctx.font = '700 11px Montserrat,sans-serif';
+            ctx.font = 'bold 12px Montserrat,sans-serif';
             ctx.fillStyle = '#fff';
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
-            ctx.fillText(pct + '%', pos.x, pos.y);
+            ctx.shadowColor = 'rgba(0,0,0,.35)';
+            ctx.shadowBlur = 3;
+            ctx.fillText(p.toFixed(1).replace('.', ',') + '%', pos.x, pos.y);
             ctx.restore();
           });
         }
+
         if (type === 'bar') {
-          const meta = chart.getDatasetMeta(0);
-          const isH = chart.options.indexAxis === 'y';
-          const dataset = data.datasets[0];
-          const total = dataset.data.reduce((a, b) => a + b, 0);
-          meta.data.forEach((bar, i) => {
-            const val = dataset.data[i];
-            const pct = Math.round(val / total * 100);
-            const { x, y, width, height, base } = bar;
-            ctx.save();
-            ctx.font = '700 11px Montserrat,sans-serif';
-            ctx.fillStyle = '#fff';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            if (isH) { const bw = x - base; if (bw > 40) ctx.fillText(pct + '%', base + bw / 2, y); }
-            else { const bh = base - y; if (bh > 26) ctx.fillText(pct + '%', x, y + bh / 2); }
-            ctx.restore();
+          chart.data.datasets.forEach(function (dataset, di) {
+            var meta = chart.getDatasetMeta(di);
+            var isH = chart.options.indexAxis === 'y';
+            var total = dataset.data.reduce(function (a, b) { return a + b; }, 0);
+            meta.data.forEach(function (bar, i) {
+              var val = dataset.data[i];
+              var p = total > 0 ? ((val / total) * 100).toFixed(1).replace('.', ',') : '0,0';
+              var x = bar.x, y = bar.y, base = bar.base;
+              ctx.save();
+              ctx.font = 'bold 11px Montserrat,sans-serif';
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'middle';
+              ctx.shadowColor = 'rgba(0,0,0,.3)';
+              ctx.shadowBlur = 2;
+              if (isH) {
+                var bw = x - base;
+                if (bw > 42) {
+                  ctx.fillStyle = '#fff';
+                  ctx.fillText(p + '%', base + bw / 2, y);
+                } else if (bw > 0) {
+                  ctx.shadowBlur = 0;
+                  ctx.fillStyle = TK;
+                  ctx.textAlign = 'left';
+                  ctx.fillText(p + '%', x + 4, y);
+                }
+              } else {
+                var bh = base - y;
+                if (bh > 22) {
+                  ctx.fillStyle = '#fff';
+                  ctx.fillText(p + '%', x, y + bh / 2);
+                } else if (bh > 0) {
+                  ctx.shadowBlur = 0;
+                  ctx.fillStyle = TK;
+                  ctx.fillText(p + '%', x, y - 7);
+                }
+              }
+              ctx.restore();
+            });
           });
         }
+
         if (type === 'polarArea') {
-          const meta = chart.getDatasetMeta(0);
-          const total = data.datasets[0].data.reduce((a, b) => a + b, 0);
-          meta.data.forEach((arc, i) => {
-            const val = data.datasets[0].data[i];
-            const pct = Math.round(val / total * 100);
-            if (pct < 4) return;
-            const pos = arc.tooltipPosition();
+          var metaP = chart.getDatasetMeta(0);
+          var totalP = data.datasets[0].data.reduce(function (a, b) { return a + b; }, 0);
+          metaP.data.forEach(function (arc, i) {
+            var val = data.datasets[0].data[i];
+            var p = (val / totalP) * 100;
+            if (p < 4) return;
+            var pos = arc.tooltipPosition();
             ctx.save();
-            ctx.font = '700 11px Montserrat,sans-serif';
+            ctx.font = 'bold 11px Montserrat,sans-serif';
             ctx.fillStyle = '#fff';
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
-            ctx.fillText(pct + '%', pos.x, pos.y);
+            ctx.shadowColor = 'rgba(0,0,0,.3)';
+            ctx.shadowBlur = 2;
+            ctx.fillText(p.toFixed(1).replace('.', ',') + '%', pos.x, pos.y);
             ctx.restore();
           });
         }
@@ -2215,436 +2221,310 @@
     };
     Chart.register(dlPlugin);
 
-    /* SLIDE ENGINE */
-    function go(idx, anim = true) {
+    /* ── SLIDE ENGINE ── */
+    function go(idx, anim) {
+      if (anim === undefined) anim = true;
       if (busy && anim) return;
       if (idx < 0 || idx >= TOT) return;
       if (idx === cur && anim) return;
       busy = true;
-      document.querySelectorAll('.slide').forEach((s, i) => {
+      var slides = document.querySelectorAll('.slide');
+      slides.forEach(function (s, i) {
         s.classList.remove('act', 'abv', 'blw');
         if (i === idx) s.classList.add('act');
         else if (i < idx) s.classList.add('abv');
         else s.classList.add('blw');
       });
-      cur = idx; sync();
-      setTimeout(() => { loadCharts(idx); animNums(idx); animPbars(idx); animSbars(idx); busy = false; }, anim ? 320 : 0);
+      cur = idx;
+      sync();
+      var delay = anim ? 320 : 0;
+      setTimeout(function () {
+        loadCharts(idx);
+        animNums(idx);
+        animPbars(idx);
+        animSbars(idx);
+        busy = false;
+      }, delay);
     }
+
     function sync() {
-      document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('on', i === cur));
+      document.querySelectorAll('.dot').forEach(function (d, i) {
+        d.classList.toggle('on', i === cur);
+      });
       document.getElementById('cn').textContent = String(cur + 1).padStart(2, '0');
       document.getElementById('progf').style.width = (cur / (TOT - 1) * 100) + '%';
     }
 
-    /* ANIMATIONS */
+    /* ── ANIMATIONS ── */
     function animNums(si) {
-      const sl = document.querySelector('#s' + si); if (!sl) return;
-      sl.querySelectorAll('[data-v]').forEach(el => { if (el.dataset.done) return; el.dataset.done = 1; countUp(el, 0, +el.dataset.v, 1100); });
-      sl.querySelectorAll('.cnt').forEach(el => { if (el.dataset.done) return; el.dataset.done = 1; countUp(el, 0, +el.dataset.v, 1200); });
-    }
-    function countUp(el, s, e, d) {
-      const t0 = performance.now();
-      (function f(n) { const p = Math.min((n - t0) / d, 1); el.textContent = Math.floor(s + (e - s) * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(f); else el.textContent = e; })(performance.now());
-    }
-    function animPbars(si) {
-      if (si !== 7) return;
-      setTimeout(() => document.querySelectorAll('.gpf').forEach(b => { const w = b.style.width; b.style.width = '0'; setTimeout(() => b.style.width = w, 80); }), 150);
-    }
-    function animSbars(si) {
-      if (si !== 6) return;
-      setTimeout(() => document.querySelectorAll('.sbf').forEach(b => { const w = b.style.width; b.style.width = '0'; setTimeout(() => b.style.width = w, 80); }), 150);
+      var sl = document.getElementById('s' + si);
+      if (!sl) return;
+      sl.querySelectorAll('[data-v]').forEach(function (el) {
+        if (el.dataset.done) return;
+        el.dataset.done = '1';
+        var end = parseFloat(el.dataset.v);
+        var dec = el.dataset.dec !== undefined ? parseInt(el.dataset.dec) : (Number.isInteger(end) ? 0 : 1);
+        countUp(el, 0, end, 1100, dec);
+      });
+      sl.querySelectorAll('.cnt').forEach(function (el) {
+        if (el.dataset.done) return;
+        el.dataset.done = '1';
+        var end = parseFloat(el.dataset.v);
+        var dec = el.dataset.dec !== undefined ? parseInt(el.dataset.dec) : (Number.isInteger(end) ? 0 : 1);
+        countUp(el, 0, end, 1200, dec);
+      });
     }
 
-    /* CHART LOADER */
+    function countUp(el, s, e, d, dec) {
+      if (dec === undefined) dec = 0;
+      var t0 = performance.now();
+      function f(now) {
+        var p = Math.min((now - t0) / d, 1);
+        var v = s + (e - s) * (1 - Math.pow(1 - p, 3));
+        var str = v.toFixed(dec).replace('.', ',');
+        el.textContent = str;
+        if (p < 1) requestAnimationFrame(f);
+        else el.textContent = e.toFixed(dec).replace('.', ',');
+      }
+      requestAnimationFrame(f);
+    }
+
+    function animPbars(si) {
+      if (si !== 7) return;
+      setTimeout(function () {
+        document.querySelectorAll('.gpf').forEach(function (b) {
+          var w = b.style.width; b.style.width = '0';
+          setTimeout(function () { b.style.width = w; }, 80);
+        });
+      }, 150);
+    }
+
+    function animSbars(si) {
+      if (si !== 6) return;
+      setTimeout(function () {
+        document.querySelectorAll('.sbf').forEach(function (b) {
+          var w = b.style.width; b.style.width = '0';
+          setTimeout(function () { b.style.width = w; }, 80);
+        });
+      }, 150);
+    }
+
+    /* ── CHART LOADER ── */
     function loadCharts(i) {
-      if (ci[i]) return; ci[i] = true;
-      const fns = { 3: chPerfil, 4: chUso, 5: chSeg, 6: chCloud, 7: chGov, 8: chDesafios };
+      if (ci[i]) return;
+      ci[i] = true;
+      var fns = { 3: chPerfil, 4: chUso, 5: chSeg, 6: chCloud, 7: chGov, 8: chDesafios };
       if (fns[i]) fns[i]();
     }
 
-    /* ═══ CHART FUNCTIONS , Power BI Style ═══ */
+    /* ── CHART OPTION BUILDERS ── */
+    function dOpts(cutout) {
+      return {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: D.animation,
+        cutout: cutout || '62%',
+        layout: { padding: 6 },
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: { color: TK, font: { family: 'Montserrat', size: 10, weight: '600' }, boxWidth: 10, padding: 7, usePointStyle: true, pointStyle: 'rect' }
+          },
+          tooltip: D.plugins.tooltip
+        }
+      };
+    }
+
+    function vBarOpts(extra) {
+      var opts = {
+        responsive: true, maintainAspectRatio: false, animation: D.animation,
+        plugins: { legend: { display: false }, tooltip: D.plugins.tooltip },
+        scales: {
+          x: { grid: { display: false }, ticks: { color: TK, font: { family: 'Montserrat', size: 11, weight: '600' } }, border: { display: false } },
+          y: { grid: { color: GRID }, ticks: { color: TK, font: { family: 'Montserrat', size: 11 } }, border: { display: false } }
+        }
+      };
+      if (extra && extra.scales) {
+        if (extra.scales.x) Object.assign(opts.scales.x, extra.scales.x);
+        if (extra.scales.y) Object.assign(opts.scales.y, extra.scales.y);
+      }
+      return opts;
+    }
+
+    function hBarOpts(extra) {
+      var opts = {
+        responsive: true, maintainAspectRatio: false, animation: D.animation,
+        indexAxis: 'y',
+        plugins: { legend: { display: false }, tooltip: D.plugins.tooltip },
+        scales: {
+          x: { grid: { color: GRID, drawBorder: false }, ticks: { color: TK, font: { family: 'Montserrat', size: 11, weight: '500' } }, border: { display: false } },
+          y: { grid: { display: false }, ticks: { color: TK, font: { family: 'Montserrat', size: 11, weight: '600' } }, border: { display: false } }
+        }
+      };
+      if (extra && extra.scales) {
+        if (extra.scales.x) Object.assign(opts.scales.x, extra.scales.x);
+        if (extra.scales.y) Object.assign(opts.scales.y, extra.scales.y);
+      }
+      return opts;
+    }
+
+    /* ── CHARTS ── */
     function chPerfil() {
-      /* Faixa Etária , Donut limpo */
       new Chart(document.getElementById('c-age'), {
         type: 'doughnut',
-        data: {
-          labels: ['18–25 anos (25)', '26–35 anos (6)', '36–50 anos (6)', '50+ anos (3)', '< 18 anos (2)'],
-          datasets: [{
-            data: [25, 6, 6, 3, 2],
-            backgroundColor: PBI_BLUE,
-            borderColor: '#ffffff',
-            borderWidth: 3,
-            hoverOffset: 6
-          }]
-        },
-        options: { ...D, cutout: '62%', plugins: { ...D.plugins, legend: { ...D.plugins.legend, position: 'bottom', labels: { ...D.plugins.legend.labels, font: { family: 'Montserrat', size: 10, weight: '500' } } } } }
+        data: { labels: ['18–25 anos (25)', '26–35 anos (6)', '36–50 anos (6)', '50+ anos (3)', '< 18 anos (2)'], datasets: [{ data: [25, 6, 6, 3, 2], backgroundColor: PBI_BLUE, borderColor: '#fff', borderWidth: 3, hoverOffset: 6 }] },
+        options: dOpts('62%')
       });
-
-      /* Área de Atuação , Barra horizontal Power BI */
       new Chart(document.getElementById('c-area'), {
         type: 'bar',
-        data: {
-          labels: ['Tecnologia', 'Outro', 'Saúde', 'Administração', 'Engenharia', 'Comércio', 'Educação'],
-          datasets: [{
-            data: [22, 5, 4, 4, 3, 3, 1],
-            backgroundColor: ['#003087', '#0062b1', '#2575c4', '#4a9de0', '#7dbdee', '#a8ccee', '#c8e0f4'],
-            borderRadius: 3,
-            borderSkipped: false,
-            barThickness: 14
-          }]
-        },
-        options: {
-          ...D,
-          indexAxis: 'y',
-          plugins: { ...D.plugins, legend: { display: false } },
-          scales: {
-            x: {
-              grid: { color: C.grid, drawBorder: false },
-              ticks: { color: C.tk, font: { family: 'Montserrat', size: 11, weight: '500' } },
-              border: { display: false }
-            },
-            y: {
-              grid: { display: false },
-              ticks: { color: C.tk, font: { family: 'Montserrat', size: 11, weight: '600' } },
-              border: { display: false }
-            }
-          }
-        }
+        data: { labels: ['Tecnologia', 'Outro', 'Saúde', 'Administração', 'Engenharia', 'Comércio', 'Educação'], datasets: [{ data: [22, 5, 4, 4, 3, 3, 1], backgroundColor: ['#003087', '#0062b1', '#2575c4', '#4a9de0', '#7dbdee', '#a8ccee', '#c8e0f4'], borderRadius: 3, borderSkipped: false, barThickness: 14 }] },
+        options: hBarOpts()
       });
-
-      /* Ocupação , Donut */
       new Chart(document.getElementById('c-ocup'), {
         type: 'doughnut',
-        data: {
-          labels: ['Profissional (18)', 'Estudante (15)', 'Empresário (5)', 'Autônomo (3)', 'Outro (1)'],
-          datasets: [{
-            data: [18, 15, 5, 3, 1],
-            backgroundColor: ['#003087', '#2575c4', '#1a7a4a', '#d68910', '#7dbdee'],
-            borderColor: '#ffffff',
-            borderWidth: 3,
-            hoverOffset: 6
-          }]
-        },
-        options: { ...D, cutout: '62%', plugins: { ...D.plugins, legend: { ...D.plugins.legend, position: 'bottom', labels: { ...D.plugins.legend.labels, font: { family: 'Montserrat', size: 10, weight: '500' } } } } }
+        data: { labels: ['Profissional (18)', 'Estudante (15)', 'Empresário (5)', 'Autônomo (3)', 'Outro (1)'], datasets: [{ data: [18, 15, 5, 3, 1], backgroundColor: ['#003087', '#2575c4', '#1a7a4a', '#d68910', '#7dbdee'], borderColor: '#fff', borderWidth: 3, hoverOffset: 6 }] },
+        options: dOpts('62%')
       });
     }
 
     function chUso() {
-      /* Frequência de Uso , Colunas com gradiente de cor */
       new Chart(document.getElementById('c-freq'), {
         type: 'bar',
-        data: {
-          labels: ['Muito Alta', 'Alta', 'Média', 'Baixa'],
-          datasets: [{
-            data: [37, 2, 2, 1],
-            backgroundColor: ['#003087', '#2575c4', '#7dbdee', '#b8d9f5'],
-            borderRadius: 4,
-            borderSkipped: false,
-            barThickness: 38
-          }]
-        },
-        options: {
-          ...D,
-          plugins: { ...D.plugins, legend: { display: false } },
-          scales: {
-            x: {
-              grid: { display: false },
-              ticks: { color: C.tk, font: { family: 'Montserrat', size: 12, weight: '600' } },
-              border: { display: false }
-            },
-            y: {
-              grid: { color: C.grid, drawBorder: false },
-              ticks: { color: C.tk, font: { family: 'Montserrat', size: 11 }, stepSize: 5 },
-              border: { display: false }
-            }
-          }
-        }
+        data: { labels: ['Muito Alta', 'Alta', 'Média', 'Baixa'], datasets: [{ data: [37, 2, 2, 1], backgroundColor: ['#003087', '#2575c4', '#7dbdee', '#b8d9f5'], borderRadius: 4, borderSkipped: false, barThickness: 38 }] },
+        options: vBarOpts({ scales: { y: { ticks: { stepSize: 5 } } } })
       });
-
-      /* Setor TI , Donut Power BI */
       new Chart(document.getElementById('c-setor'), {
         type: 'doughnut',
-        data: {
-          labels: ['Sim (30)', 'Não (10)', 'Não sei (2)'],
-          datasets: [{
-            data: [30, 10, 2],
-            backgroundColor: ['#003087', '#c0392b', '#7dbdee'],
-            borderColor: '#ffffff',
-            borderWidth: 3,
-            hoverOffset: 6
-          }]
-        },
-        options: { ...D, cutout: '60%', plugins: { ...D.plugins, legend: { ...D.plugins.legend, position: 'bottom', labels: { ...D.plugins.legend.labels, font: { family: 'Montserrat', size: 10, weight: '500' } } } } }
+        data: { labels: ['Sim (30)', 'Não (10)', 'Não sei (2)'], datasets: [{ data: [30, 10, 2], backgroundColor: ['#003087', '#c0392b', '#7dbdee'], borderColor: '#fff', borderWidth: 3, hoverOffset: 6 }] },
+        options: dOpts('60%')
       });
-
-      /* Ferramentas , Donut Power BI */
       new Chart(document.getElementById('c-ferr'), {
         type: 'doughnut',
-        data: {
-          labels: ['Totalmente (22)', 'Parcialmente (19)', 'Pouco (1)'],
-          datasets: [{
-            data: [22, 19, 1],
-            backgroundColor: ['#1a7a4a', '#d68910', '#c0392b'],
-            borderColor: '#ffffff',
-            borderWidth: 3,
-            hoverOffset: 6
-          }]
-        },
-        options: { ...D, cutout: '60%', plugins: { ...D.plugins, legend: { ...D.plugins.legend, position: 'bottom', labels: { ...D.plugins.legend.labels, font: { family: 'Montserrat', size: 10, weight: '500' } } } } }
+        data: { labels: ['Totalmente (22)', 'Parcialmente (19)', 'Pouco (1)'], datasets: [{ data: [22, 19, 1], backgroundColor: ['#1a7a4a', '#d68910', '#c0392b'], borderColor: '#fff', borderWidth: 3, hoverOffset: 6 }] },
+        options: dOpts('60%')
       });
     }
 
     function chSeg() {
-      /* Radar de Maturidade , estilo Power BI */
       new Chart(document.getElementById('c-radar'), {
         type: 'radar',
         data: {
-          labels: ['Preocupação\nc/ Seg.', 'Boas\nPráticas', 'Políticas\nFormais', 'Práticas\nConsistentes', 'Cloud\nPessoal', 'Setor TI\nFormal'],
+          labels: ['Preocupação\nc/ Seg.', 'Boas\nPráticas', 'Políticas\nFormais', 'Práticas\nConsistentes', 'Nuvem\nPessoal', 'Setor TI\nFormal'],
           datasets: [
-            {
-              label: 'Nível Atual (%)',
-              data: [90, 50, 69, 50, 79, 71],
-              backgroundColor: 'rgba(37,117,196,.15)',
-              borderColor: '#2575c4',
-              pointBackgroundColor: '#2575c4',
-              pointBorderColor: '#fff',
-              pointRadius: 5,
-              pointBorderWidth: 2,
-              borderWidth: 2
-            },
-            {
-              label: 'Meta Ideal (90%)',
-              data: [90, 90, 90, 90, 90, 90],
-              backgroundColor: 'rgba(26,122,74,.06)',
-              borderColor: 'rgba(26,122,74,.4)',
-              borderDash: [6, 4],
-              pointRadius: 0,
-              borderWidth: 1.5
-            }
+            { label: 'Nível Atual (%)', data: [90.5, 50, 69.0, 50, 78.6, 71.4], backgroundColor: 'rgba(37,117,196,.15)', borderColor: '#2575c4', pointBackgroundColor: '#2575c4', pointBorderColor: '#fff', pointRadius: 5, pointBorderWidth: 2, borderWidth: 2 },
+            { label: 'Meta Ideal (90%)', data: [90, 90, 90, 90, 90, 90], backgroundColor: 'rgba(26,122,74,.06)', borderColor: 'rgba(26,122,74,.4)', borderDash: [6, 4], pointRadius: 0, borderWidth: 1.5 }
           ]
         },
         options: {
-          ...D,
-          scales: {
-            r: {
-              grid: { color: 'rgba(0,0,0,.08)' },
-              angleLines: { color: 'rgba(0,0,0,.08)' },
-              pointLabels: { color: C.tk, font: { size: 10, family: 'Montserrat', weight: '600' } },
-              ticks: { display: false, backdropColor: 'transparent' },
-              min: 0, max: 100
-            }
-          }
+          responsive: true, maintainAspectRatio: false, animation: D.animation,
+          scales: { r: { grid: { color: 'rgba(0,0,0,.08)' }, angleLines: { color: 'rgba(0,0,0,.08)' }, pointLabels: { color: TK, font: { size: 10, family: 'Montserrat', weight: '600' } }, ticks: { display: false, backdropColor: 'transparent' }, min: 0, max: 100 } },
+          plugins: { legend: { position: 'bottom', labels: { color: TK, font: { family: 'Montserrat', size: 10, weight: '600' }, boxWidth: 10, padding: 7 } }, tooltip: D.plugins.tooltip }
         }
       });
-
-      /* Preocupação , barras coloridas */
       new Chart(document.getElementById('c-preoc'), {
         type: 'bar',
-        data: {
-          labels: ['Muito Alta', 'Moderada', 'Pouco'],
-          datasets: [{
-            data: [19, 19, 4],
-            backgroundColor: ['#c0392b', '#d68910', '#7dbdee'],
-            borderRadius: 4,
-            borderSkipped: false,
-            barThickness: 28
-          }]
-        },
-        options: {
-          ...D,
-          plugins: { ...D.plugins, legend: { display: false } },
-          scales: {
-            x: { grid: { display: false }, ticks: { color: C.tk, font: { family: 'Montserrat', size: 11, weight: '600' } }, border: { display: false } },
-            y: { grid: { color: C.grid }, ticks: { color: C.tk, font: { family: 'Montserrat', size: 11 } }, border: { display: false } }
-          }
-        }
+        data: { labels: ['Muito Alta', 'Moderada', 'Pouco'], datasets: [{ data: [19, 19, 4], backgroundColor: ['#c0392b', '#d68910', '#7dbdee'], borderRadius: 4, borderSkipped: false, barThickness: 28 }] },
+        options: vBarOpts()
       });
-
-      /* Boas Práticas , barras coloridas */
       new Chart(document.getElementById('c-prat'), {
         type: 'bar',
-        data: {
-          labels: ['Sempre', 'Às vezes', 'Raramente', 'Nunca'],
-          datasets: [{
-            data: [21, 16, 3, 2],
-            backgroundColor: ['#1a7a4a', '#2575c4', '#d68910', '#c0392b'],
-            borderRadius: 4,
-            borderSkipped: false,
-            barThickness: 22
-          }]
-        },
-        options: {
-          ...D,
-          plugins: { ...D.plugins, legend: { display: false } },
-          scales: {
-            x: { grid: { display: false }, ticks: { color: C.tk, font: { family: 'Montserrat', size: 10, weight: '600' } }, border: { display: false } },
-            y: { grid: { color: C.grid }, ticks: { color: C.tk, font: { family: 'Montserrat', size: 11 } }, border: { display: false } }
-          }
-        }
+        data: { labels: ['Sempre', 'Às vezes', 'Raramente', 'Nunca'], datasets: [{ data: [21, 16, 3, 2], backgroundColor: ['#1a7a4a', '#2575c4', '#d68910', '#c0392b'], borderRadius: 4, borderSkipped: false, barThickness: 22 }] },
+        options: vBarOpts({ scales: { x: { ticks: { font: { size: 10 } } } } })
       });
-
-      /* Políticas , Donut */
       new Chart(document.getElementById('c-pol'), {
         type: 'doughnut',
-        data: {
-          labels: ['Possui (29)', 'Não Possui (9)', 'Não Sabe (4)'],
-          datasets: [{
-            data: [29, 9, 4],
-            backgroundColor: ['#1a7a4a', '#c0392b', '#7dbdee'],
-            borderColor: '#ffffff',
-            borderWidth: 3,
-            hoverOffset: 6
-          }]
-        },
-        options: { ...D, cutout: '58%', plugins: { ...D.plugins, legend: { ...D.plugins.legend, position: 'bottom', labels: { ...D.plugins.legend.labels, font: { family: 'Montserrat', size: 10, weight: '500' } } } } }
+        data: { labels: ['Possui (29)', 'Não Possui (9)', 'Não Sabe (4)'], datasets: [{ data: [29, 9, 4], backgroundColor: ['#1a7a4a', '#c0392b', '#7dbdee'], borderColor: '#fff', borderWidth: 3, hoverOffset: 6 }] },
+        options: dOpts('58%')
       });
     }
 
     function chCloud() {
       new Chart(document.getElementById('c-cp'), {
         type: 'doughnut',
-        data: {
-          labels: ['Usa Cloud (33)', 'Não Usa (9)'],
-          datasets: [{
-            data: [33, 9],
-            backgroundColor: ['#003087', '#b8d9f5'],
-            borderColor: '#ffffff',
-            borderWidth: 3,
-            hoverOffset: 6
-          }]
-        },
-        options: { ...D, cutout: '64%', layout: { padding: { bottom: 4 } }, plugins: { ...D.plugins, legend: { ...D.plugins.legend, position: 'bottom', labels: { ...D.plugins.legend.labels, font: { family: 'Montserrat', size: 10, weight: '500' }, boxWidth: 10, padding: 6 } } } }
+        data: { labels: ['Usa Nuvem (33)', 'Não Usa (9)'], datasets: [{ data: [33, 9], backgroundColor: ['#003087', '#b8d9f5'], borderColor: '#fff', borderWidth: 3, hoverOffset: 6 }] },
+        options: dOpts('64%')
       });
-
       new Chart(document.getElementById('c-co'), {
         type: 'doughnut',
-        data: {
-          labels: ['Usa Cloud (26)', 'Não Sabe (11)', 'Não Usa (5)'],
-          datasets: [{
-            data: [26, 11, 5],
-            backgroundColor: ['#2575c4', '#d68910', '#c0392b'],
-            borderColor: '#ffffff',
-            borderWidth: 3,
-            hoverOffset: 6
-          }]
-        },
-        options: { ...D, cutout: '64%', layout: { padding: { bottom: 4 } }, plugins: { ...D.plugins, legend: { ...D.plugins.legend, position: 'bottom', labels: { ...D.plugins.legend.labels, font: { family: 'Montserrat', size: 10, weight: '500' }, boxWidth: 10, padding: 6 } } } }
+        data: { labels: ['Usa Nuvem (26)', 'Não Sabe (11)', 'Não Usa (5)'], datasets: [{ data: [26, 11, 5], backgroundColor: ['#2575c4', '#d68910', '#c0392b'], borderColor: '#fff', borderWidth: 3, hoverOffset: 6 }] },
+        options: dOpts('64%')
       });
     }
 
     function chGov() {
-      /* Polar Area , Power BI colors */
       new Chart(document.getElementById('c-gov'), {
         type: 'polarArea',
         data: {
-          labels: ['Parcialmente (18)', 'Sim , plano claro (14)', 'Não sei (7)', 'Não , reativo (3)'],
-          datasets: [{
-            data: [18, 14, 7, 3],
-            backgroundColor: ['rgba(37,117,196,.75)', 'rgba(26,122,74,.75)', 'rgba(214,137,16,.75)', 'rgba(192,57,43,.75)'],
-            borderColor: '#ffffff',
-            borderWidth: 2
-          }]
+          labels: ['Parcialmente (18)', 'Sim — plano claro (14)', 'Não sei (7)', 'Não — reativo (3)'],
+          datasets: [{ data: [18, 14, 7, 3], backgroundColor: ['rgba(37,117,196,.75)', 'rgba(26,122,74,.75)', 'rgba(214,137,16,.75)', 'rgba(192,57,43,.75)'], borderColor: '#fff', borderWidth: 2 }]
         },
         options: {
-          ...D,
+          responsive: true, maintainAspectRatio: false, animation: D.animation,
           scales: { r: { grid: { color: 'rgba(0,0,0,.07)' }, ticks: { display: false, backdropColor: 'transparent' } } },
-          plugins: { ...D.plugins, legend: { ...D.plugins.legend, position: 'bottom', labels: { ...D.plugins.legend.labels, font: { family: 'Montserrat', size: 10, weight: '500' } } } }
+          plugins: { legend: { position: 'bottom', labels: { color: TK, font: { family: 'Montserrat', size: 10, weight: '500' }, boxWidth: 10, padding: 7, usePointStyle: true, pointStyle: 'rect' } }, tooltip: D.plugins.tooltip }
         }
       });
-
       new Chart(document.getElementById('c-plan'), {
         type: 'doughnut',
-        data: {
-          labels: ['Parcialmente (18)', 'Sim (14)', 'Não sei (7)', 'Não , reativo (3)'],
-          datasets: [{
-            data: [18, 14, 7, 3],
-            backgroundColor: ['#2575c4', '#1a7a4a', '#d68910', '#c0392b'],
-            borderColor: '#ffffff',
-            borderWidth: 3,
-            hoverOffset: 5
-          }]
-        },
-        options: { ...D, cutout: '58%', plugins: { ...D.plugins, legend: { ...D.plugins.legend, position: 'bottom', labels: { ...D.plugins.legend.labels, font: { family: 'Montserrat', size: 10, weight: '500' } } } } }
+        data: { labels: ['Parcialmente (18)', 'Sim (14)', 'Não sei (7)', 'Não — reativo (3)'], datasets: [{ data: [18, 14, 7, 3], backgroundColor: ['#2575c4', '#1a7a4a', '#d68910', '#c0392b'], borderColor: '#fff', borderWidth: 3, hoverOffset: 5 }] },
+        options: dOpts('58%')
       });
-
-      /* Qualidade da Gestão , barras */
       new Chart(document.getElementById('c-qual'), {
         type: 'bar',
-        data: {
-          labels: ['Sim', 'Mais ou menos', 'Não'],
-          datasets: [{
-            data: [18, 22, 2],
-            backgroundColor: ['#1a7a4a', '#d68910', '#c0392b'],
-            borderRadius: 4,
-            borderSkipped: false,
-            barThickness: 30
-          }]
-        },
-        options: {
-          ...D,
-          plugins: { ...D.plugins, legend: { display: false } },
-          scales: {
-            x: { grid: { display: false }, ticks: { color: C.tk, font: { family: 'Montserrat', size: 11, weight: '600' } }, border: { display: false } },
-            y: { grid: { color: C.grid }, ticks: { color: C.tk, font: { family: 'Montserrat', size: 11 } }, border: { display: false } }
-          }
-        }
+        data: { labels: ['Sim', 'Mais ou menos', 'Não'], datasets: [{ data: [18, 22, 2], backgroundColor: ['#1a7a4a', '#d68910', '#c0392b'], borderRadius: 4, borderSkipped: false, barThickness: 32 }] },
+        options: vBarOpts()
       });
     }
 
     function chDesafios() {
-      /* Barras horizontais Power BI , gradiente de intensidade */
       new Chart(document.getElementById('c-cha'), {
         type: 'bar',
         data: {
           labels: ['Falta de Investimento', 'Falta de Segurança', 'Outros', 'Sistemas Ruins/Lentos', 'Falta de Treinamento', 'Suporte Técnico'],
-          datasets: [{
-            label: 'Nº de Respostas',
-            data: [12, 9, 8, 6, 6, 1],
-            backgroundColor: ['#003087', '#c0392b', '#2575c4', '#0e7490', '#d68910', '#7dbdee'],
-            borderRadius: 4,
-            borderSkipped: false,
-            barThickness: 22
-          }]
+          datasets: [{ label: 'Nº de Respostas', data: [12, 9, 8, 6, 6, 1], backgroundColor: ['#003087', '#c0392b', '#2575c4', '#0e7490', '#d68910', '#7dbdee'], borderRadius: 4, borderSkipped: false, barThickness: 22 }]
         },
-        options: {
-          ...D,
-          indexAxis: 'y',
-          plugins: { ...D.plugins, legend: { display: false } },
-          scales: {
-            x: {
-              grid: { color: C.grid, drawBorder: false },
-              ticks: { color: C.tk, font: { family: 'Montserrat', size: 11, weight: '500' }, stepSize: 2 },
-              max: 14,
-              border: { display: false }
-            },
-            y: {
-              grid: { display: false },
-              ticks: { color: C.tk, font: { family: 'Montserrat', size: 11, weight: '600' } },
-              border: { display: false }
-            }
-          }
-        }
+        options: hBarOpts({ scales: { x: { max: 14, ticks: { stepSize: 2 } } } })
       });
     }
 
-    /* INPUT */
-    let wt = null, ty = 0;
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.dot').forEach(d => d.addEventListener('click', () => go(+d.dataset.i)));
-      document.getElementById('aup').addEventListener('click', () => go(cur - 1));
-      document.getElementById('adn').addEventListener('click', () => go(cur + 1));
-      document.addEventListener('wheel', e => {
-        e.preventDefault();
-        if (wt || Math.abs(e.deltaY) < 10) return;
-        go(cur + (e.deltaY > 0 ? 1 : -1));
-        wt = setTimeout(() => wt = null, 800);
-      }, { passive: false });
-      document.addEventListener('keydown', e => {
-        if (['ArrowDown', 'ArrowRight', 'PageDown'].includes(e.key)) { e.preventDefault(); go(cur + 1); }
-        else if (['ArrowUp', 'ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); go(cur - 1); }
+    /* ── INPUT & NAVIGATION ── */
+    var wheelTimer = null, touchY = 0;
+
+    function initEvents() {
+      /* Dots */
+      document.querySelectorAll('.dot').forEach(function (d) {
+        d.addEventListener('click', function () { go(parseInt(d.dataset.i)); });
       });
-      document.addEventListener('touchstart', e => ty = e.touches[0].clientY, { passive: true });
-      document.addEventListener('touchend', e => { const d = ty - e.changedTouches[0].clientY; if (Math.abs(d) > 50) go(cur + (d > 0 ? 1 : -1)); }, { passive: true });
+
+      /* Arrow buttons */
+      document.getElementById('aup').addEventListener('click', function () { go(cur - 1); });
+      document.getElementById('adn').addEventListener('click', function () { go(cur + 1); });
+
+      /* Mouse wheel */
+      document.addEventListener('wheel', function (e) {
+        e.preventDefault();
+        if (wheelTimer || Math.abs(e.deltaY) < 10) return;
+        go(cur + (e.deltaY > 0 ? 1 : -1));
+        wheelTimer = setTimeout(function () { wheelTimer = null; }, 900);
+      }, { passive: false });
+
+      /* Keyboard */
+      document.addEventListener('keydown', function (e) {
+        if (['ArrowDown', 'ArrowRight', 'PageDown'].indexOf(e.key) !== -1) { e.preventDefault(); go(cur + 1); }
+        else if (['ArrowUp', 'ArrowLeft', 'PageUp'].indexOf(e.key) !== -1) { e.preventDefault(); go(cur - 1); }
+      });
+
+      /* Touch */
+      document.addEventListener('touchstart', function (e) { touchY = e.touches[0].clientY; }, { passive: true });
+      document.addEventListener('touchend', function (e) {
+        var diff = touchY - e.changedTouches[0].clientY;
+        if (Math.abs(diff) > 45) go(cur + (diff > 0 ? 1 : -1));
+      }, { passive: true });
+    }
+
+    /* ── INIT ── */
+    document.addEventListener('DOMContentLoaded', function () {
+      initEvents();
       go(0, false);
     });
   </script>
