@@ -32,7 +32,7 @@
       --red: #c0392b;
       --amber: #d68910;
       --green: #1a7a4a;
-      --dur: 480ms;
+      --dur: 480ms
     }
 
     *,
@@ -40,7 +40,7 @@
     *::after {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      box-sizing: border-box
     }
 
     html,
@@ -51,17 +51,17 @@
       background: var(--bg);
       color: var(--ink);
       font-family: 'Montserrat', sans-serif;
-      -webkit-font-smoothing: antialiased;
+      -webkit-font-smoothing: antialiased
     }
 
-    /* ── SLIDE ENGINE ── */
     #wrap {
       width: 100%;
       height: 100vh;
       overflow: hidden;
-      position: relative;
+      position: relative
     }
 
+    /* ── SLIDES ── */
     .slide {
       position: absolute;
       inset: 0;
@@ -71,28 +71,27 @@
       overflow: hidden;
       background: var(--bg);
       transition: transform var(--dur) cubic-bezier(.77, 0, .175, 1), opacity var(--dur) ease;
-      will-change: transform, opacity;
+      will-change: transform, opacity
     }
 
     .slide.act {
       transform: translateY(0);
       opacity: 1;
-      z-index: 2;
+      z-index: 2
     }
 
     .slide.abv {
       transform: translateY(-100vh);
       opacity: 0;
-      z-index: 1;
+      z-index: 1
     }
 
     .slide.blw {
       transform: translateY(100vh);
       opacity: 0;
-      z-index: 1;
+      z-index: 1
     }
 
-    /* ── INNER ── */
     .inner {
       width: 100%;
       max-width: 1400px;
@@ -101,9 +100,11 @@
       flex-direction: column;
       position: relative;
       z-index: 2;
+      height: 100%;
+      overflow: hidden
     }
 
-    /* ── PROGRESS ── */
+    /* ── PROGRESS / NAV ── */
     #prog {
       position: fixed;
       top: 0;
@@ -111,16 +112,15 @@
       right: 0;
       height: 3px;
       background: var(--rule);
-      z-index: 1000;
+      z-index: 1000
     }
 
     #progf {
       height: 100%;
       background: linear-gradient(90deg, var(--blue-600), var(--blue-400));
-      transition: width .4s ease;
+      transition: width .4s ease
     }
 
-    /* ── NAV DOTS ── */
     #nav {
       position: fixed;
       right: 18px;
@@ -130,7 +130,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 7px;
+      gap: 7px
     }
 
     .dot {
@@ -141,16 +141,16 @@
       border: none;
       cursor: pointer;
       transition: all .2s;
-      padding: 0;
+      padding: 0
     }
 
     .dot.on {
       background: var(--blue-500);
-      transform: scale(1.65);
+      transform: scale(1.65)
     }
 
     .dot:hover {
-      background: var(--blue-400);
+      background: var(--blue-400)
     }
 
     #cn {
@@ -158,15 +158,14 @@
       font-weight: 800;
       color: var(--blue-600);
       font-size: 11px;
-      letter-spacing: .5px;
+      letter-spacing: .5px
     }
 
     #tn {
       font-size: 10px;
-      color: var(--muted2);
+      color: var(--muted2)
     }
 
-    /* ── ARROWS ── */
     .arr {
       position: fixed;
       left: 50%;
@@ -184,24 +183,24 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2px 8px rgba(13, 27, 62, .1);
+      box-shadow: 0 2px 8px rgba(13, 27, 62, .1)
     }
 
     .arr:hover {
       color: var(--blue-600);
       border-color: var(--blue-500);
-      transform: translateX(-50%) scale(1.08);
+      transform: translateX(-50%) scale(1.08)
     }
 
     #aup {
-      top: 12px;
+      top: 12px
     }
 
     #adn {
-      bottom: 12px;
+      bottom: 12px
     }
 
-    /* ── SHARED COMPONENTS ── */
+    /* ── GENERIC COMPONENTS ── */
     .tag {
       display: inline-flex;
       align-items: center;
@@ -216,40 +215,43 @@
       text-transform: uppercase;
       width: fit-content;
       margin-bottom: 9px;
-      border-radius: 2px;
+      border-radius: 2px
     }
 
     .hdr {
-      margin-bottom: 13px;
-      padding-bottom: 11px;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
       border-bottom: 2px solid var(--blue-200);
+      flex-shrink: 0
     }
 
     .htit {
-      font-size: clamp(19px, 2.3vw, 31px);
+      font-size: clamp(17px, 2.1vw, 28px);
       font-weight: 800;
       color: var(--ink);
       line-height: 1.1;
-      margin-bottom: 4px;
-      letter-spacing: -.3px;
+      margin-bottom: 3px;
+      letter-spacing: -.3px
     }
 
     .htit .hl {
-      color: var(--blue-600);
+      color: var(--blue-600)
     }
 
     .hdsc {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--muted);
       max-width: 640px;
       line-height: 1.7;
-      font-weight: 400;
+      font-weight: 400
     }
 
+    /* KPI row */
     .krow {
       display: flex;
       gap: 11px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
+      flex-shrink: 0
     }
 
     .kc {
@@ -257,31 +259,31 @@
       background: var(--surface);
       border: 1px solid var(--rule);
       border-top: 3px solid var(--blue-500);
-      padding: 13px 15px;
+      padding: 11px 13px;
       display: flex;
       flex-direction: column;
       gap: 3px;
       border-radius: 0 0 5px 5px;
-      box-shadow: 0 2px 8px rgba(13, 27, 62, .06);
+      box-shadow: 0 2px 8px rgba(13, 27, 62, .06)
     }
 
     .kc.k-red {
-      border-top-color: var(--red);
+      border-top-color: var(--red)
     }
 
     .kc.k-green {
-      border-top-color: var(--green);
+      border-top-color: var(--green)
     }
 
     .kc.k-blue {
-      border-top-color: var(--blue-400);
+      border-top-color: var(--blue-400)
     }
 
     .kn {
-      font-size: clamp(24px, 2.9vw, 40px);
+      font-size: clamp(22px, 2.6vw, 36px);
       font-weight: 900;
       color: var(--blue-700);
-      line-height: 1;
+      line-height: 1
     }
 
     .kl {
@@ -289,18 +291,20 @@
       color: var(--muted);
       font-weight: 500;
       letter-spacing: .2px;
-      margin-top: 2px;
+      margin-top: 2px
     }
 
+    /* Chart box */
     .cb {
       background: var(--surface);
       border: 1px solid var(--rule);
-      padding: 13px 15px;
+      padding: 10px 13px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
       border-radius: 5px;
       box-shadow: 0 2px 8px rgba(13, 27, 62, .06);
+      min-height: 0;
+      overflow: hidden
     }
 
     .cbt {
@@ -310,31 +314,32 @@
       text-transform: uppercase;
       letter-spacing: 1.1px;
       border-bottom: 2px solid var(--blue-100);
-      padding-bottom: 7px;
+      padding-bottom: 6px;
+      margin-bottom: 6px;
+      flex-shrink: 0
     }
 
+    /* Canvas wrapper — key fix: explicit height so canvas doesn't collapse */
     .cw {
       flex: 1;
       position: relative;
       min-height: 0;
-      overflow: hidden;
+      overflow: hidden
     }
 
     .cw canvas {
+      position: absolute;
+      inset: 0;
       width: 100% !important;
-      height: 100% !important;
-      display: block;
+      height: 100% !important
     }
 
-    .cws {
-      max-height: 115px;
-      min-height: 88px;
-    }
-
+    /* Insight strip */
     .insight-strip {
       display: flex;
       gap: 9px;
       margin-top: 8px;
+      flex-shrink: 0
     }
 
     .insight-chip {
@@ -345,130 +350,58 @@
       background: var(--blue-50);
       border: 1px solid var(--blue-200);
       border-left: 4px solid var(--blue-500);
-      padding: 9px 13px;
+      padding: 8px 12px;
       font-size: 11px;
-      line-height: 1.65;
+      line-height: 1.6;
       color: var(--muted);
-      border-radius: 0 4px 4px 0;
+      border-radius: 0 4px 4px 0
     }
 
     .insight-chip i {
       font-size: 12px;
       color: var(--blue-500);
       flex-shrink: 0;
-      margin-top: 2px;
+      margin-top: 2px
     }
 
     .insight-chip strong {
       color: var(--ink);
-      font-weight: 700;
+      font-weight: 700
     }
 
     .insight-chip.rd {
       border-left-color: var(--red);
-      background: #fff5f5;
+      background: #fff5f5
     }
 
     .insight-chip.rd i {
-      color: var(--red);
+      color: var(--red)
     }
 
     .insight-chip.am {
       border-left-color: var(--amber);
-      background: #fffbf0;
+      background: #fffbf0
     }
 
     .insight-chip.am i {
-      color: var(--amber);
+      color: var(--amber)
     }
 
     .insight-chip.gn {
       border-left-color: var(--green);
-      background: #f0fff8;
+      background: #f0fff8
     }
 
     .insight-chip.gn i {
-      color: var(--green);
+      color: var(--green)
     }
 
-    .sbs {
+    /* Stat icon row */
+    .sirow {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .sb {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .sbh {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 11.5px;
-      color: var(--ink);
-    }
-
-    .sbp {
-      margin-left: auto;
-      font-size: 12.5px;
-      font-weight: 800;
-      color: var(--blue-600);
-    }
-
-    .sbtr {
-      height: 6px;
-      background: var(--rule2);
-      overflow: hidden;
-      border-radius: 3px;
-    }
-
-    .sbf {
-      height: 100%;
-      background: linear-gradient(90deg, var(--blue-600), var(--blue-400));
-      transition: width 1.2s ease;
-      border-radius: 3px;
-    }
-
-    .gpbs {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .gpi {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .gph {
-      display: flex;
-      justify-content: space-between;
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .gph span:last-child {
-      font-weight: 800;
-      color: var(--blue-600);
-    }
-
-    .gpk {
-      height: 6px;
-      background: var(--rule2);
-      overflow: hidden;
-      border-radius: 3px;
-    }
-
-    .gpf {
-      height: 100%;
-      width: 0;
-      transition: width 1.2s ease;
-      background: linear-gradient(90deg, var(--blue-700), var(--blue-400));
-      border-radius: 3px;
+      gap: 9px;
+      margin-top: 8px;
+      flex-shrink: 0
     }
 
     .sic {
@@ -476,88 +409,180 @@
       background: var(--surface);
       border: 1px solid var(--rule);
       border-top: 3px solid var(--blue-500);
-      padding: 11px;
+      padding: 10px;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 3px;
+      gap: 2px;
       border-radius: 0 0 5px 5px;
-      box-shadow: 0 2px 8px rgba(13, 27, 62, .06);
+      box-shadow: 0 2px 8px rgba(13, 27, 62, .06)
     }
 
     .siv {
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 900;
-      color: var(--blue-700);
+      color: var(--blue-700)
     }
 
     .sid {
-      font-size: 10.5px;
+      font-size: 10px;
       color: var(--muted);
-      font-weight: 500;
+      font-weight: 500
     }
 
-    /* ── LAYOUTS ── */
+    /* Skill bars */
+    .sbs {
+      display: flex;
+      flex-direction: column;
+      gap: 9px
+    }
+
+    .sb {
+      display: flex;
+      flex-direction: column;
+      gap: 3px
+    }
+
+    .sbh {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11px;
+      color: var(--ink)
+    }
+
+    .sbp {
+      margin-left: auto;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--blue-600)
+    }
+
+    .sbtr {
+      height: 5px;
+      background: var(--rule2);
+      overflow: hidden;
+      border-radius: 3px
+    }
+
+    .sbf {
+      height: 100%;
+      background: linear-gradient(90deg, var(--blue-600), var(--blue-400));
+      transition: width 1.2s ease;
+      border-radius: 3px
+    }
+
+    /* Governance progress bars */
+    .gpbs {
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .gpi {
+      display: flex;
+      flex-direction: column;
+      gap: 3px
+    }
+
+    .gph {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--muted)
+    }
+
+    .gph span:last-child {
+      font-weight: 800;
+      color: var(--blue-600)
+    }
+
+    .gpk {
+      height: 5px;
+      background: var(--rule2);
+      overflow: hidden;
+      border-radius: 3px
+    }
+
+    .gpf {
+      height: 100%;
+      width: 0;
+      transition: width 1.2s ease;
+      background: linear-gradient(90deg, var(--blue-700), var(--blue-400));
+      border-radius: 3px
+    }
+
+    /* ── SLIDE-SPECIFIC LAYOUTS ── */
+
+    /* Slide 03 — Perfil: 3 charts side by side */
     .crow {
       display: grid;
       grid-template-columns: 1fr 1.2fr 1fr;
       gap: 11px;
       flex: 1;
+      min-height: 0
     }
 
+    /* Slide 04 — Uso TI: large chart + 2 doughnuts */
     .ul2 {
       display: grid;
       grid-template-columns: 1.4fr 1fr 1fr;
       gap: 11px;
       flex: 1;
+      min-height: 0
     }
 
+    /* Slide 05 — Segurança: radar left, 3 charts right */
     .sl {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 11px;
+      flex: 1;
+      min-height: 0
+    }
+
+    .sl-left {
+      display: flex;
+      flex-direction: column;
+      min-height: 0
     }
 
     .sr {
       display: flex;
       flex-direction: column;
       gap: 9px;
+      min-height: 0
     }
 
-    .sirow {
-      display: flex;
-      gap: 9px;
-      margin-top: 9px;
-    }
-
+    /* Slide 06 — Nuvem */
     .cl {
       display: grid;
       grid-template-columns: 1fr 1.3fr;
       gap: 13px;
       flex: 1;
-      min-height: 0;
+      min-height: 0
     }
 
     .cch {
       display: flex;
       flex-direction: column;
-      gap: 11px;
-      min-height: 0;
-      overflow: hidden;
+      gap: 10px;
+      min-height: 0
     }
 
     .crgh {
       background: var(--surface);
       border: 1px solid var(--rule);
-      padding: 15px;
+      padding: 13px;
       display: flex;
       flex-direction: column;
-      gap: 9px;
+      gap: 8px;
       border-radius: 5px;
       box-shadow: 0 2px 8px rgba(13, 27, 62, .06);
       overflow: hidden;
       min-height: 0;
+      flex: 1
     }
 
     .svct {
@@ -565,26 +590,30 @@
       color: var(--muted2);
       text-transform: uppercase;
       letter-spacing: 1.1px;
-      margin-bottom: 2px;
-      font-weight: 600;
+      font-weight: 600
     }
 
+    /* Slide 07 — Governança */
     .gl {
       display: grid;
       grid-template-columns: 1.1fr 1fr 1fr;
       gap: 11px;
       flex: 1;
+      min-height: 0;
+      align-items: stretch
     }
 
     .gpc {
       background: var(--surface);
       border: 1px solid var(--rule);
-      padding: 15px;
+      padding: 13px;
       display: flex;
       flex-direction: column;
-      gap: 9px;
+      gap: 8px;
       border-radius: 5px;
       box-shadow: 0 2px 8px rgba(13, 27, 62, .06);
+      min-height: 0;
+      overflow: hidden
     }
 
     .gpt {
@@ -594,33 +623,36 @@
       letter-spacing: 1.1px;
       font-weight: 700;
       border-bottom: 2px solid var(--blue-100);
-      padding-bottom: 7px;
+      padding-bottom: 6px;
       margin-bottom: 3px;
+      flex-shrink: 0
     }
 
+    /* Slide 08 — Desafios */
     .chal {
       display: grid;
       grid-template-columns: 1.5fr 1fr;
-      gap: 15px;
+      gap: 13px;
       flex: 1;
+      min-height: 0
     }
 
     .chmn {
       background: var(--surface);
       border: 1px solid var(--rule);
       border-left: 3px solid var(--amber);
-      padding: 15px 17px;
+      padding: 13px 15px;
       display: flex;
-      gap: 13px;
+      gap: 12px;
       align-items: center;
       border-radius: 0 5px 5px 0;
-      box-shadow: 0 2px 8px rgba(13, 27, 62, .06);
+      box-shadow: 0 2px 8px rgba(13, 27, 62, .06)
     }
 
     .chico {
-      font-size: 19px;
+      font-size: 18px;
       color: var(--amber);
-      flex-shrink: 0;
+      flex-shrink: 0
     }
 
     .chlb {
@@ -628,303 +660,311 @@
       color: var(--muted2);
       text-transform: uppercase;
       letter-spacing: 1.1px;
-      font-weight: 600;
+      font-weight: 600
     }
 
     .chtit {
-      font-size: 14.5px;
+      font-size: 13.5px;
       font-weight: 700;
-      color: var(--ink);
+      color: var(--ink)
     }
 
     .chpct {
-      font-size: 27px;
+      font-size: 25px;
       font-weight: 800;
-      color: var(--amber);
+      color: var(--amber)
     }
 
     .chds {
-      font-size: 11.5px;
+      font-size: 11px;
       color: var(--muted);
       margin-top: 2px;
-      font-weight: 400;
+      font-weight: 400
     }
 
     .chcs {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 5px
     }
 
     .chc {
       display: flex;
       align-items: center;
-      gap: 9px;
+      gap: 8px;
       background: var(--surface);
       border: 1px solid var(--rule);
-      padding: 9px 12px;
-      border-radius: 4px;
+      padding: 7px 10px;
+      border-radius: 4px
     }
 
     .chc i {
       font-size: 11px;
       color: var(--muted2);
-      flex-shrink: 0;
+      flex-shrink: 0
     }
 
     .chcl {
-      font-size: 11.5px;
+      font-size: 11px;
       color: var(--ink);
       flex: 1;
-      font-weight: 500;
+      font-weight: 500
     }
 
     .chcp {
       font-size: 11px;
       font-weight: 700;
-      color: var(--muted);
+      color: var(--muted)
     }
 
     .chrg {
       display: flex;
       flex-direction: column;
-      gap: 7px;
+      gap: 6px;
+      overflow: hidden
     }
 
+    /* Slide 09 — Insights grid */
     .igrid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: 1fr 1fr;
       gap: 9px;
       flex: 1;
+      min-height: 0
     }
 
     .ic {
       background: var(--surface);
       border: 1px solid var(--rule);
       border-top: 3px solid var(--blue-500);
-      padding: 14px;
+      padding: 12px;
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 4px;
       position: relative;
       overflow: hidden;
       transition: box-shadow .2s, transform .2s;
-      border-radius: 0 0 5px 5px;
+      border-radius: 0 0 5px 5px
     }
 
     .ic:hover {
       box-shadow: 0 4px 20px rgba(29, 95, 168, .12);
-      transform: translateY(-2px);
+      transform: translateY(-2px)
     }
 
     .i2 {
-      border-top-color: var(--blue-400);
+      border-top-color: var(--blue-400)
     }
 
     .i3 {
-      border-top-color: var(--amber);
+      border-top-color: var(--amber)
     }
 
     .i4 {
-      border-top-color: var(--red);
+      border-top-color: var(--red)
     }
 
     .i5 {
-      border-top-color: var(--green);
+      border-top-color: var(--green)
     }
 
     .i6 {
-      border-top-color: var(--blue-700);
+      border-top-color: var(--blue-700)
     }
 
     .inum {
       position: absolute;
       top: 6px;
-      right: 11px;
-      font-size: 32px;
+      right: 10px;
+      font-size: 28px;
       font-weight: 900;
       opacity: .04;
       color: var(--blue-700);
-      line-height: 1;
+      line-height: 1
     }
 
     .iico {
       font-size: 13px;
-      color: var(--blue-600);
+      color: var(--blue-600)
     }
 
     .i2 .iico {
-      color: var(--blue-400);
+      color: var(--blue-400)
     }
 
     .i3 .iico {
-      color: var(--amber);
+      color: var(--amber)
     }
 
     .i4 .iico {
-      color: var(--red);
+      color: var(--red)
     }
 
     .i5 .iico {
-      color: var(--green);
+      color: var(--green)
     }
 
     .itit {
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 700;
-      color: var(--ink);
+      color: var(--ink)
     }
 
     .itxt {
-      font-size: 11px;
+      font-size: 10.5px;
       color: var(--muted);
-      line-height: 1.65;
+      line-height: 1.6;
       flex: 1;
-      font-weight: 400;
+      font-weight: 400
     }
 
     .ipct {
-      font-size: 21px;
+      font-size: 19px;
       font-weight: 900;
-      margin-top: 3px;
-      color: var(--blue-600);
+      margin-top: 2px;
+      color: var(--blue-600)
     }
 
     .i2 .ipct {
-      color: var(--blue-400);
+      color: var(--blue-400)
     }
 
     .i3 .ipct {
-      color: var(--amber);
+      color: var(--amber)
     }
 
     .i4 .ipct {
-      color: var(--red);
+      color: var(--red)
     }
 
     .i5 .ipct {
-      color: var(--green);
+      color: var(--green)
     }
 
     .iplb {
       font-size: 10px;
       font-weight: 500;
-      color: var(--muted);
+      color: var(--muted)
     }
 
+    /* Slide 10 — Cartilha */
     .cgrid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 9px;
       flex: 1;
+      min-height: 0
     }
 
     .cc {
       background: var(--surface);
       border: 1px solid var(--rule);
       border-top: 3px solid var(--blue-500);
-      padding: 13px;
+      padding: 11px;
       display: flex;
       flex-direction: column;
-      gap: 7px;
+      gap: 6px;
       border-radius: 0 0 5px 5px;
+      overflow: hidden
     }
 
     .cico {
-      width: 29px;
-      height: 29px;
+      width: 27px;
+      height: 27px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 13px;
+      font-size: 12px;
       color: var(--blue-600);
       background: var(--blue-50);
-      border-radius: 6px;
+      border-radius: 6px
     }
 
     .cctit {
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 700;
       color: var(--ink);
-      letter-spacing: .1px;
+      letter-spacing: .1px
     }
 
     .ccli {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 2px
     }
 
     .ccli li {
-      font-size: 11px;
+      font-size: 10.5px;
       color: var(--muted);
-      line-height: 1.55;
+      line-height: 1.5;
       display: flex;
       gap: 5px;
-      font-weight: 400;
+      font-weight: 400
     }
 
     .ccli li::before {
       content: '›';
       color: var(--blue-500);
       flex-shrink: 0;
-      font-weight: 700;
+      font-weight: 700
     }
 
-    /* ── SLIDE 03 OBJETIVO ── */
+    /* Slide 02 — Objetivo */
     .ogrid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
       flex: 1;
+      min-height: 0
     }
 
     .oc {
       background: var(--surface);
       border: 1px solid var(--rule);
       border-top: 2px solid var(--ink);
-      padding: 15px;
+      padding: 13px;
       transition: box-shadow .2s;
       border-radius: 0 0 5px 5px;
+      overflow: hidden
     }
 
     .oc:hover {
-      box-shadow: 0 4px 18px rgba(0, 0, 0, .08);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, .08)
     }
 
     .oico {
-      width: 31px;
-      height: 31px;
+      width: 29px;
+      height: 29px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 13px;
-      margin-bottom: 8px;
+      font-size: 12px;
+      margin-bottom: 7px;
       color: var(--blue-600);
       background: var(--blue-50);
-      border-radius: 6px;
+      border-radius: 6px
     }
 
     .otit {
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 700;
-      margin-bottom: 5px;
+      margin-bottom: 4px;
       color: var(--ink);
-      letter-spacing: .1px;
+      letter-spacing: .1px
     }
 
     .odsc {
-      font-size: 11.5px;
+      font-size: 11px;
       color: var(--muted);
-      line-height: 1.7;
-      font-weight: 400;
+      line-height: 1.65;
+      font-weight: 400
     }
 
-    /* ── CAPA ── */
+    /* ── COVER ── */
     .cov {
-      background: var(--blue-900) !important;
+      background: var(--blue-900) !important
     }
 
     .cov::before {
@@ -932,13 +972,15 @@
       position: absolute;
       inset: 0;
       background: radial-gradient(ellipse 70% 60% at 80% 50%, rgba(37, 117, 196, .28) 0%, transparent 65%), radial-gradient(ellipse 40% 50% at 10% 80%, rgba(29, 95, 168, .22) 0%, transparent 55%);
-      pointer-events: none;
+      pointer-events: none
     }
 
     .cov .inner {
       justify-content: center;
       padding: 56px 80px;
       gap: 0;
+      height: 100%;
+      overflow: hidden
     }
 
     .eyebrow {
@@ -952,70 +994,70 @@
       font-weight: 600;
       letter-spacing: 1.8px;
       text-transform: uppercase;
-      margin-bottom: 24px;
-      border-radius: 2px;
+      margin-bottom: 22px;
+      border-radius: 2px
     }
 
     .ctit {
-      font-size: clamp(28px, 5vw, 62px);
+      font-size: clamp(26px, 4.5vw, 58px);
       font-weight: 900;
       color: #fff;
-      line-height: 1.04;
-      margin-bottom: 18px;
-      letter-spacing: -1px;
+      line-height: 1.05;
+      margin-bottom: 16px;
+      letter-spacing: -1px
     }
 
     .ctit em {
       font-style: normal;
-      color: var(--blue-300);
+      color: var(--blue-300)
     }
 
     .crul {
       width: 50px;
       height: 3px;
       background: var(--blue-400);
-      margin-bottom: 24px;
-      border-radius: 2px;
+      margin-bottom: 22px;
+      border-radius: 2px
     }
 
     .csub {
-      font-size: 14.5px;
+      font-size: 14px;
       color: rgba(255, 255, 255, .5);
       max-width: 540px;
       line-height: 1.8;
-      margin-bottom: 30px;
-      font-weight: 400;
+      margin-bottom: 26px;
+      font-weight: 400
     }
 
     .cmet {
       display: flex;
       flex-wrap: wrap;
-      gap: 26px;
-      margin-bottom: 30px;
+      gap: 24px;
+      margin-bottom: 28px
     }
 
     .cmi {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 10px
     }
 
     .cmi i {
       font-size: 14px;
-      color: var(--blue-400);
+      color: var(--blue-400)
     }
 
     .mlb {
       font-size: 10px;
       color: rgba(255, 255, 255, .3);
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1px
     }
 
     .mvl {
       font-size: 13px;
       font-weight: 600;
-      color: rgba(255, 255, 255, .85);
+      color: rgba(255, 255, 255, .85)
     }
 
     .chnt {
@@ -1023,11 +1065,11 @@
       align-items: center;
       gap: 8px;
       color: rgba(255, 255, 255, .3);
-      font-size: 12px;
+      font-size: 12px
     }
 
     .bnc {
-      animation: bn 2s ease infinite;
+      animation: bn 2s ease infinite
     }
 
     @keyframes bn {
@@ -1044,7 +1086,7 @@
 
     /* ── TEAM ── */
     .team-slide {
-      background: var(--blue-800) !important;
+      background: var(--blue-800) !important
     }
 
     .team-slide::before {
@@ -1052,12 +1094,12 @@
       position: absolute;
       inset: 0;
       background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(37, 117, 196, .3) 0%, transparent 65%);
-      pointer-events: none;
+      pointer-events: none
     }
 
     .team-slide .inner {
       justify-content: center;
-      padding: 34px 60px;
+      padding: 34px 60px
     }
 
     .team-eyebrow {
@@ -1071,106 +1113,106 @@
       font-weight: 600;
       letter-spacing: 1.8px;
       text-transform: uppercase;
-      margin-bottom: 13px;
-      border-radius: 2px;
+      margin-bottom: 12px;
+      border-radius: 2px
     }
 
     .team-title {
-      font-size: clamp(21px, 3.5vw, 39px);
+      font-size: clamp(20px, 3vw, 36px);
       font-weight: 900;
       color: #fff;
-      margin-bottom: 7px;
-      letter-spacing: -.5px;
+      margin-bottom: 6px;
+      letter-spacing: -.5px
     }
 
     .team-title em {
       font-style: normal;
-      color: var(--blue-300);
+      color: var(--blue-300)
     }
 
     .team-sub {
-      font-size: 13.5px;
+      font-size: 13px;
       color: rgba(255, 255, 255, .4);
-      margin-bottom: 28px;
-      font-weight: 400;
+      margin-bottom: 26px;
+      font-weight: 400
     }
 
     .team-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-      width: 100%;
+      gap: 16px;
+      width: 100%
     }
 
     .team-card {
       background: rgba(255, 255, 255, .06);
       border: 1px solid rgba(255, 255, 255, .12);
       border-top: 3px solid var(--blue-400);
-      padding: 24px 15px;
+      padding: 22px 14px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 12px;
+      gap: 11px;
       transition: background .25s, transform .25s;
-      border-radius: 0 0 6px 6px;
+      border-radius: 0 0 6px 6px
     }
 
     .team-card:hover {
       background: rgba(255, 255, 255, .1);
-      transform: translateY(-3px);
+      transform: translateY(-3px)
     }
 
     .avatar-ring {
-      width: 96px;
-      height: 96px;
+      width: 90px;
+      height: 90px;
       border: 2px solid var(--blue-400);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      padding: 3px;
+      padding: 3px
     }
 
     .avatar-inner {
-      width: 88px;
-      height: 88px;
+      width: 82px;
+      height: 82px;
       border-radius: 50%;
       background: linear-gradient(135deg, rgba(37, 117, 196, .4), rgba(13, 27, 62, .6));
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
+      overflow: hidden
     }
 
     .avatar-inner img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 50%;
+      border-radius: 50%
     }
 
     .avatar-initials {
-      font-size: 25px;
+      font-size: 23px;
       font-weight: 800;
       color: var(--blue-300);
-      line-height: 1;
+      line-height: 1
     }
 
     .member-name {
-      font-size: 14.5px;
+      font-size: 14px;
       font-weight: 800;
       color: #fff;
       text-align: center;
-      line-height: 1.3;
+      line-height: 1.3
     }
 
     .member-role {
-      font-size: 10.5px;
+      font-size: 10px;
       color: rgba(255, 255, 255, .4);
       text-align: center;
       letter-spacing: .8px;
-      text-transform: uppercase;
+      text-transform: uppercase
     }
 
     .member-badge {
@@ -1180,12 +1222,12 @@
       font-weight: 700;
       padding: 4px 12px;
       letter-spacing: .8px;
-      border-radius: 20px;
+      border-radius: 20px
     }
 
     /* ── CONCLUSÃO ── */
     .conc {
-      background: var(--blue-900) !important;
+      background: var(--blue-900) !important
     }
 
     .conc::before {
@@ -1193,14 +1235,14 @@
       position: absolute;
       inset: 0;
       background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(37, 117, 196, .25) 0%, transparent 65%);
-      pointer-events: none;
+      pointer-events: none
     }
 
     .conc .inner {
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 34px 70px;
+      padding: 30px 60px
     }
 
     .cey {
@@ -1214,99 +1256,99 @@
       font-weight: 600;
       letter-spacing: 1.8px;
       text-transform: uppercase;
-      margin-bottom: 13px;
-      border-radius: 2px;
+      margin-bottom: 12px;
+      border-radius: 2px
     }
 
     .cctit2 {
-      font-size: clamp(23px, 3.5vw, 46px);
+      font-size: clamp(21px, 3.2vw, 42px);
       font-weight: 900;
       color: #fff;
       line-height: 1.08;
-      margin-bottom: 20px;
-      letter-spacing: -1px;
+      margin-bottom: 18px;
+      letter-spacing: -1px
     }
 
     .cctit2 em {
       font-style: normal;
-      color: var(--blue-300);
+      color: var(--blue-300)
     }
 
     .cpil {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+      gap: 11px;
       width: 100%;
-      margin-bottom: 18px;
+      margin-bottom: 16px
     }
 
     .pil {
       background: rgba(255, 255, 255, .05);
       border: 1px solid rgba(255, 255, 255, .1);
       border-top: 2px solid var(--blue-400);
-      padding: 17px 13px;
+      padding: 15px 12px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       text-align: center;
       transition: background .25s;
-      border-radius: 0 0 5px 5px;
+      border-radius: 0 0 5px 5px
     }
 
     .pil:hover {
-      background: rgba(255, 255, 255, .09);
+      background: rgba(255, 255, 255, .09)
     }
 
     .pico {
-      font-size: 17px;
+      font-size: 16px;
       color: var(--blue-300);
-      margin-bottom: 2px;
+      margin-bottom: 2px
     }
 
     .ptit {
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 700;
       color: rgba(255, 255, 255, .5);
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1px
     }
 
     .ptxt {
-      font-size: 11.5px;
+      font-size: 11px;
       color: rgba(255, 255, 255, .4);
       line-height: 1.6;
-      font-weight: 400;
+      font-weight: 400
     }
 
     .pfig {
-      font-size: 28px;
+      font-size: 26px;
       font-weight: 900;
-      color: #fff;
+      color: #fff
     }
 
     .cfin {
       width: 100%;
-      max-width: 700px;
+      max-width: 680px
     }
 
     .cfr {
       height: 1px;
       background: rgba(255, 255, 255, .1);
-      margin-bottom: 13px;
+      margin-bottom: 12px
     }
 
     .cftx {
-      font-size: 12.5px;
+      font-size: 12px;
       color: rgba(255, 255, 255, .5);
       line-height: 1.8;
-      margin-bottom: 11px;
-      font-weight: 400;
+      margin-bottom: 10px;
+      font-weight: 400
     }
 
     .cftx strong {
       color: rgba(255, 255, 255, .9);
-      font-weight: 700;
+      font-weight: 700
     }
 
     .cftg {
@@ -1317,41 +1359,41 @@
       color: rgba(255, 255, 255, .25);
       border: 1px solid rgba(255, 255, 255, .1);
       padding: 5px 14px;
-      letter-spacing: .5px;
+      letter-spacing: .5px
     }
 
     ::-webkit-scrollbar {
-      display: none;
+      display: none
     }
 
     @media(max-width:1100px) {
       .inner {
-        padding: 12px 16px 10px;
+        padding: 12px 16px 10px
       }
 
       .ogrid,
       .cgrid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr)
       }
 
       .crow {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr
       }
 
       .gl {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr
       }
 
       .cpil {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr
       }
 
       .team-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr)
       }
 
       .igrid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr)
       }
     }
 
@@ -1362,28 +1404,26 @@
       .cl,
       .chal,
       .sl {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr
       }
 
       .krow,
       .sirow,
       .insight-strip {
-        flex-direction: column;
+        flex-direction: column
       }
 
       .cgrid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr)
       }
     }
   </style>
 </head>
 
 <body>
-
   <div id="prog">
     <div id="progf"></div>
   </div>
-
   <nav id="nav">
     <button class="dot on" data-i="0"></button>
     <button class="dot" data-i="1"></button>
@@ -1397,13 +1437,10 @@
     <button class="dot" data-i="9"></button>
     <button class="dot" data-i="10"></button>
     <button class="dot" data-i="11"></button>
-    <span id="cn">01</span>
-    <span id="tn">/ 12</span>
+    <span id="cn">01</span><span id="tn">/ 12</span>
   </nav>
-
   <button id="aup" class="arr"><i class="fas fa-chevron-up"></i></button>
   <button id="adn" class="arr"><i class="fas fa-chevron-down"></i></button>
-
   <div id="wrap">
 
     <!-- 01 CAPA -->
@@ -1453,7 +1490,7 @@
           <div class="team-card">
             <div class="avatar-ring">
               <div class="avatar-inner">
-                <img src="image/artur.png" alt="Artur Facundo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <img src="image/artur.png" alt="AF" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                 <span class="avatar-initials" style="display:none">AF</span>
               </div>
             </div>
@@ -1466,7 +1503,7 @@
           <div class="team-card">
             <div class="avatar-ring">
               <div class="avatar-inner">
-                <img src="image/Perfil Theo.jpg" alt="Theo Natan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <img src="image/Perfil Theo.jpg" alt="TN" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                 <span class="avatar-initials" style="display:none">TN</span>
               </div>
             </div>
@@ -1479,7 +1516,7 @@
           <div class="team-card">
             <div class="avatar-ring">
               <div class="avatar-inner">
-                <img src="image/felipe.png" alt="Fhyllyppe de Souza" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <img src="image/felipe.png" alt="FS" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                 <span class="avatar-initials" style="display:none">FS</span>
               </div>
             </div>
@@ -1492,7 +1529,7 @@
           <div class="team-card">
             <div class="avatar-ring">
               <div class="avatar-inner">
-                <img src="image/vitorio.png" alt="Vitório Edson" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <img src="image/vitorio.png" alt="VE" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                 <span class="avatar-initials" style="display:none">VE</span>
               </div>
             </div>
@@ -1570,18 +1607,18 @@
             <div class="kl">% Uso de TI Muito Alto · 37 de 42</div>
           </div>
         </div>
-        <div class="crow" style="flex:1;">
+        <div class="crow">
           <div class="cb">
             <div class="cbt">Faixa Etária</div>
-            <div class="cw" style="min-height:140px;"><canvas id="c-age"></canvas></div>
+            <div class="cw"><canvas id="c-age"></canvas></div>
           </div>
           <div class="cb">
             <div class="cbt">Área de Atuação</div>
-            <div class="cw" style="min-height:140px;"><canvas id="c-area"></canvas></div>
+            <div class="cw"><canvas id="c-area"></canvas></div>
           </div>
           <div class="cb">
             <div class="cbt">Ocupação Profissional</div>
-            <div class="cw" style="min-height:140px;"><canvas id="c-ocup"></canvas></div>
+            <div class="cw"><canvas id="c-ocup"></canvas></div>
           </div>
         </div>
         <div class="insight-strip">
@@ -1602,18 +1639,18 @@
           <div class="tag">Adoção Tecnológica</div>
           <h2 class="htit">Intensidade de uso <span class="hl">da Tecnologia</span></h2>
         </div>
-        <div class="ul2" style="flex:1;">
-          <div class="cb" style="display:flex;flex-direction:column;">
+        <div class="ul2">
+          <div class="cb">
             <div class="cbt">Frequência de Uso de TI</div>
-            <div class="cw" style="min-height:160px;"><canvas id="c-freq"></canvas></div>
+            <div class="cw"><canvas id="c-freq"></canvas></div>
           </div>
           <div class="cb">
             <div class="cbt">Setor de TI Formal</div>
-            <div class="cw cws"><canvas id="c-setor"></canvas></div>
+            <div class="cw"><canvas id="c-setor"></canvas></div>
           </div>
           <div class="cb">
-            <div class="cbt">Ferramentas atendem?</div>
-            <div class="cw cws"><canvas id="c-ferr"></canvas></div>
+            <div class="cbt">Ferramentas Atendem?</div>
+            <div class="cw"><canvas id="c-ferr"></canvas></div>
           </div>
         </div>
         <div class="insight-strip">
@@ -1637,25 +1674,25 @@
           <div class="tag">Segurança da Informação</div>
           <h2 class="htit">Preocupação e <span class="hl">adoção de boas práticas</span></h2>
         </div>
-        <div class="sl" style="flex:1;">
-          <div style="display:flex;flex-direction:column;">
-            <div class="cb" style="flex:1;">
+        <div class="sl">
+          <div class="sl-left">
+            <div class="cb" style="flex:1">
               <div class="cbt">Radar de Maturidade em Segurança Digital</div>
-              <div class="cw" style="min-height:150px;"><canvas id="c-radar"></canvas></div>
+              <div class="cw"><canvas id="c-radar"></canvas></div>
             </div>
           </div>
           <div class="sr">
-            <div class="cb">
+            <div class="cb" style="flex:1">
               <div class="cbt">Nível de Preocupação com Segurança</div>
-              <div class="cw cws"><canvas id="c-preoc"></canvas></div>
+              <div class="cw"><canvas id="c-preoc"></canvas></div>
             </div>
-            <div class="cb">
+            <div class="cb" style="flex:1">
               <div class="cbt">Frequência de Boas Práticas</div>
-              <div class="cw cws"><canvas id="c-prat"></canvas></div>
+              <div class="cw"><canvas id="c-prat"></canvas></div>
             </div>
-            <div class="cb">
+            <div class="cb" style="flex:1">
               <div class="cbt">Políticas Formais de Segurança</div>
-              <div class="cw cws"><canvas id="c-pol"></canvas></div>
+              <div class="cw"><canvas id="c-pol"></canvas></div>
             </div>
           </div>
         </div>
@@ -1672,12 +1709,12 @@
             <div class="siv">69,0%</div>
             <div class="sid">Possuem políticas formais (29/42)</div>
           </div>
-          <div class="sic" style="border-top-color:var(--red);">
-            <div class="siv" style="color:var(--red);">21,4%</div>
+          <div class="sic" style="border-top-color:var(--red)">
+            <div class="siv" style="color:var(--red)">21,4%</div>
             <div class="sid">Sem políticas formais (9/42)</div>
           </div>
         </div>
-        <div class="insight-strip" style="margin-top:7px;">
+        <div class="insight-strip" style="margin-top:6px">
           <div class="insight-chip rd"><i class="fas fa-exclamation-triangle"></i>
             <div><strong>Gap crítico:</strong> 90,5% se preocupam com segurança, mas <strong>50% ainda não aplicam boas práticas regularmente</strong> — conscientização não se converte em ação.</div>
           </div>
@@ -1697,17 +1734,17 @@
         </div>
         <div class="cl">
           <div class="cch">
-            <div class="cb" style="flex:1;min-height:0;overflow:hidden;">
+            <div class="cb" style="flex:1">
               <div class="cbt">Uso Pessoal de Computação em Nuvem</div>
-              <div class="cw" style="height:135px;"><canvas id="c-cp"></canvas></div>
+              <div class="cw"><canvas id="c-cp"></canvas></div>
             </div>
-            <div class="cb" style="flex:1;min-height:0;overflow:hidden;">
+            <div class="cb" style="flex:1">
               <div class="cbt">Computação em Nuvem nas Organizações</div>
-              <div class="cw" style="height:135px;"><canvas id="c-co"></canvas></div>
+              <div class="cw"><canvas id="c-co"></canvas></div>
             </div>
           </div>
           <div class="crgh">
-            <div class="svct">Principais serviços de computação em nuvem utilizados</div>
+            <div class="svct">Principais serviços utilizados</div>
             <div class="sbs">
               <div class="sb">
                 <div class="sbh"><i class="fab fa-google" style="color:var(--muted2)"></i><span>Google Drive / Workspace</span><span class="sbp">92,9%</span></div>
@@ -1740,7 +1777,7 @@
                 </div>
               </div>
             </div>
-            <div class="insight-chip" style="margin-top:7px;"><i class="fas fa-cloud-upload-alt"></i>
+            <div class="insight-chip" style="margin-top:6px"><i class="fas fa-cloud-upload-alt"></i>
               <div><strong>78,6% (33/42)</strong> usam computação em nuvem pessoalmente. <strong>61,9% (26/42)</strong> das organizações já operam em nuvem — adoção consolidada, mas a gestão exige política clara.</div>
             </div>
           </div>
@@ -1764,20 +1801,18 @@
           <h2 class="htit">Maturidade em <span class="hl">Gestão de TI</span></h2>
         </div>
         <div class="gl">
-          <div style="display:flex;flex-direction:column;">
-            <div class="cb" style="flex:1;">
-              <div class="cbt">Organização do Uso de TI</div>
-              <div class="cw" style="min-height:160px;"><canvas id="c-gov"></canvas></div>
-            </div>
+          <div class="cb" style="flex:1">
+            <div class="cbt">Organização do Uso de TI</div>
+            <div class="cw"><canvas id="c-gov"></canvas></div>
           </div>
-          <div style="display:flex;flex-direction:column;gap:11px;">
-            <div class="cb">
+          <div style="display:flex;flex-direction:column;gap:11px;min-height:0">
+            <div class="cb" style="flex:1">
               <div class="cbt">Planejamento Estratégico</div>
-              <div class="cw cws"><canvas id="c-plan"></canvas></div>
+              <div class="cw"><canvas id="c-plan"></canvas></div>
             </div>
-            <div class="cb">
+            <div class="cb" style="flex:1">
               <div class="cbt">Qualidade da Gestão</div>
-              <div class="cw cws"><canvas id="c-qual"></canvas></div>
+              <div class="cw"><canvas id="c-qual"></canvas></div>
             </div>
           </div>
           <div class="gpc">
@@ -1835,11 +1870,9 @@
           <h2 class="htit">Problemas <span class="hl">identificados pelos respondentes</span></h2>
         </div>
         <div class="chal">
-          <div style="display:flex;flex-direction:column;gap:9px;">
-            <div class="cb" style="flex:1;display:flex;flex-direction:column;">
-              <div class="cbt">Frequência dos desafios relatados (42 respostas)</div>
-              <div class="cw" style="min-height:195px;"><canvas id="c-cha"></canvas></div>
-            </div>
+          <div class="cb" style="flex:1">
+            <div class="cbt">Frequência dos desafios relatados (42 respostas)</div>
+            <div class="cw"><canvas id="c-cha"></canvas></div>
           </div>
           <div class="chrg">
             <div class="chmn">
@@ -2077,120 +2110,109 @@
 
   <script>
     'use strict';
-
-    /* ── STATE ── */
     var cur = 0, TOT = 12, busy = false, ci = {};
-
-    /* ── PALETA ── */
-    var PBI_BLUE = ['#003087', '#0062b1', '#2575c4', '#4a9de0', '#7dbdee', '#b8d9f5'];
-    var TK = '#4a6080', GRID = 'rgba(0,0,0,.07)';
-
-    /* ── HELPERS ── */
-    function pctStr(val, total) {
-      var p = (parseFloat(val) / parseFloat(total)) * 100;
-      return p.toFixed(1).replace('.', ',') + '%';
-    }
-
-    /* ── CHART DEFAULTS ── */
+    var PBI = ['#003087', '#0062b1', '#2575c4', '#4a9de0', '#7dbdee', '#b8d9f5'];
+    var TK = '#4a6080', GR = 'rgba(0,0,0,.07)';
     Chart.defaults.color = TK;
     Chart.defaults.font.family = 'Montserrat';
-    Chart.defaults.font.size = 12;
+    Chart.defaults.font.size = 11;
 
-    var D = {
-      responsive: true,
-      maintainAspectRatio: false,
-      animation: { duration: 800, easing: 'easeOutQuart' },
-      plugins: {
-        legend: {
-          labels: {
-            color: TK,
-            font: { family: 'Montserrat', size: 11, weight: '600' },
-            boxWidth: 11, padding: 9,
-            usePointStyle: true, pointStyle: 'rect'
-          }
-        },
-        tooltip: {
-          backgroundColor: '#0d1b3e',
-          titleColor: '#fff', bodyColor: '#b8d9f5',
-          borderColor: 'rgba(37,117,196,.4)', borderWidth: 1,
-          padding: 11, cornerRadius: 4,
-          titleFont: { family: 'Montserrat', weight: '700', size: 12 },
-          bodyFont: { family: 'Montserrat', size: 11 },
-          callbacks: {
-            label: function (ctx) {
-              var val = ctx.parsed.y !== undefined ? ctx.parsed.y : ctx.parsed;
-              var total = ctx.dataset.data.reduce(function (a, b) { return a + (typeof b === 'number' ? b : 0); }, 0);
-              var p = total > 0 ? ((val / total) * 100).toFixed(1).replace('.', ',') : '0,0';
-              return '  ' + (ctx.label || '') + ': ' + val + ' (' + p + '%)';
-            }
-          }
+    var TT = {
+      backgroundColor: '#0d1b3e', titleColor: '#fff', bodyColor: '#b8d9f5',
+      borderColor: 'rgba(37,117,196,.4)', borderWidth: 1, padding: 10, cornerRadius: 4,
+      titleFont: { family: 'Montserrat', weight: '700', size: 11 },
+      bodyFont: { family: 'Montserrat', size: 10 },
+      callbacks: {
+        label: function (c) {
+          var v = c.parsed.y !== undefined ? c.parsed.y : c.parsed;
+          if (typeof v !== 'number') v = parseFloat(v) || 0;
+          var t = c.dataset.data.reduce(function (a, b) { return a + (typeof b === 'number' ? b : 0); }, 0);
+          var p = t > 0 ? ((v / t) * 100).toFixed(1).replace('.', ',') : '0,0';
+          return '  ' + (c.label || '') + ': ' + v + ' (' + p + '%)';
         }
       }
     };
 
-    /* ── INLINE LABEL PLUGIN ── */
-    var dlPlugin = {
+    /* ── DATA LABEL PLUGIN ── */
+    var dlP = {
       id: 'dl',
-      afterDatasetsDraw: function (chart) {
-        var ctx = chart.ctx, data = chart.data, chartArea = chart.chartArea;
-        if (!chartArea) return;
-        var type = chart.config.type;
+      afterDraw: function (chart) {
+        var ctx = chart.ctx, type = chart.config.type, ca = chart.chartArea;
+        if (!ca) return;
 
         if (type === 'doughnut' || type === 'pie') {
           var meta = chart.getDatasetMeta(0);
-          var total = data.datasets[0].data.reduce(function (a, b) { return a + b; }, 0);
+          var tot = chart.data.datasets[0].data.reduce(function (a, b) { return a + b; }, 0);
           meta.data.forEach(function (arc, i) {
-            var val = data.datasets[0].data[i];
-            var p = (val / total) * 100;
-            if (p < 5) return;
-            var pos = arc.tooltipPosition();
+            var val = chart.data.datasets[0].data[i];
+            var pct = (val / tot) * 100;
+            if (pct < 3) return;
+            var lbl = pct.toFixed(1).replace('.', ',') + '%';
             ctx.save();
-            ctx.font = 'bold 12px Montserrat,sans-serif';
-            ctx.fillStyle = '#fff';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.shadowColor = 'rgba(0,0,0,.35)';
-            ctx.shadowBlur = 3;
-            ctx.fillText(p.toFixed(1).replace('.', ',') + '%', pos.x, pos.y);
+            ctx.font = 'bold 10px Montserrat,sans-serif';
+            ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+            var tw = ctx.measureText(lbl).width;
+            var innerR = arc.innerRadius || 0, outerR = arc.outerRadius || 0;
+            var slW = outerR - innerR;
+            var pos = arc.tooltipPosition();
+            if (slW > tw + 8 && pct >= 8) {
+              ctx.fillStyle = '#fff'; ctx.shadowColor = 'rgba(0,0,0,.45)'; ctx.shadowBlur = 3;
+              ctx.fillText(lbl, pos.x, pos.y);
+            } else {
+              var mid = (arc.startAngle + arc.endAngle) / 2;
+              var r = outerR + 14;
+              var ox = arc.x + Math.cos(mid) * r, oy = arc.y + Math.sin(mid) * r;
+              var pad = 4;
+              ox = Math.max(ca.left + pad + tw / 2, Math.min(ca.right - pad - tw / 2, ox));
+              oy = Math.max(ca.top + pad + 8, Math.min(ca.bottom - pad - 8, oy));
+              var lx = arc.x + Math.cos(mid) * (outerR + 3), ly = arc.y + Math.sin(mid) * (outerR + 3);
+              ctx.beginPath(); ctx.moveTo(lx, ly); ctx.lineTo(ox, oy);
+              ctx.strokeStyle = 'rgba(74,96,128,.5)'; ctx.lineWidth = 1; ctx.stroke();
+              var bw = tw + 10, bh = 16, br = 8, bx = ox - bw / 2, by = oy - bh / 2;
+              ctx.fillStyle = 'rgba(13,27,62,.85)';
+              ctx.beginPath();
+              if (ctx.roundRect) { ctx.roundRect(bx, by, bw, bh, br); }
+              else { ctx.rect(bx, by, bw, bh); }
+              ctx.fill();
+              ctx.fillStyle = '#fff'; ctx.shadowColor = 'transparent';
+              ctx.fillText(lbl, ox, oy);
+            }
             ctx.restore();
           });
         }
 
         if (type === 'bar') {
-          chart.data.datasets.forEach(function (dataset, di) {
+          var isH = chart.options.indexAxis === 'y';
+          chart.data.datasets.forEach(function (ds, di) {
             var meta = chart.getDatasetMeta(di);
-            var isH = chart.options.indexAxis === 'y';
-            var total = dataset.data.reduce(function (a, b) { return a + b; }, 0);
+            if (meta.hidden) return;
+            var tot = ds.data.reduce(function (a, b) { return a + (typeof b === 'number' ? b : 0); }, 0);
             meta.data.forEach(function (bar, i) {
-              var val = dataset.data[i];
-              var p = total > 0 ? ((val / total) * 100).toFixed(1).replace('.', ',') : '0,0';
-              var x = bar.x, y = bar.y, base = bar.base;
+              var val = ds.data[i]; if (!val) return;
+              var pct = tot > 0 ? ((val / tot) * 100) : 0;
+              var lbl = pct.toFixed(1).replace('.', ',') + '%';
               ctx.save();
-              ctx.font = 'bold 11px Montserrat,sans-serif';
-              ctx.textAlign = 'center';
-              ctx.textBaseline = 'middle';
-              ctx.shadowColor = 'rgba(0,0,0,.3)';
-              ctx.shadowBlur = 2;
+              ctx.font = 'bold 10px Montserrat,sans-serif';
+              ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+              ctx.shadowColor = 'rgba(0,0,0,.3)'; ctx.shadowBlur = 2;
               if (isH) {
-                var bw = x - base;
-                if (bw > 42) {
-                  ctx.fillStyle = '#fff';
-                  ctx.fillText(p + '%', base + bw / 2, y);
-                } else if (bw > 0) {
-                  ctx.shadowBlur = 0;
-                  ctx.fillStyle = TK;
-                  ctx.textAlign = 'left';
-                  ctx.fillText(p + '%', x + 4, y);
+                var bw = bar.x - bar.base;
+                var tw = ctx.measureText(lbl).width;
+                if (bw > tw + 16) {
+                  ctx.fillStyle = '#fff'; ctx.fillText(lbl, bar.base + bw / 2, bar.y);
+                } else {
+                  ctx.shadowBlur = 0; ctx.fillStyle = TK; ctx.textAlign = 'left';
+                  var ox = Math.min(bar.x + 5, ca.right - tw - 4);
+                  ctx.fillText(lbl, ox, bar.y);
                 }
               } else {
-                var bh = base - y;
-                if (bh > 22) {
-                  ctx.fillStyle = '#fff';
-                  ctx.fillText(p + '%', x, y + bh / 2);
-                } else if (bh > 0) {
-                  ctx.shadowBlur = 0;
-                  ctx.fillStyle = TK;
-                  ctx.fillText(p + '%', x, y - 7);
+                var bh2 = bar.base - bar.y;
+                if (bh2 > 22) {
+                  ctx.fillStyle = '#fff'; ctx.fillText(lbl, bar.x, bar.y + bh2 / 2);
+                } else {
+                  ctx.shadowBlur = 0; ctx.fillStyle = TK; ctx.textBaseline = 'bottom';
+                  var oy = Math.max(ca.top + 12, bar.y - 4);
+                  ctx.fillText(lbl, bar.x, oy);
                 }
               }
               ctx.restore();
@@ -2199,96 +2221,68 @@
         }
 
         if (type === 'polarArea') {
-          var metaP = chart.getDatasetMeta(0);
-          var totalP = data.datasets[0].data.reduce(function (a, b) { return a + b; }, 0);
-          metaP.data.forEach(function (arc, i) {
-            var val = data.datasets[0].data[i];
-            var p = (val / totalP) * 100;
-            if (p < 4) return;
+          var mp = chart.getDatasetMeta(0);
+          var tp = chart.data.datasets[0].data.reduce(function (a, b) { return a + b; }, 0);
+          mp.data.forEach(function (arc, i) {
+            var val = chart.data.datasets[0].data[i];
+            var pct = (val / tp) * 100; if (pct < 4) return;
             var pos = arc.tooltipPosition();
+            var lbl = pct.toFixed(1).replace('.', ',') + '%';
             ctx.save();
-            ctx.font = 'bold 11px Montserrat,sans-serif';
-            ctx.fillStyle = '#fff';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.shadowColor = 'rgba(0,0,0,.3)';
-            ctx.shadowBlur = 2;
-            ctx.fillText(p.toFixed(1).replace('.', ',') + '%', pos.x, pos.y);
+            ctx.font = 'bold 10px Montserrat,sans-serif';
+            ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+            ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = 3;
+            ctx.fillText(lbl, pos.x, pos.y);
             ctx.restore();
           });
         }
       }
     };
-    Chart.register(dlPlugin);
+    Chart.register(dlP);
 
-    /* ── SLIDE ENGINE ── */
+    /* ── NAVIGATION ENGINE ── */
     function go(idx, anim) {
       if (anim === undefined) anim = true;
       if (busy && anim) return;
       if (idx < 0 || idx >= TOT) return;
       if (idx === cur && anim) return;
       busy = true;
-      var slides = document.querySelectorAll('.slide');
-      slides.forEach(function (s, i) {
+      document.querySelectorAll('.slide').forEach(function (s, i) {
         s.classList.remove('act', 'abv', 'blw');
         if (i === idx) s.classList.add('act');
         else if (i < idx) s.classList.add('abv');
         else s.classList.add('blw');
       });
-      cur = idx;
-      sync();
-      var delay = anim ? 320 : 0;
-      setTimeout(function () {
-        loadCharts(idx);
-        animNums(idx);
-        animPbars(idx);
-        animSbars(idx);
-        busy = false;
-      }, delay);
+      cur = idx; sync();
+      setTimeout(function () { loadCharts(idx); animNums(idx); animPbars(idx); animSbars(idx); busy = false; }, anim ? 320 : 0);
     }
-
     function sync() {
-      document.querySelectorAll('.dot').forEach(function (d, i) {
-        d.classList.toggle('on', i === cur);
-      });
+      document.querySelectorAll('.dot').forEach(function (d, i) { d.classList.toggle('on', i === cur); });
       document.getElementById('cn').textContent = String(cur + 1).padStart(2, '0');
       document.getElementById('progf').style.width = (cur / (TOT - 1) * 100) + '%';
     }
-
-    /* ── ANIMATIONS ── */
     function animNums(si) {
-      var sl = document.getElementById('s' + si);
-      if (!sl) return;
+      var sl = document.getElementById('s' + si); if (!sl) return;
       sl.querySelectorAll('[data-v]').forEach(function (el) {
-        if (el.dataset.done) return;
-        el.dataset.done = '1';
-        var end = parseFloat(el.dataset.v);
-        var dec = el.dataset.dec !== undefined ? parseInt(el.dataset.dec) : (Number.isInteger(end) ? 0 : 1);
-        countUp(el, 0, end, 1100, dec);
+        if (el.dataset.done) return; el.dataset.done = '1';
+        var e = parseFloat(el.dataset.v), d = el.dataset.dec !== undefined ? parseInt(el.dataset.dec) : (Number.isInteger(e) ? 0 : 1);
+        countUp(el, 0, e, 1100, d);
       });
       sl.querySelectorAll('.cnt').forEach(function (el) {
-        if (el.dataset.done) return;
-        el.dataset.done = '1';
-        var end = parseFloat(el.dataset.v);
-        var dec = el.dataset.dec !== undefined ? parseInt(el.dataset.dec) : (Number.isInteger(end) ? 0 : 1);
-        countUp(el, 0, end, 1200, dec);
+        if (el.dataset.done) return; el.dataset.done = '1';
+        var e = parseFloat(el.dataset.v), d = el.dataset.dec !== undefined ? parseInt(el.dataset.dec) : (Number.isInteger(e) ? 0 : 1);
+        countUp(el, 0, e, 1200, d);
       });
     }
-
     function countUp(el, s, e, d, dec) {
-      if (dec === undefined) dec = 0;
       var t0 = performance.now();
       function f(now) {
-        var p = Math.min((now - t0) / d, 1);
-        var v = s + (e - s) * (1 - Math.pow(1 - p, 3));
-        var str = v.toFixed(dec).replace('.', ',');
-        el.textContent = str;
-        if (p < 1) requestAnimationFrame(f);
-        else el.textContent = e.toFixed(dec).replace('.', ',');
+        var p = Math.min((now - t0) / d, 1), v = s + (e - s) * (1 - Math.pow(1 - p, 3));
+        el.textContent = v.toFixed(dec).replace('.', ',');
+        if (p < 1) requestAnimationFrame(f); else el.textContent = e.toFixed(dec).replace('.', ',');
       }
       requestAnimationFrame(f);
     }
-
     function animPbars(si) {
       if (si !== 7) return;
       setTimeout(function () {
@@ -2298,7 +2292,6 @@
         });
       }, 150);
     }
-
     function animSbars(si) {
       if (si !== 6) return;
       setTimeout(function () {
@@ -2308,81 +2301,97 @@
         });
       }, 150);
     }
+    function loadCharts(i) { if (ci[i]) return; ci[i] = true; var fns = { 3: chPerfil, 4: chUso, 5: chSeg, 6: chCloud, 7: chGov, 8: chDesafios }; if (fns[i]) fns[i](); }
 
-    /* ── CHART LOADER ── */
-    function loadCharts(i) {
-      if (ci[i]) return;
-      ci[i] = true;
-      var fns = { 3: chPerfil, 4: chUso, 5: chSeg, 6: chCloud, 7: chGov, 8: chDesafios };
-      if (fns[i]) fns[i]();
-    }
-
-    /* ── CHART OPTION BUILDERS ── */
-    function dOpts(cutout) {
+    /* ── CHART OPTIONS HELPERS ── */
+    function dOpts(cut) {
       return {
-        responsive: true,
-        maintainAspectRatio: false,
-        animation: D.animation,
-        cutout: cutout || '62%',
-        layout: { padding: 6 },
+        responsive: true, maintainAspectRatio: false,
+        animation: { duration: 800, easing: 'easeOutQuart' },
+        cutout: cut || '62%',
+        layout: { padding: { top: 18, bottom: 18, left: 22, right: 22 } },
         plugins: {
-          legend: {
-            position: 'bottom',
-            labels: { color: TK, font: { family: 'Montserrat', size: 10, weight: '600' }, boxWidth: 10, padding: 7, usePointStyle: true, pointStyle: 'rect' }
-          },
-          tooltip: D.plugins.tooltip
+          legend: { position: 'bottom', labels: { color: TK, font: { family: 'Montserrat', size: 9, weight: '600' }, boxWidth: 9, padding: 6, usePointStyle: true, pointStyle: 'rect' } },
+          tooltip: TT
         }
       };
     }
-
-    function vBarOpts(extra) {
-      var opts = {
-        responsive: true, maintainAspectRatio: false, animation: D.animation,
-        plugins: { legend: { display: false }, tooltip: D.plugins.tooltip },
+    function dOptsR(cut) {
+      return {
+        responsive: true, maintainAspectRatio: false,
+        animation: { duration: 800, easing: 'easeOutQuart' },
+        cutout: cut || '62%',
+        layout: { padding: { top: 8, bottom: 8, left: 8, right: 8 } },
+        plugins: {
+          legend: { position: 'right', align: 'center', labels: { color: TK, font: { family: 'Montserrat', size: 9, weight: '600' }, boxWidth: 9, padding: 8, usePointStyle: true, pointStyle: 'rect' } },
+          tooltip: TT
+        }
+      };
+    }
+    function vBarOpts(ex) {
+      var o = {
+        responsive: true, maintainAspectRatio: false,
+        animation: { duration: 800, easing: 'easeOutQuart' },
+        layout: { padding: { top: 20, left: 4, right: 4, bottom: 2 } },
+        plugins: { legend: { display: false }, tooltip: TT },
         scales: {
-          x: { grid: { display: false }, ticks: { color: TK, font: { family: 'Montserrat', size: 11, weight: '600' } }, border: { display: false } },
-          y: { grid: { color: GRID }, ticks: { color: TK, font: { family: 'Montserrat', size: 11 } }, border: { display: false } }
+          x: { grid: { display: false }, ticks: { color: TK, font: { family: 'Montserrat', size: 10, weight: '600' } }, border: { display: false } },
+          y: { grid: { color: GR }, ticks: { color: TK, font: { family: 'Montserrat', size: 10 } }, border: { display: false } }
         }
       };
-      if (extra && extra.scales) {
-        if (extra.scales.x) Object.assign(opts.scales.x, extra.scales.x);
-        if (extra.scales.y) Object.assign(opts.scales.y, extra.scales.y);
+      if (ex && ex.scales) {
+        if (ex.scales.x) Object.assign(o.scales.x, ex.scales.x);
+        if (ex.scales.y) Object.assign(o.scales.y, ex.scales.y);
       }
-      return opts;
+      return o;
     }
-
-    function hBarOpts(extra) {
-      var opts = {
-        responsive: true, maintainAspectRatio: false, animation: D.animation,
+    function hBarOpts(ex) {
+      var o = {
+        responsive: true, maintainAspectRatio: false,
+        animation: { duration: 800, easing: 'easeOutQuart' },
         indexAxis: 'y',
-        plugins: { legend: { display: false }, tooltip: D.plugins.tooltip },
+        layout: { padding: { top: 4, bottom: 4, left: 4, right: 42 } },
+        plugins: { legend: { display: false }, tooltip: TT },
         scales: {
-          x: { grid: { color: GRID, drawBorder: false }, ticks: { color: TK, font: { family: 'Montserrat', size: 11, weight: '500' } }, border: { display: false } },
-          y: { grid: { display: false }, ticks: { color: TK, font: { family: 'Montserrat', size: 11, weight: '600' } }, border: { display: false } }
+          x: { grid: { color: GR }, ticks: { color: TK, font: { family: 'Montserrat', size: 10, weight: '500' } }, border: { display: false } },
+          y: { grid: { display: false }, ticks: { color: TK, font: { family: 'Montserrat', size: 10, weight: '600' } }, border: { display: false } }
         }
       };
-      if (extra && extra.scales) {
-        if (extra.scales.x) Object.assign(opts.scales.x, extra.scales.x);
-        if (extra.scales.y) Object.assign(opts.scales.y, extra.scales.y);
+      if (ex && ex.scales) {
+        if (ex.scales.x) Object.assign(o.scales.x, ex.scales.x);
+        if (ex.scales.y) Object.assign(o.scales.y, ex.scales.y);
       }
-      return opts;
+      return o;
     }
 
-    /* ── CHARTS ── */
+    /* ── CHART DEFINITIONS ── */
     function chPerfil() {
       new Chart(document.getElementById('c-age'), {
         type: 'doughnut',
-        data: { labels: ['18–25 anos (25)', '26–35 anos (6)', '36–50 anos (6)', '50+ anos (3)', '< 18 anos (2)'], datasets: [{ data: [25, 6, 6, 3, 2], backgroundColor: PBI_BLUE, borderColor: '#fff', borderWidth: 3, hoverOffset: 6 }] },
+        data: {
+          labels: ['18–25 anos (25)', '26–35 anos (6)', '36–50 anos (6)', '50+ anos (3)', '< 18 anos (2)'],
+          datasets: [{ data: [25, 6, 6, 3, 2], backgroundColor: PBI, borderColor: '#fff', borderWidth: 3, hoverOffset: 5 }]
+        },
         options: dOpts('62%')
       });
       new Chart(document.getElementById('c-area'), {
         type: 'bar',
-        data: { labels: ['Tecnologia', 'Outro', 'Saúde', 'Administração', 'Engenharia', 'Comércio', 'Educação'], datasets: [{ data: [22, 5, 4, 4, 3, 3, 1], backgroundColor: ['#003087', '#0062b1', '#2575c4', '#4a9de0', '#7dbdee', '#a8ccee', '#c8e0f4'], borderRadius: 3, borderSkipped: false, barThickness: 14 }] },
+        data: {
+          labels: ['Tecnologia', 'Outro', 'Saúde', 'Adm.', 'Engenharia', 'Comércio', 'Educação'],
+          datasets: [{
+            data: [22, 5, 4, 4, 3, 3, 1],
+            backgroundColor: ['#003087', '#0062b1', '#2575c4', '#4a9de0', '#7dbdee', '#a8ccee', '#c8e0f4'],
+            borderRadius: 3, borderSkipped: false, barThickness: 12
+          }]
+        },
         options: hBarOpts()
       });
       new Chart(document.getElementById('c-ocup'), {
         type: 'doughnut',
-        data: { labels: ['Profissional (18)', 'Estudante (15)', 'Empresário (5)', 'Autônomo (3)', 'Outro (1)'], datasets: [{ data: [18, 15, 5, 3, 1], backgroundColor: ['#003087', '#2575c4', '#1a7a4a', '#d68910', '#7dbdee'], borderColor: '#fff', borderWidth: 3, hoverOffset: 6 }] },
+        data: {
+          labels: ['Profissional (18)', 'Estudante (15)', 'Empresário (5)', 'Autônomo (3)', 'Outro (1)'],
+          datasets: [{ data: [18, 15, 5, 3, 1], backgroundColor: ['#003087', '#2575c4', '#1a7a4a', '#d68910', '#7dbdee'], borderColor: '#fff', borderWidth: 3, hoverOffset: 5 }]
+        },
         options: dOpts('62%')
       });
     }
@@ -2390,18 +2399,27 @@
     function chUso() {
       new Chart(document.getElementById('c-freq'), {
         type: 'bar',
-        data: { labels: ['Muito Alta', 'Alta', 'Média', 'Baixa'], datasets: [{ data: [37, 2, 2, 1], backgroundColor: ['#003087', '#2575c4', '#7dbdee', '#b8d9f5'], borderRadius: 4, borderSkipped: false, barThickness: 38 }] },
+        data: {
+          labels: ['Muito Alta', 'Alta', 'Média', 'Baixa'],
+          datasets: [{ data: [37, 2, 2, 1], backgroundColor: ['#003087', '#2575c4', '#7dbdee', '#b8d9f5'], borderRadius: 4, borderSkipped: false, barThickness: 34 }]
+        },
         options: vBarOpts({ scales: { y: { ticks: { stepSize: 5 } } } })
       });
       new Chart(document.getElementById('c-setor'), {
         type: 'doughnut',
-        data: { labels: ['Sim (30)', 'Não (10)', 'Não sei (2)'], datasets: [{ data: [30, 10, 2], backgroundColor: ['#003087', '#c0392b', '#7dbdee'], borderColor: '#fff', borderWidth: 3, hoverOffset: 6 }] },
-        options: dOpts('60%')
+        data: {
+          labels: ['Sim (30)', 'Não (10)', 'Não sei (2)'],
+          datasets: [{ data: [30, 10, 2], backgroundColor: ['#003087', '#c0392b', '#7dbdee'], borderColor: '#fff', borderWidth: 3, hoverOffset: 5 }]
+        },
+        options: dOptsR('60%')
       });
       new Chart(document.getElementById('c-ferr'), {
         type: 'doughnut',
-        data: { labels: ['Totalmente (22)', 'Parcialmente (19)', 'Pouco (1)'], datasets: [{ data: [22, 19, 1], backgroundColor: ['#1a7a4a', '#d68910', '#c0392b'], borderColor: '#fff', borderWidth: 3, hoverOffset: 6 }] },
-        options: dOpts('60%')
+        data: {
+          labels: ['Totalmente (22)', 'Parcialmente (19)', 'Pouco (1)'],
+          datasets: [{ data: [22, 19, 1], backgroundColor: ['#1a7a4a', '#d68910', '#c0392b'], borderColor: '#fff', borderWidth: 3, hoverOffset: 5 }]
+        },
+        options: dOptsR('60%')
       });
     }
 
@@ -2411,29 +2429,31 @@
         data: {
           labels: ['Preocupação\nc/ Seg.', 'Boas\nPráticas', 'Políticas\nFormais', 'Práticas\nConsistentes', 'Nuvem\nPessoal', 'Setor TI\nFormal'],
           datasets: [
-            { label: 'Nível Atual (%)', data: [90.5, 50, 69.0, 50, 78.6, 71.4], backgroundColor: 'rgba(37,117,196,.15)', borderColor: '#2575c4', pointBackgroundColor: '#2575c4', pointBorderColor: '#fff', pointRadius: 5, pointBorderWidth: 2, borderWidth: 2 },
+            { label: 'Nível Atual (%)', data: [90.5, 50, 69, 50, 78.6, 71.4], backgroundColor: 'rgba(37,117,196,.15)', borderColor: '#2575c4', pointBackgroundColor: '#2575c4', pointBorderColor: '#fff', pointRadius: 4, pointBorderWidth: 2, borderWidth: 2 },
             { label: 'Meta Ideal (90%)', data: [90, 90, 90, 90, 90, 90], backgroundColor: 'rgba(26,122,74,.06)', borderColor: 'rgba(26,122,74,.4)', borderDash: [6, 4], pointRadius: 0, borderWidth: 1.5 }
           ]
         },
         options: {
-          responsive: true, maintainAspectRatio: false, animation: D.animation,
-          scales: { r: { grid: { color: 'rgba(0,0,0,.08)' }, angleLines: { color: 'rgba(0,0,0,.08)' }, pointLabels: { color: TK, font: { size: 10, family: 'Montserrat', weight: '600' } }, ticks: { display: false, backdropColor: 'transparent' }, min: 0, max: 100 } },
-          plugins: { legend: { position: 'bottom', labels: { color: TK, font: { family: 'Montserrat', size: 10, weight: '600' }, boxWidth: 10, padding: 7 } }, tooltip: D.plugins.tooltip }
+          responsive: true, maintainAspectRatio: false,
+          animation: { duration: 800, easing: 'easeOutQuart' },
+          layout: { padding: 8 },
+          scales: { r: { grid: { color: 'rgba(0,0,0,.08)' }, angleLines: { color: 'rgba(0,0,0,.08)' }, pointLabels: { color: TK, font: { size: 9, family: 'Montserrat', weight: '600' } }, ticks: { display: false, backdropColor: 'transparent' }, min: 0, max: 100 } },
+          plugins: { legend: { position: 'bottom', labels: { color: TK, font: { family: 'Montserrat', size: 9, weight: '600' }, boxWidth: 9, padding: 6 } }, tooltip: TT }
         }
       });
       new Chart(document.getElementById('c-preoc'), {
         type: 'bar',
-        data: { labels: ['Muito Alta', 'Moderada', 'Pouco'], datasets: [{ data: [19, 19, 4], backgroundColor: ['#c0392b', '#d68910', '#7dbdee'], borderRadius: 4, borderSkipped: false, barThickness: 28 }] },
+        data: { labels: ['Muito Alta', 'Moderada', 'Pouco'], datasets: [{ data: [19, 19, 4], backgroundColor: ['#c0392b', '#d68910', '#7dbdee'], borderRadius: 4, borderSkipped: false, barThickness: 26 }] },
         options: vBarOpts()
       });
       new Chart(document.getElementById('c-prat'), {
         type: 'bar',
-        data: { labels: ['Sempre', 'Às vezes', 'Raramente', 'Nunca'], datasets: [{ data: [21, 16, 3, 2], backgroundColor: ['#1a7a4a', '#2575c4', '#d68910', '#c0392b'], borderRadius: 4, borderSkipped: false, barThickness: 22 }] },
-        options: vBarOpts({ scales: { x: { ticks: { font: { size: 10 } } } } })
+        data: { labels: ['Sempre', 'Às vezes', 'Raramente', 'Nunca'], datasets: [{ data: [21, 16, 3, 2], backgroundColor: ['#1a7a4a', '#2575c4', '#d68910', '#c0392b'], borderRadius: 4, borderSkipped: false, barThickness: 20 }] },
+        options: vBarOpts({ scales: { x: { ticks: { font: { size: 9 } } } } })
       });
       new Chart(document.getElementById('c-pol'), {
         type: 'doughnut',
-        data: { labels: ['Possui (29)', 'Não Possui (9)', 'Não Sabe (4)'], datasets: [{ data: [29, 9, 4], backgroundColor: ['#1a7a4a', '#c0392b', '#7dbdee'], borderColor: '#fff', borderWidth: 3, hoverOffset: 6 }] },
+        data: { labels: ['Possui (29)', 'Não Possui (9)', 'Não Sabe (4)'], datasets: [{ data: [29, 9, 4], backgroundColor: ['#1a7a4a', '#c0392b', '#7dbdee'], borderColor: '#fff', borderWidth: 3, hoverOffset: 5 }] },
         options: dOpts('58%')
       });
     }
@@ -2441,12 +2461,12 @@
     function chCloud() {
       new Chart(document.getElementById('c-cp'), {
         type: 'doughnut',
-        data: { labels: ['Usa Nuvem (33)', 'Não Usa (9)'], datasets: [{ data: [33, 9], backgroundColor: ['#003087', '#b8d9f5'], borderColor: '#fff', borderWidth: 3, hoverOffset: 6 }] },
+        data: { labels: ['Usa Nuvem (33)', 'Não Usa (9)'], datasets: [{ data: [33, 9], backgroundColor: ['#003087', '#b8d9f5'], borderColor: '#fff', borderWidth: 3, hoverOffset: 5 }] },
         options: dOpts('64%')
       });
       new Chart(document.getElementById('c-co'), {
         type: 'doughnut',
-        data: { labels: ['Usa Nuvem (26)', 'Não Sabe (11)', 'Não Usa (5)'], datasets: [{ data: [26, 11, 5], backgroundColor: ['#2575c4', '#d68910', '#c0392b'], borderColor: '#fff', borderWidth: 3, hoverOffset: 6 }] },
+        data: { labels: ['Usa Nuvem (26)', 'Não Sabe (11)', 'Não Usa (5)'], datasets: [{ data: [26, 11, 5], backgroundColor: ['#2575c4', '#d68910', '#c0392b'], borderColor: '#fff', borderWidth: 3, hoverOffset: 5 }] },
         options: dOpts('64%')
       });
     }
@@ -2459,19 +2479,21 @@
           datasets: [{ data: [18, 14, 7, 3], backgroundColor: ['rgba(37,117,196,.75)', 'rgba(26,122,74,.75)', 'rgba(214,137,16,.75)', 'rgba(192,57,43,.75)'], borderColor: '#fff', borderWidth: 2 }]
         },
         options: {
-          responsive: true, maintainAspectRatio: false, animation: D.animation,
+          responsive: true, maintainAspectRatio: false,
+          animation: { duration: 800, easing: 'easeOutQuart' },
+          layout: { padding: { top: 10, bottom: 4, left: 10, right: 10 } },
           scales: { r: { grid: { color: 'rgba(0,0,0,.07)' }, ticks: { display: false, backdropColor: 'transparent' } } },
-          plugins: { legend: { position: 'bottom', labels: { color: TK, font: { family: 'Montserrat', size: 10, weight: '500' }, boxWidth: 10, padding: 7, usePointStyle: true, pointStyle: 'rect' } }, tooltip: D.plugins.tooltip }
+          plugins: { legend: { position: 'bottom', labels: { color: TK, font: { family: 'Montserrat', size: 9, weight: '500' }, boxWidth: 9, padding: 6, usePointStyle: true, pointStyle: 'rect' } }, tooltip: TT }
         }
       });
       new Chart(document.getElementById('c-plan'), {
         type: 'doughnut',
-        data: { labels: ['Parcialmente (18)', 'Sim (14)', 'Não sei (7)', 'Não — reativo (3)'], datasets: [{ data: [18, 14, 7, 3], backgroundColor: ['#2575c4', '#1a7a4a', '#d68910', '#c0392b'], borderColor: '#fff', borderWidth: 3, hoverOffset: 5 }] },
-        options: dOpts('58%')
+        data: { labels: ['Parcialmente (18)', 'Sim (14)', 'Não sei (7)', 'Não — reativo (3)'], datasets: [{ data: [18, 14, 7, 3], backgroundColor: ['#2575c4', '#1a7a4a', '#d68910', '#c0392b'], borderColor: '#fff', borderWidth: 3, hoverOffset: 4 }] },
+        options: dOptsR('58%')
       });
       new Chart(document.getElementById('c-qual'), {
         type: 'bar',
-        data: { labels: ['Sim', 'Mais ou menos', 'Não'], datasets: [{ data: [18, 22, 2], backgroundColor: ['#1a7a4a', '#d68910', '#c0392b'], borderRadius: 4, borderSkipped: false, barThickness: 32 }] },
+        data: { labels: ['Sim', 'Mais ou menos', 'Não'], datasets: [{ data: [18, 22, 2], backgroundColor: ['#1a7a4a', '#d68910', '#c0392b'], borderRadius: 4, borderSkipped: false, barThickness: 30 }] },
         options: vBarOpts()
       });
     }
@@ -2481,52 +2503,35 @@
         type: 'bar',
         data: {
           labels: ['Falta de Investimento', 'Falta de Segurança', 'Outros', 'Sistemas Ruins/Lentos', 'Falta de Treinamento', 'Suporte Técnico'],
-          datasets: [{ label: 'Nº de Respostas', data: [12, 9, 8, 6, 6, 1], backgroundColor: ['#003087', '#c0392b', '#2575c4', '#0e7490', '#d68910', '#7dbdee'], borderRadius: 4, borderSkipped: false, barThickness: 22 }]
+          datasets: [{ label: 'Nº de Respostas', data: [12, 9, 8, 6, 6, 1], backgroundColor: ['#003087', '#c0392b', '#2575c4', '#0e7490', '#d68910', '#7dbdee'], borderRadius: 4, borderSkipped: false, barThickness: 20 }]
         },
-        options: hBarOpts({ scales: { x: { max: 14, ticks: { stepSize: 2 } } } })
+        options: hBarOpts({ scales: { x: { max: 16, ticks: { stepSize: 2 } } } })
       });
     }
 
-    /* ── INPUT & NAVIGATION ── */
-    var wheelTimer = null, touchY = 0;
-
+    /* ── EVENT LISTENERS ── */
+    var wt = null, ty = 0;
     function initEvents() {
-      /* Dots */
       document.querySelectorAll('.dot').forEach(function (d) {
         d.addEventListener('click', function () { go(parseInt(d.dataset.i)); });
       });
-
-      /* Arrow buttons */
       document.getElementById('aup').addEventListener('click', function () { go(cur - 1); });
       document.getElementById('adn').addEventListener('click', function () { go(cur + 1); });
-
-      /* Mouse wheel */
       document.addEventListener('wheel', function (e) {
         e.preventDefault();
-        if (wheelTimer || Math.abs(e.deltaY) < 10) return;
+        if (wt || Math.abs(e.deltaY) < 10) return;
         go(cur + (e.deltaY > 0 ? 1 : -1));
-        wheelTimer = setTimeout(function () { wheelTimer = null; }, 900);
+        wt = setTimeout(function () { wt = null; }, 900);
       }, { passive: false });
-
-      /* Keyboard */
       document.addEventListener('keydown', function (e) {
         if (['ArrowDown', 'ArrowRight', 'PageDown'].indexOf(e.key) !== -1) { e.preventDefault(); go(cur + 1); }
         else if (['ArrowUp', 'ArrowLeft', 'PageUp'].indexOf(e.key) !== -1) { e.preventDefault(); go(cur - 1); }
       });
-
-      /* Touch */
-      document.addEventListener('touchstart', function (e) { touchY = e.touches[0].clientY; }, { passive: true });
-      document.addEventListener('touchend', function (e) {
-        var diff = touchY - e.changedTouches[0].clientY;
-        if (Math.abs(diff) > 45) go(cur + (diff > 0 ? 1 : -1));
-      }, { passive: true });
+      document.addEventListener('touchstart', function (e) { ty = e.touches[0].clientY; }, { passive: true });
+      document.addEventListener('touchend', function (e) { var d = ty - e.changedTouches[0].clientY; if (Math.abs(d) > 45) go(cur + (d > 0 ? 1 : -1)); }, { passive: true });
     }
 
-    /* ── INIT ── */
-    document.addEventListener('DOMContentLoaded', function () {
-      initEvents();
-      go(0, false);
-    });
+    document.addEventListener('DOMContentLoaded', function () { initEvents(); go(0, false); });
   </script>
 </body>
 
