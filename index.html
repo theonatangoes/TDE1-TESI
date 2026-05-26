@@ -166,40 +166,6 @@
       color: var(--muted2)
     }
 
-    .arr {
-      position: fixed;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1000;
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: var(--surface);
-      border: 1px solid var(--rule);
-      color: var(--muted);
-      font-size: 10px;
-      cursor: pointer;
-      transition: all .2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 8px rgba(13, 27, 62, .1)
-    }
-
-    .arr:hover {
-      color: var(--blue-600);
-      border-color: var(--blue-500);
-      transform: translateX(-50%) scale(1.08)
-    }
-
-    #aup {
-      top: 12px
-    }
-
-    #adn {
-      bottom: 12px
-    }
-
     /* ── GENERIC COMPONENTS ── */
     .tag {
       display: inline-flex;
@@ -319,7 +285,7 @@
       flex-shrink: 0
     }
 
-    /* Canvas wrapper — key fix: explicit height so canvas doesn't collapse */
+    /* Canvas wrapper */
     .cw {
       flex: 1;
       position: relative;
@@ -1439,8 +1405,6 @@
     <button class="dot" data-i="11"></button>
     <span id="cn">01</span><span id="tn">/ 12</span>
   </nav>
-  <button id="aup" class="arr"><i class="fas fa-chevron-up"></i></button>
-  <button id="adn" class="arr"><i class="fas fa-chevron-down"></i></button>
   <div id="wrap">
 
     <!-- 01 CAPA -->
@@ -1476,7 +1440,7 @@
             </div>
           </div>
         </div>
-        <div class="chnt"><i class="fas fa-chevron-down bnc"></i>&nbsp; Use as setas ou scroll para navegar</div>
+        <div class="chnt"><i class="fas fa-chevron-down bnc"></i>&nbsp; Use as setas do teclado ou scroll para navegar</div>
       </div>
     </section>
 
@@ -1716,7 +1680,7 @@
         </div>
         <div class="insight-strip" style="margin-top:6px">
           <div class="insight-chip rd"><i class="fas fa-exclamation-triangle"></i>
-            <div><strong>Existe um problema importante:</strong> 90,5% se preocupam com segurança, mas <strong>50% ainda não segue boas práticas com frequência.</strong>Ou seja, a preocupação nem sempre vira ação.</div>
+            <div><strong>Existe um problema importante:</strong> 90,5% se preocupam com segurança, mas <strong>50% ainda não segue boas práticas com frequência.</strong> Ou seja, a preocupação nem sempre vira ação.</div>
           </div>
           <div class="insight-chip"><i class="fas fa-shield-alt"></i>
             <div><strong>21,4% das organizações (9/42)</strong> ainda não possuem políticas formais de segurança, o que aumenta o risco de problemas e vazamento de dados.</div>
@@ -1913,7 +1877,7 @@
             <div><strong>Investimento (28,6%) e Segurança (21,4%) somam 50% dos desafios</strong> São as alavancas prioritárias para elevar a maturidade da GTI nas organizações.</div>
           </div>
           <div class="insight-chip"><i class="fas fa-graduation-cap"></i>
-            <div><strong>Falta de treinamento e sistemas lentos empatam (14,3% cada)</strong> videnciam que a TI precisa ser tratada como habilitador estratégico, não custo operacional.</div>
+            <div><strong>Falta de treinamento e sistemas lentos empatam (14,3% cada)</strong> evidenciam que a TI precisa ser tratada como habilitador estratégico, não custo operacional.</div>
           </div>
         </div>
       </div>
@@ -2515,8 +2479,6 @@
       document.querySelectorAll('.dot').forEach(function (d) {
         d.addEventListener('click', function () { go(parseInt(d.dataset.i)); });
       });
-      document.getElementById('aup').addEventListener('click', function () { go(cur - 1); });
-      document.getElementById('adn').addEventListener('click', function () { go(cur + 1); });
       document.addEventListener('wheel', function (e) {
         e.preventDefault();
         if (wt || Math.abs(e.deltaY) < 10) return;
