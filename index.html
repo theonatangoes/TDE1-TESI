@@ -928,6 +928,202 @@
       font-weight: 400
     }
 
+    /* ── METODOLOGIA SLIDE ── */
+    .metgrid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 13px;
+      flex: 1;
+      min-height: 0
+    }
+
+    .met-left {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 0
+    }
+
+    .met-right {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 0
+    }
+
+    .met-card {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-top: 3px solid var(--blue-500);
+      padding: 13px 15px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      border-radius: 0 0 5px 5px;
+      box-shadow: 0 2px 8px rgba(13, 27, 62, .06)
+    }
+
+    .met-card-ico {
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--blue-600);
+      background: var(--blue-50);
+      border-radius: 8px;
+      border: 1px solid var(--blue-200)
+    }
+
+    .met-card-label {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: var(--muted2);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 2px
+    }
+
+    .met-card-value {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.2
+    }
+
+    .met-card-desc {
+      font-size: 10.5px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-top: 3px;
+      font-weight: 400
+    }
+
+    .met-etapas {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 5px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: 0 2px 8px rgba(13, 27, 62, .06);
+      flex: 1;
+      min-height: 0;
+      overflow: hidden
+    }
+
+    .met-etapas-title {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--blue-700);
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      border-bottom: 2px solid var(--blue-100);
+      padding-bottom: 6px;
+      flex-shrink: 0
+    }
+
+    .etapa-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px
+    }
+
+    .etapa-num {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--blue-600);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    /* removed empty ruleset to satisfy linter */
+
+    .etapa-titulo {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--ink)
+    }
+
+    .etapa-desc {
+      font-size: 10px;
+      color: var(--muted);
+      line-height: 1.5;
+      font-weight: 400
+    }
+
+    .cidades-box {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 5px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: 0 2px 8px rgba(13, 27, 62, .06);
+      flex: 1;
+      min-height: 0
+    }
+
+    .cidades-title {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--blue-700);
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      border-bottom: 2px solid var(--blue-100);
+      padding-bottom: 6px;
+      flex-shrink: 0
+    }
+
+    .cidade-row {
+      display: flex;
+      align-items: center;
+      gap: 9px
+    }
+
+    .cidade-rank {
+      font-size: 13px;
+      font-weight: 900;
+      color: var(--blue-300);
+      width: 18px;
+      flex-shrink: 0;
+      text-align: right
+    }
+
+    .cidade-info {
+      flex: 1
+    }
+
+    .cidade-nome {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink)
+    }
+
+    .cidade-estado {
+      font-size: 9.5px;
+      color: var(--muted2);
+      font-weight: 500
+    }
+
+    .cidade-outras {
+      font-size: 10px;
+      color: var(--muted2);
+      font-style: italic;
+      padding-top: 4px;
+      border-top: 1px dashed var(--rule)
+    }
+
     /* ── COVER ── */
     .cov {
       background: var(--blue-900) !important
@@ -1361,6 +1557,10 @@
       .igrid {
         grid-template-columns: repeat(2, 1fr)
       }
+
+      .metgrid {
+        grid-template-columns: 1fr
+      }
     }
 
     @media(max-width:700px) {
@@ -1369,7 +1569,8 @@
       .ul2,
       .cl,
       .chal,
-      .sl {
+      .sl,
+      .metgrid {
         grid-template-columns: 1fr
       }
 
@@ -1403,7 +1604,8 @@
     <button class="dot" data-i="9"></button>
     <button class="dot" data-i="10"></button>
     <button class="dot" data-i="11"></button>
-    <span id="cn">01</span><span id="tn">/ 12</span>
+    <button class="dot" data-i="12"></button>
+    <span id="cn">01</span><span id="tn">/ 13</span>
   </nav>
   <div id="wrap">
 
@@ -1544,14 +1746,139 @@
           <div class="oc">
             <div class="oico"><i class="fas fa-coins"></i></div>
             <div class="otit">Orçamento e Satisfação</div>
-            <p class="odsc">IInvestigar a relação entre os investimentos realizados em Tecnologia da Informação e o nível de satisfação organizacional, considerando qualidade dos serviços, eficiência operacional e percepção dos usuários.</p>
+            <p class="odsc">Investigar a relação entre os investimentos realizados em Tecnologia da Informação e o nível de satisfação organizacional, considerando qualidade dos serviços, eficiência operacional e percepção dos usuários.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 04 PERFIL -->
+    <!-- 04 METODOLOGIA (NOVA TELA) -->
     <section class="slide blw" id="s3">
+      <div class="inner">
+        <div class="hdr">
+          <div class="tag"><i class="fas fa-flask"></i>&nbsp; Metodologia</div>
+          <h2 class="htit">Como a pesquisa foi <span class="hl">realizada?</span></h2>
+          <p class="hdsc">Pesquisa quantitativa descritiva, aplicada via formulário digital estruturado, com coleta de dados primários junto a profissionais e estudantes de diferentes regiões.</p>
+        </div>
+        <div class="metgrid">
+          <!-- ESQUERDA: cards de método -->
+          <div class="met-left">
+            <div class="met-card">
+              <div class="met-card-ico"><i class="fab fa-google"></i></div>
+              <div class="met-card-body">
+                <div class="met-card-label">Instrumento de Coleta</div>
+                <div class="met-card-value">Google Forms</div>
+                <div class="met-card-desc">Formulário online estruturado com questões de múltipla escolha, garantindo padronização e facilidade de resposta para os participantes.</div>
+              </div>
+            </div>
+            <div class="met-card" style="border-top-color:var(--green)">
+              <div class="met-card-ico" style="color:var(--green);background:#f0fff8;border-color:#b7dfc8"><i class="fas fa-share-alt"></i></div>
+              <div class="met-card-body">
+                <div class="met-card-label">Distribuição</div>
+                <div class="met-card-value">Rede Social</div>
+                <div class="met-card-desc">O formulário foi compartilhado via WhatsApp atingindo respondentes em múltiplas cidades e setores profissionais.</div>
+              </div>
+            </div>
+            <div class="met-card" style="border-top-color:var(--amber)">
+              <div class="met-card-ico" style="color:var(--amber);background:#fffbf0;border-color:#f0d898"><i class="fas fa-calendar-check"></i></div>
+              <div class="met-card-body">
+                <div class="met-card-label">Período de Coleta</div>
+                <div class="met-card-value">Maio de 2026</div>
+                <div class="met-card-desc">Coleta realizada durante o mês de Maio, com prazo de resposta de aproximadamente três semanas para garantir amostra representativa.</div>
+              </div>
+            </div>
+            <div class="met-card" style="border-top-color:var(--blue-400)">
+              <div class="met-card-ico" style="color:var(--blue-400);background:#f0f7ff;border-color:var(--blue-200)"><i class="fas fa-lock"></i></div>
+              <div class="met-card-body">
+                <div class="met-card-label">Ética e Anonimato</div>
+                <div class="met-card-value">Participação Voluntária e Anônima</div>
+                <div class="met-card-desc">Todas as respostas foram coletadas de forma anônima, sem identificação dos participantes, garantindo privacidade e veracidade das informações fornecidas.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DIREITA: etapas + cidades -->
+          <div class="met-right">
+            <!-- Etapas da pesquisa -->
+            <div class="met-etapas">
+              <div class="met-etapas-title"><i class="fas fa-list-ol" style="margin-right:6px"></i>Etapas da Pesquisa</div>
+              <div class="etapa-item">
+                <div class="etapa-num">1</div>
+                <div class="etapa-body">
+                  <div class="etapa-titulo">Definição do Tema e Elaboração do Questionário</div>
+                  <div class="etapa-desc">Escolha dos eixos temáticos e construção das perguntas com base em frameworks como ITIL e COBIT.</div>
+                </div>
+              </div>
+              <div class="etapa-item">
+                <div class="etapa-num">2</div>
+                <div class="etapa-body">
+                  <div class="etapa-titulo">Aplicação do Formulário via Google Forms</div>
+                  <div class="etapa-desc">Divulgação por redes sociais e contatos diretos, atingindo respondentes de múltiplas cidades e setores.</div>
+                </div>
+              </div>
+              <div class="etapa-item">
+                <div class="etapa-num">3</div>
+                <div class="etapa-body">
+                  <div class="etapa-titulo">Coleta e Validação das Respostas</div>
+                  <div class="etapa-desc">42 respostas válidas obtidas, com verificação de consistência e exclusão de duplicatas.</div>
+                </div>
+              </div>
+              <div class="etapa-item">
+                <div class="etapa-num">4</div>
+                <div class="etapa-body">
+                  <div class="etapa-titulo">Análise Quantitativa e Geração de Gráficos</div>
+                  <div class="etapa-desc">Tabulação dos dados, cálculo de frequências e criação de visualizações para identificar padrões.</div>
+                </div>
+              </div>
+              <div class="etapa-item">
+                <div class="etapa-num">5</div>
+                <div class="etapa-body">
+                  <div class="etapa-titulo">Interpretação e Recomendações</div>
+                  <div class="etapa-desc">Cruzamento dos dados com a literatura de GTI e formulação de boas práticas para as organizações.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Distribuição geográfica -->
+            <div class="cidades-box">
+              <div class="cidades-title"><i class="fas fa-map-marker-alt" style="margin-right:6px"></i>Distribuição Geográfica dos Respondentes</div>
+              <div class="cidade-row">
+                <div class="cidade-rank">#1</div>
+                <div class="cidade-info">
+                  <div class="cidade-nome">Juazeiro do Norte</div>
+                  <div class="cidade-estado">Ceará · CE</div>
+                </div>
+              </div>
+              <div class="cidade-row">
+                <div class="cidade-rank">#2</div>
+                <div class="cidade-info">
+                  <div class="cidade-nome">Crato</div>
+                  <div class="cidade-estado">Ceará · CE</div>
+                </div>
+              </div>
+              <div class="cidade-row">
+                <div class="cidade-rank">#3</div>
+                <div class="cidade-info">
+                  <div class="cidade-nome">Barbalha</div>
+                  <div class="cidade-estado">Ceará · CE</div>
+                </div>
+              </div>
+              <div class="cidade-row">
+                <div class="cidade-rank">#4</div>
+                <div class="cidade-info">
+                  <div class="cidade-nome">São Paulo</div>
+                  <div class="cidade-estado">São Paulo · SP</div>
+                </div>
+              </div>
+              <div class="cidade-outras"><i class="fas fa-globe-americas" style="margin-right:5px"></i>Demais respondentes distribuídos em outras cidades.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 PERFIL -->
+    <section class="slide blw" id="s4">
       <div class="inner">
         <div class="hdr">
           <div class="tag">Perfil dos Respondentes</div>
@@ -1596,8 +1923,8 @@
       </div>
     </section>
 
-    <!-- 05 USO TI -->
-    <section class="slide blw" id="s4">
+    <!-- 06 USO TI -->
+    <section class="slide blw" id="s5">
       <div class="inner">
         <div class="hdr">
           <div class="tag">Adoção Tecnológica</div>
@@ -1631,8 +1958,8 @@
       </div>
     </section>
 
-    <!-- 06 SEGURANÇA -->
-    <section class="slide blw" id="s5">
+    <!-- 07 SEGURANÇA -->
+    <section class="slide blw" id="s6">
       <div class="inner">
         <div class="hdr">
           <div class="tag">Segurança da Informação</div>
@@ -1689,8 +2016,8 @@
       </div>
     </section>
 
-    <!-- 07 NUVEM -->
-    <section class="slide blw" id="s6">
+    <!-- 08 NUVEM -->
+    <section class="slide blw" id="s7">
       <div class="inner">
         <div class="hdr">
           <div class="tag">Computação em Nuvem</div>
@@ -1757,8 +2084,8 @@
       </div>
     </section>
 
-    <!-- 08 GOVERNANÇA -->
-    <section class="slide blw" id="s7">
+    <!-- 09 GOVERNANÇA -->
+    <section class="slide blw" id="s8">
       <div class="inner">
         <div class="hdr">
           <div class="tag">Governança de TI</div>
@@ -1826,8 +2153,8 @@
       </div>
     </section>
 
-    <!-- 09 DESAFIOS -->
-    <section class="slide blw" id="s8">
+    <!-- 10 DESAFIOS -->
+    <section class="slide blw" id="s9">
       <div class="inner">
         <div class="hdr">
           <div class="tag">Principais Desafios</div>
@@ -1883,8 +2210,8 @@
       </div>
     </section>
 
-    <!-- 10 INSIGHTS -->
-    <section class="slide blw" id="s9">
+    <!-- 11 INSIGHTS -->
+    <section class="slide blw" id="s10">
       <div class="inner">
         <div class="hdr">
           <div class="tag">Análise e Insights</div>
@@ -1938,8 +2265,8 @@
       </div>
     </section>
 
-    <!-- 11 CARTILHA -->
-    <section class="slide blw" id="s10">
+    <!-- 12 CARTILHA -->
+    <section class="slide blw" id="s11">
       <div class="inner">
         <div class="hdr">
           <div class="tag">Cartilha de Boas Práticas</div>
@@ -2031,8 +2358,8 @@
       </div>
     </section>
 
-    <!-- 12 CONCLUSÃO -->
-    <section class="slide blw conc" id="s11">
+    <!-- 13 CONCLUSÃO -->
+    <section class="slide blw conc" id="s12">
       <div class="inner">
         <div class="cey">Conclusão Final</div>
         <h2 class="cctit2">A Gestão de TI precisa<br><em>evoluir urgentemente</em></h2>
@@ -2074,7 +2401,7 @@
 
   <script>
     'use strict';
-    var cur = 0, TOT = 12, busy = false, ci = {};
+    var cur = 0, TOT = 13, busy = false, ci = {};
     var PBI = ['#003087', '#0062b1', '#2575c4', '#4a9de0', '#7dbdee', '#b8d9f5'];
     var TK = '#4a6080', GR = 'rgba(0,0,0,.07)';
     Chart.defaults.color = TK;
@@ -2218,7 +2545,7 @@
         else s.classList.add('blw');
       });
       cur = idx; sync();
-      setTimeout(function () { loadCharts(idx); animNums(idx); animPbars(idx); animSbars(idx); busy = false; }, anim ? 320 : 0);
+      setTimeout(function () { loadCharts(idx); animNums(idx); animPbars(idx); animSbars(idx); animCidades(idx); busy = false; }, anim ? 320 : 0);
     }
     function sync() {
       document.querySelectorAll('.dot').forEach(function (d, i) { d.classList.toggle('on', i === cur); });
@@ -2248,7 +2575,7 @@
       requestAnimationFrame(f);
     }
     function animPbars(si) {
-      if (si !== 7) return;
+      if (si !== 8) return;
       setTimeout(function () {
         document.querySelectorAll('.gpf').forEach(function (b) {
           var w = b.style.width; b.style.width = '0';
@@ -2257,7 +2584,7 @@
       }, 150);
     }
     function animSbars(si) {
-      if (si !== 6) return;
+      if (si !== 7) return;
       setTimeout(function () {
         document.querySelectorAll('.sbf').forEach(function (b) {
           var w = b.style.width; b.style.width = '0';
@@ -2265,7 +2592,20 @@
         });
       }, 150);
     }
-    function loadCharts(i) { if (ci[i]) return; ci[i] = true; var fns = { 3: chPerfil, 4: chUso, 5: chSeg, 6: chCloud, 7: chGov, 8: chDesafios }; if (fns[i]) fns[i](); }
+    function animCidades(si) {
+      if (si !== 3) return;
+      setTimeout(function () {
+        document.querySelectorAll('.cidade-bar-fill').forEach(function (b) {
+          var w = b.style.width; b.style.width = '0';
+          setTimeout(function () { b.style.width = w; }, 100);
+        });
+      }, 200);
+    }
+    function loadCharts(i) {
+      if (ci[i]) return; ci[i] = true;
+      var fns = { 4: chPerfil, 5: chUso, 6: chSeg, 7: chCloud, 8: chGov, 9: chDesafios };
+      if (fns[i]) fns[i]();
+    }
 
     /* ── CHART OPTIONS HELPERS ── */
     function dOpts(cut) {
